@@ -103,6 +103,12 @@ const styles = StyleSheet.create({
       opacity: 0.7,
     },
   },
+  radioGroup: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-evenly',
+    padding: 16,
+  },
 });
 
 export default styles;
