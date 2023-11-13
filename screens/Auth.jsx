@@ -19,9 +19,8 @@ import RadioBtn from '../components/buttons/RadioBtn';
 import {useState} from 'react';
 import PrimaryButton from '../components/buttons/PrimaryButton';
 import Checkbox from 'expo-checkbox';
-// import changeNavigationBarColor from 'react-native-navigation-bar-color';
 
-const Auth = () => {
+const Auth = props => {
   const [status, setStatus] = useState(true);
   const [secure, setSecure] = useState(false);
   const [fullName, setfullName] = useState('');
@@ -37,16 +36,13 @@ const Auth = () => {
   const bowlerTypes = ['Fast Bowler', 'Spin Bowler'];
   const allRoundTypes = ['Batting All-Rounder', 'Bowling All-Rounder'];
 
-  // changeNavigationBarColo('#1058ad');
-
   const handleAuth = () => {
-    if (!status && email && password && number && fullName) {
-      Alert('register screen');
-    } else if (status && email && password) {
-      Alert('login screen');
-    } else {
-      alert('Please fill all credentials!');
-    }
+    // if (!status && email && password && number && fullName) {
+    //   Alert.alert('register screen');
+    // } else {
+    //   Alert.alert('Please fill all credentials!');
+    // }
+    props.navigation.navigate('My Profile');
   };
 
   return (
@@ -92,7 +88,6 @@ const Auth = () => {
                   key={i}
                   value={data}
                   title={data}
-                  // status={playerMainType === data ? 'checked' : 'unchecked'}
                   playerType={playerMainType}
                   data={data}
                   onPress={() => {
@@ -160,6 +155,7 @@ const Auth = () => {
             value={secure}
             style={styles.checkbox}
             onValueChange={() => setSecure(!secure)}
+            color={'transparent'}
           />
           <Text
             style={{color: '#fff', fontSize: 15}}
