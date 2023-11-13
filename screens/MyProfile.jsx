@@ -1,10 +1,10 @@
 /* eslint-disable prettier/prettier */
 /* eslint-disable react/self-closing-comp */
-import {View, Text, StyleSheet, ScrollView, Image} from 'react-native';
+import {View, Text, StyleSheet, ScrollView, Image, Alert} from 'react-native';
 import React from 'react';
 import styles from '../styles/Styles';
 
-const MyProfile = () => {
+const MyProfile = props => {
   const record = [
     {
       type: 'Batting',
@@ -26,8 +26,14 @@ const MyProfile = () => {
     },
   ];
 
-  const form = ['Bat', 'Bowl'];
-  const form1 = [1, 1, 1, 1, 1];
+  const form = [
+    'Email ID',
+    'Playing Role',
+    'Batting Style',
+    'Bowling Style',
+    'Jersey No.',
+    'Country',
+  ];
 
   return (
     <ScrollView style={styles.main}>
@@ -38,6 +44,38 @@ const MyProfile = () => {
           style={styles.image}
         />
         <Text style={styles.name}>Player Name</Text>
+        <View>
+          <Text style={styles.topic}>My Details</Text>
+        </View>
+        <View style={styles.recordContainer}>
+          <View style={styles.recordBox}>
+            <View style={{display: 'flex', flexDirection: 'column'}}>
+              {form.map(i => (
+                <View style={{display: 'flex', flexDirection: 'row'}}>
+                  <View style={[styles.circle, styles.headCircle]}>
+                    <Text
+                      style={[
+                        styles.align,
+                        {fontWeight: 'bold', fontSize: 15},
+                      ]}>
+                      {i}
+                    </Text>
+                  </View>
+                  <View
+                    style={[
+                      styles.circle,
+                      {alignContent: 'center', justifyContent: 'center'},
+                    ]}>
+                    <Text style={styles.align}>{i}</Text>
+                  </View>
+                </View>
+              ))}
+            </View>
+          </View>
+        </View>
+        <View>
+          <Text style={styles.topic}>My Stats</Text>
+        </View>
         <View style={styles.recordContainer}>
           {record.map(item => (
             <View id={item.type} style={styles.recordBox}>
@@ -61,27 +99,16 @@ const MyProfile = () => {
             </View>
           ))}
         </View>
-        <View>
-          <Text style={styles.topic}>Recent Form</Text>
-        </View>
         <View style={styles.recordContainer}>
-          <View style={styles.recordBox}>
-            {/* {form.map(i => (
-              <View style={{display: 'flex', flexDirection: 'row'}}>
-                <View style={[styles.circle, styles.headCircle]}>
-                  <Text style={styles.align}>{i}</Text>
-                </View>
-                {form1.map(j => (
-                  <View
-                    style={[
-                      styles.circle,
-                      {alignContent: 'center', justifyContent: 'center'},
-                ]}>
-                    <Text style={styles.align}>{j}</Text>
-                  </View>
-                ))}
-              </View>
-            ))} */}
+          <View style={styles.button}>
+            <Text
+              style={[
+                styles.align,
+                {fontWeight: 'bold', fontSize: 20, fontFamily: 'monospace'},
+              ]}
+              onPress={() => props.navigation.navigate('Edit Profile')}>
+              Edit
+            </Text>
           </View>
         </View>
       </View>

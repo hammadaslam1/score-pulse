@@ -12,8 +12,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   image: {
-    width: 170,
-    height: 170,
+    width: 160,
+    height: 160,
     borderRadius: 100,
     marginTop: 60,
     marginBottom: 20,
@@ -26,6 +26,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: '#fff',
     fontFamily: 'monospace',
+    marginBottom: 40,
   },
   records: {
     fontSize: 18,
@@ -62,6 +63,8 @@ const styles = StyleSheet.create({
   },
   divider: {
     borderWidth: 1,
+    backgroundColor: '#1058ad',
+    borderRadius: 2,
     borderColor: '#1058ad',
     paddingVertical: 20,
   },
@@ -71,16 +74,17 @@ const styles = StyleSheet.create({
     color: '#fff',
   },
   circle: {
-    flex: 1,
+    flex: 2,
     height: 39,
-    width: 39,
+    // width: 39,
     backgroundColor: '#4391e0',
     borderRadius: 30,
-    marginHorizontal: 5,
+    marginHorizontal: 2,
     marginVertical: 10,
   },
   headCircle: {
     backgroundColor: '#1058ad',
+    flex: 1,
     // flex: 1,
     alignContent: 'center',
     justifyContent: 'center',
@@ -88,8 +92,16 @@ const styles = StyleSheet.create({
   align: {
     textAlign: 'center',
     color: '#fff',
-    // fontWeight: 'bold',
-    fontSize: 11,
+    fontSize: 13,
+  },
+  button: {
+    // width:
+    paddingHorizontal: 30,
+    paddingVertical: 10,
+    // fontSize: 26,
+    '&:hover': {
+      opacity: 0.7,
+    },
   },
 });
 
