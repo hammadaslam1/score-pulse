@@ -1,4 +1,6 @@
 /* eslint-disable prettier/prettier */
+/* eslint-disable no-unused-vars */
+/* eslint-disable react-native/no-inline-styles */
 import {View, Text, ScrollView, Image, TextInput} from 'react-native';
 import React, {useState} from 'react';
 import styles from '../styles/Styles';

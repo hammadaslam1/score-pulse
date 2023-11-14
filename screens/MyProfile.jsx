@@ -51,7 +51,7 @@ const MyProfile = props => {
           <View style={styles.recordBox}>
             <View style={{display: 'flex', flexDirection: 'column'}}>
               {form.map(i => (
-                <View style={{display: 'flex', flexDirection: 'row'}}>
+                <View id={i} style={{display: 'flex', flexDirection: 'row'}}>
                   <View style={[styles.circle, styles.headCircle]}>
                     <Text
                       style={[

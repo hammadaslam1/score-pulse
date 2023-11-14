@@ -44,7 +44,7 @@ const Auth = props => {
     // } else {
     //   Alert.alert('Please fill all credentials!');
     // }
-    props.navigation.navigate('My Profile');
+    props.navigation.navigate('Home');
   };
 
   return (
