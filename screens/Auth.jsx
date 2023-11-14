@@ -15,6 +15,7 @@ import {
   StyleSheet,
   Text,
   View,
+  TouchableOpacity
 } from 'react-native';
 import PrimaryInput from '../components/inputs/PrimaryInput';
 import RadioBtn from '../components/buttons/RadioBtn';
@@ -152,6 +153,7 @@ const Auth = props => {
           value={password}
           onChangeText={setPassword}
         />
+        <TouchableOpacity onPress={() => setSecure(!secure)}>
         <View style={styles.checkboxview}>
           <Checkbox
             value={secure}
@@ -161,10 +163,11 @@ const Auth = props => {
           />
           <Text
             style={{color: '#fff', fontSize: 15}}
-            onPress={() => setSecure(!secure)}>
+            >
             Show Password
           </Text>
         </View>
+        </TouchableOpacity>
         <PrimaryButton
           title={status ? 'LOGIN' : 'REGISTER'}
           onPress={() => {
