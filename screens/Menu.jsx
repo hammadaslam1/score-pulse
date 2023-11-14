@@ -47,7 +47,7 @@ const Menu = props => {
       id: 6,
       name: 'Start Match',
       iconName: require('../assets/icons/start.png'),
-      onPress: () => props.navigation.navigate('Innings'),
+      onPress: () => props.navigation.navigate('Open Match'),
     },
     {
       id: 7,
@@ -79,7 +79,7 @@ const Menu = props => {
         <Text style={styles.name}>Player Name</Text>
         <View style={{marginBottom: 50}}>
           {list.map(item => (
-            <TouchableOpacity activeOpacity={0.7} onPress={item.onPress}>
+            <TouchableOpacity id={item.id} activeOpacity={0.7} onPress={item.onPress}>
               <View style={styles.vertDivider} />
               <View style={styles.listContainer}>
                 <Image

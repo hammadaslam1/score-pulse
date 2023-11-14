@@ -109,6 +109,7 @@ const CreateTournament = () => {
             title={'Start Date'}
             open={startOpen}
             date={startDate}
+            minimumDate={new Date()}
             onConfirm={date => {
               setStartDate(date);
               //   alert(date.getFullYear());
@@ -121,10 +122,11 @@ const CreateTournament = () => {
           <DatePicker
             modal
             mode="date"
-            theme='auto'
+            theme="auto"
             title={'End Date'}
             open={endOpen}
             date={endDate}
+            minimumDate={new Date()}
             onConfirm={date => {
               setEndDate(date);
               setEndOpen(false);
