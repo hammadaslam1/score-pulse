@@ -1,33 +1,23 @@
 /* eslint-disable prettier/prettier */
+/* eslint-disable no-unused-vars */
+/* eslint-disable react/react-in-jsx-scope */
+/* eslint-disable react-native/no-inline-styles */
 /* eslint-disable semi */
 
-import { StyleSheet, Text, View } from "react-native";
-
+import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
+import styles from '../../styles/Styles';
 
 const PrimaryButton = props => {
   return (
-    <View>
-      <Text style={styles.button} {...props}>
-        {props.title}
-      </Text>
-    </View>
+    <TouchableOpacity
+      style={[styles.container, {marginTop: 20}]}
+      onPress={props.onPress}>
+      <View
+        style={[styles.button, {backgroundColor: '#3280cf', borderRadius: 10}]}>
+        <Text style={styles.text}>{props.title}</Text>
+      </View>
+    </TouchableOpacity>
   );
 };
-
-const styles = StyleSheet.create({
-  button: {
-    marginHorizontal: 75,
-    borderRadius: 15,
-    backgroundColor: '#2169be',
-    marginVertical: 20,
-    color: '#ffffff',
-    padding: 15,
-    elevation: 5,
-    textAlign: 'center',
-    fontWeight: 'bold',
-    fontSize: 20,
-    fontFamily: 'monospace',
-  },
-});
 
 export default PrimaryButton;

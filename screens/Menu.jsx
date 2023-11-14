@@ -41,13 +41,13 @@ const Menu = props => {
       id: 5,
       name: 'My Clubs',
       iconName: require('../assets/icons/club.png'),
-      // onPress: ()=> props.navigation.navigate("Home")
+      //   onPress: ()=> props.navigation.navigate("Club Registration")
     },
     {
       id: 6,
       name: 'Start Match',
       iconName: require('../assets/icons/start.png'),
-      onPress: ()=> props.navigation.navigate("Innings")
+      onPress: () => props.navigation.navigate('Innings'),
     },
     {
       id: 7,
@@ -59,7 +59,7 @@ const Menu = props => {
       id: 8,
       name: 'Register as Club',
       iconName: require('../assets/icons/register.png'),
-      // onPress: ()=> props.navigation.navigate("Home")
+      onPress: () => props.navigation.navigate('Club Registration'),
     },
     {
       id: 9,
@@ -78,19 +78,19 @@ const Menu = props => {
         />
         <Text style={styles.name}>Player Name</Text>
         <View style={{marginBottom: 50}}>
-        {list.map(item => (
-          <TouchableOpacity activeOpacity={0.7} onPress={item.onPress}>
-            <View style={styles.vertDivider} />
-            <View style={styles.listContainer}>
-              <Image
-                source={item.iconName}
-                alt="app logo"
-                style={{height: 35, width: 35}}
-              />
-              <Text style={styles.text}>{item.name}</Text>
-            </View>
-          </TouchableOpacity>
-        ))}
+          {list.map(item => (
+            <TouchableOpacity activeOpacity={0.7} onPress={item.onPress}>
+              <View style={styles.vertDivider} />
+              <View style={styles.listContainer}>
+                <Image
+                  source={item.iconName}
+                  alt="app logo"
+                  style={{height: 35, width: 35}}
+                />
+                <Text style={styles.text}>{item.name}</Text>
+              </View>
+            </TouchableOpacity>
+          ))}
         </View>
       </View>
     </ScrollView>

@@ -1,8 +1,7 @@
 /* eslint-disable prettier/prettier */
 /* eslint-disable semi */
 
-import { StyleSheet, TextInput, View } from "react-native";
-
+import {StyleSheet, TextInput, View} from 'react-native';
 
 const SecondaryInput = props => {
   return (
@@ -20,7 +19,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#1058ad',
     marginVertical: 10,
     padding: 5,
-    // elevation: 10,
     borderBottomColor: '#3280cf',
     borderBottomWidth: 2,
     color: '#fff',

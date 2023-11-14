@@ -167,7 +167,6 @@ const Auth = props => {
         </View>
         <PrimaryButton
           title={status ? 'LOGIN' : 'REGISTER'}
-          color="#1058ad"
           onPress={() => {
             handleAuth();
           }}

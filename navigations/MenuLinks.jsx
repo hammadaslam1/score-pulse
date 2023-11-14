@@ -9,6 +9,7 @@ import Menu from '../screens/Menu';
 import MyProfile from '../screens/MyProfile';
 import EditProfile from '../screens/EditProfile';
 import Innings from '../screens/Innings';
+import RegisterClub from '../screens/RegisterClub';
 
 const stack = createNativeStackNavigator();
 
@@ -22,6 +23,7 @@ const MenuLinks = () => {
         <stack.Screen name="My Profile" component={MyProfile} options={styles.header} />
         <stack.Screen name="Edit Profile" component={EditProfile} options={styles.header} />
         <stack.Screen name="Innings" component={Innings} options={styles.header} />
+        <stack.Screen name="Club Registration" component={RegisterClub} options={styles.header} />
       </stack.Navigator>
     </NavigationContainer>
   );
