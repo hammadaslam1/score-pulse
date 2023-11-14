@@ -53,7 +53,7 @@ const Menu = props => {
       id: 7,
       name: 'Create Tournament',
       iconName: require('../assets/icons/flag.png'),
-      // onPress: ()=> props.navigation.navigate("Home")
+      onPress: ()=> props.navigation.navigate("Create Tournament")
     },
     {
       id: 8,
