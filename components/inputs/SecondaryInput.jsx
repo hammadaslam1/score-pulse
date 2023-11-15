@@ -15,7 +15,7 @@ const SecondaryInput = props => {
 const styles = StyleSheet.create({
   input: {
     marginHorizontal: 65,
-    borderRadius: 15,
+    // borderRadius: 15,
     backgroundColor: '#1058ad',
     marginVertical: 10,
     padding: 5,

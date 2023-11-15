@@ -22,9 +22,11 @@ import RadioBtn from '../components/buttons/RadioBtn';
 import {useState} from 'react';
 import PrimaryButton from '../components/buttons/PrimaryButton';
 import Checkbox from 'expo-checkbox';
-// import auth from '@react-native-firebase/auth';
+import auth from '@react-native-firebase/auth';
+import Spinner from 'react-native-loading-spinner-overlay';
 
 const Auth = props => {
+  const [loading, setLoading] = useState(false);
   const [status, setStatus] = useState(true);
   const [secure, setSecure] = useState(false);
   const [fullName, setfullName] = useState('');
@@ -41,28 +43,38 @@ const Auth = props => {
   const allRoundTypes = ['Batting All-Rounder', 'Bowling All-Rounder'];
 
   const handleAuth = async () => {
-    // if (!status && email && password && number && fullName) {
-    // try {
-    //   const createUser = await auth()
-    //     .createUserWithEmailAndPassword(email, password)
-    //     .then(() => {
-    props.navigation.navigate('Home');
-    //       });
-    //   } catch (error) {
-    //     alert(error.message);
-    //   }
-    // } else if (status && email && password) {
-    //   // Alert.alert('Please fill all credentials!');
-    //   props.navigation.navigate('Home');
-    // } else {
-    //   alert('Please check your status and other fields!');
-    // }
+    setLoading(true);
+    if (!status && email && password.length >= 6 && number && fullName) {
+      try {
+        await auth()
+          .createUserWithEmailAndPassword(email, password)
+          .then(() => {
+            setLoading(false);
+            props.navigation.navigate('Home');
+          });
+      } catch (error) {
+        setLoading(false);
+        alert(error.message);
+      }
+    } else if (status && email && password) {
+      await auth()
+        .signInWithEmailAndPassword(email, password)
+        .then(() => {
+          setLoading(false);
+          props.navigation.navigate('Home');
+        });
+    } else {
+      setLoading(false);
+      alert('Please check your credentials!');
+    }
   };
 
+  // if (! auth().currentUser.uid) {
   return (
     <ScrollView style={{backgroundColor: '#1058ad', minHeight: '100%'}}>
       <View>
         <StatusBar animated={true} backgroundColor="#1058ad" />
+        <Spinner visible={loading} color="#3280cf" cancelable={true} />
         <Image
           source={require('../assets/logos/splash.png')}
           alt="app logo"
@@ -195,6 +207,9 @@ const Auth = props => {
       </View>
     </ScrollView>
   );
+  // } else {
+  //   props.navigation.navigate('Home')
+  // }
 };
 
 const styles = StyleSheet.create({

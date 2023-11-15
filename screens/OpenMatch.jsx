@@ -6,6 +6,8 @@ import React, {useState} from 'react';
 import styles from '../styles/Styles';
 import DatePicker from 'react-native-date-picker';
 import SecondaryInput from '../components/inputs/SecondaryInput';
+import SelectTeam from '../components/buttons/SelectTeam';
+import FormatSelector from '../components/modal/FormatSelector';
 
 const OpenMatch = props => {
   const [startDate, setStartDate] = useState(new Date());
@@ -27,44 +29,11 @@ const OpenMatch = props => {
           }}>
           {arr.map((i, j) => (
             <View
-              key={'' + j}
+              key={i + j}
               style={{
-                flex: 1,
-                alignSelf: 'center',
-                justifyContent: 'center',
                 padding: 20,
               }}>
-              <Text
-                style={[
-                  styles.topic,
-                  {fontSize: 12, color: '#4391e0', alignSelf: 'center'},
-                ]}>
-                Open Match
-              </Text>
-              <TouchableOpacity>
-                <Image
-                  source={require('../assets/icons/plus.png')}
-                  style={{
-                    borderRadius: 50,
-                    borderWidth: 2,
-                    borderColor: '#fff',
-                    marginVertical: 20,
-                    alignSelf: 'center',
-                  }}
-                />
-              </TouchableOpacity>
-              <Text
-                style={[
-                  styles.topic,
-                  {
-                    fontSize: 16,
-                    fontWeight: 'bold',
-                    color: '#fff',
-                    alignSelf: 'center',
-                  },
-                ]}>
-                {i.value}
-              </Text>
+              <SelectTeam name={i.value} />
             </View>
           ))}
         </View>
@@ -73,7 +42,9 @@ const OpenMatch = props => {
           style={{
             flexDirection: 'row',
             alignSelf: 'center',
-            marginVertical: 30,
+            marginBottom: 30,
+            marginTop: 35,
+            marginHorizontal: 45,
           }}>
           <Text
             style={[
@@ -114,7 +85,7 @@ const OpenMatch = props => {
               endDate.getSeconds()}
           </Text>
         </View>
-        <SecondaryInput placeholder={'Overs / Match Format'} />
+        <FormatSelector placeholder={'Overs / Match Format'} />
         <View
           style={{
             flexDirection: 'row',

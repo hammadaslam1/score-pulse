@@ -1,7 +1,14 @@
 /* eslint-disable prettier/prettier */
 /* eslint-disable react-native/no-inline-styles */
 /* eslint-disable semi */
-import {View, Text, ScrollView, Image, Pressable, TouchableOpacity} from 'react-native';
+import {
+  View,
+  Text,
+  ScrollView,
+  Image,
+  Pressable,
+  TouchableOpacity,
+} from 'react-native';
 import React from 'react';
 import styles from '../styles/Styles';
 

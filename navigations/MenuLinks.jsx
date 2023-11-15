@@ -12,6 +12,7 @@ import Innings from '../screens/Innings';
 import RegisterClub from '../screens/RegisterClub';
 import CreateTournament from '../screens/CreateTournament';
 import OpenMatch from '../screens/OpenMatch';
+import MyMatches from '../screens/MyMatches';
 
 const stack = createNativeStackNavigator();
 
@@ -22,6 +23,7 @@ const MenuLinks = () => {
         screenOptions={{headerShown: true}}
         initialRouteName="Menu">
         <stack.Screen name="Menu" component={Menu} options={styles.headerSpecial} />
+        <stack.Screen name="My Matches" component={MyMatches} options={styles.header} />
         <stack.Screen name="My Profile" component={MyProfile} options={styles.header} />
         <stack.Screen name="Edit Profile" component={EditProfile} options={styles.header} />
         <stack.Screen name="Innings" component={Innings} options={styles.header} />

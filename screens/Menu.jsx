@@ -17,7 +17,7 @@ const Menu = props => {
       id: 1,
       name: 'My Matches',
       iconName: require('../assets/icons/matches.png'),
-      // onPress: ()=> props.navigation.navigate("Home")
+      onPress: ()=> props.navigation.navigate("My Matches")
     },
     {
       id: 2,
