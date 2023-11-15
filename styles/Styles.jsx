@@ -218,7 +218,7 @@ const styles = StyleSheet.create({
   },
   scoreBodyText: {
     color: '#fff',
-    fontSize: 14,
+    fontSize: 12,
     textAlign: 'center',
     paddingVertical: 2,
   },
@@ -229,15 +229,25 @@ const styles = StyleSheet.create({
     padding: 5,
     width: 350,
   },
-  overHead: {
+  overBalls: {
     flex: 4,
+    // display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    flexWrap: 'wrap',
+    // padding: 5,
+    // width: 350,
+  },
+  overHead: {
+    flex: 1,
     paddingHorizontal: 10,
     paddingVertical: 4,
   },
   overBody: {
-    flex: 1,
-    paddingHorizontal: 10,
+    // flex: 1,
+    // paddingHorizontal: 10,
     paddingVertical: 4,
+    width: 50,
   },
   runs: {
     display: 'flex',

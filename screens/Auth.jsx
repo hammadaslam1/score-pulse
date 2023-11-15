@@ -15,13 +15,14 @@ import {
   StyleSheet,
   Text,
   View,
-  TouchableOpacity
+  TouchableOpacity,
 } from 'react-native';
 import PrimaryInput from '../components/inputs/PrimaryInput';
 import RadioBtn from '../components/buttons/RadioBtn';
 import {useState} from 'react';
 import PrimaryButton from '../components/buttons/PrimaryButton';
 import Checkbox from 'expo-checkbox';
+// import auth from '@react-native-firebase/auth';
 
 const Auth = props => {
   const [status, setStatus] = useState(true);
@@ -39,23 +40,29 @@ const Auth = props => {
   const bowlerTypes = ['Fast Bowler', 'Spin Bowler'];
   const allRoundTypes = ['Batting All-Rounder', 'Bowling All-Rounder'];
 
-  const handleAuth = () => {
+  const handleAuth = async () => {
     // if (!status && email && password && number && fullName) {
-    //   Alert.alert('register screen');
-    // } else {
-    //   Alert.alert('Please fill all credentials!');
-    // }
+    // try {
+    //   const createUser = await auth()
+    //     .createUserWithEmailAndPassword(email, password)
+    //     .then(() => {
     props.navigation.navigate('Home');
+    //       });
+    //   } catch (error) {
+    //     alert(error.message);
+    //   }
+    // } else if (status && email && password) {
+    //   // Alert.alert('Please fill all credentials!');
+    //   props.navigation.navigate('Home');
+    // } else {
+    //   alert('Please check your status and other fields!');
+    // }
   };
 
   return (
     <ScrollView style={{backgroundColor: '#1058ad', minHeight: '100%'}}>
       <View>
-        <StatusBar
-          animated={true}
-          backgroundColor="#1058ad"
-          // barStyle='dark-content'
-        />
+        <StatusBar animated={true} backgroundColor="#1058ad" />
         <Image
           source={require('../assets/logos/splash.png')}
           alt="app logo"
@@ -154,19 +161,15 @@ const Auth = props => {
           onChangeText={setPassword}
         />
         <TouchableOpacity onPress={() => setSecure(!secure)}>
-        <View style={styles.checkboxview}>
-          <Checkbox
-            value={secure}
-            style={styles.checkbox}
-            onValueChange={() => setSecure(!secure)}
-            color={'transparent'}
-          />
-          <Text
-            style={{color: '#fff', fontSize: 15}}
-            >
-            Show Password
-          </Text>
-        </View>
+          <View style={styles.checkboxview}>
+            <Checkbox
+              value={secure}
+              style={styles.checkbox}
+              onValueChange={() => setSecure(!secure)}
+              color={'transparent'}
+            />
+            <Text style={{color: '#fff', fontSize: 15}}>Show Password</Text>
+          </View>
         </TouchableOpacity>
         <PrimaryButton
           title={status ? 'LOGIN' : 'REGISTER'}
@@ -177,17 +180,18 @@ const Auth = props => {
         <Text style={styles.status}>
           {status ? "Don't have an account?" : 'Already registered?'}
         </Text>
-        <Text
-          onPress={() => setStatus(!status)}
-          style={{
-            fontSize: 18,
-            color: '#fff',
-            textDecorationLine: 'underline',
-            alignSelf: 'center',
-            paddingVertical: 5,
-          }}>
-          {status ? 'Register' : 'Sign In'}
-        </Text>
+        <TouchableOpacity onPress={() => setStatus(!status)}>
+          <Text
+            style={{
+              fontSize: 18,
+              color: '#fff',
+              textDecorationLine: 'underline',
+              alignSelf: 'center',
+              paddingVertical: 5,
+            }}>
+            {status ? 'Register' : 'Sign In'}
+          </Text>
+        </TouchableOpacity>
       </View>
     </ScrollView>
   );

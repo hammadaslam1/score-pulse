@@ -9,16 +9,16 @@ import DatePicker from 'react-native-date-picker';
 const CreateTournament = () => {
   //   const [date, setDate] = useState(new Date());
   const [startDate, setStartDate] = useState(new Date());
-  const [endDate, setEndDate] = useState(new Date());
   const [startOpen, setStartOpen] = useState(false);
+  const [endDate, setEndDate] = useState(new Date());
   const [endOpen, setEndOpen] = useState(false);
   const register = ['Tournament Name', 'Club Name', 'City', 'Season/Year'];
   return (
     <ScrollView style={{backgroundColor: '#1058ad', minHeight: '100%'}}>
       <View>
         <View style={{marginTop: 30}}>
-          {register.map(i => (
-            <>
+          {register.map((data, i) => (
+            <View id={'' + i}>
               <Text
                 style={[
                   styles.text,
@@ -30,10 +30,10 @@ const CreateTournament = () => {
                     fontFamily: 'monospace',
                   },
                 ]}>
-                {i}
+                {data}
               </Text>
-              <SecondaryInput placeholder={i} />
-            </>
+              <SecondaryInput placeholder={data} />
+            </View>
           ))}
           <View
             style={{flexDirection: 'row', alignSelf: 'center', marginTop: 30}}>
@@ -142,7 +142,7 @@ const CreateTournament = () => {
               styles.button,
               {backgroundColor: '#3280cf', borderRadius: 10},
             ]}>
-            <Text style={styles.text}>Register</Text>
+            <Text style={styles.text}>Create Tournament</Text>
           </View>
         </TouchableOpacity>
       </View>

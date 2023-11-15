@@ -10,6 +10,7 @@ import RadioBtn from '../components/buttons/RadioBtn';
 const EditProfile = () => {
   const [playerMainType, setPlayerMainType] = useState('');
   const [playerSubType, setPlayerSubType] = useState('');
+  const [playerBowlerType, setPlayerBowlerType] = useState('');
 
   const mainTypes = ['Batter', 'Bowler', 'All-Rounder', 'Wicket-Keeper'];
   const subTypes = ['Right-Handed', 'Left-Handed'];
@@ -35,7 +36,7 @@ const EditProfile = () => {
         <View style={styles.radioGroup}>
           {mainTypes.map((data, i) => (
             <RadioBtn
-              key={i}
+              key={'' + i}
               value={data}
               title={data}
               playerType={playerMainType}
@@ -52,7 +53,7 @@ const EditProfile = () => {
         <View style={styles.radioGroup}>
           {subTypes?.map((data, i) => (
             <RadioBtn
-              key={i}
+              key={'' + i}
               value={data}
               title={data}
               playerType={playerSubType}
@@ -67,12 +68,12 @@ const EditProfile = () => {
         <View style={styles.radioGroup}>
           {bowlerTypes?.map((data, i) => (
             <RadioBtn
-              key={i}
+              key={'' + i}
               value={data}
               title={data}
-              playerType={playerSubType}
+              playerType={playerBowlerType}
               data={data}
-              onPress={() => setPlayerSubType(data)}
+              onPress={() => setPlayerBowlerType(data)}
             />
           ))}
         </View>

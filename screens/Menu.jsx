@@ -78,8 +78,8 @@ const Menu = props => {
         />
         <Text style={styles.name}>Player Name</Text>
         <View style={{marginBottom: 50}}>
-          {list.map(item => (
-            <TouchableOpacity id={item.id} activeOpacity={0.7} onPress={item.onPress}>
+          {list.map((item, i) => (
+            <TouchableOpacity id={'' + i} activeOpacity={0.7} onPress={item.onPress}>
               <View style={styles.vertDivider} />
               <View style={styles.listContainer}>
                 <Image

@@ -3,10 +3,23 @@
 /* eslint-disable react-native/no-inline-styles */
 /* eslint-disable react/self-closing-comp */
 import {View, Text, ScrollView, TouchableOpacity} from 'react-native';
-import React from 'react';
+import React, {useState} from 'react';
 import styles from '../styles/Styles';
 
 const Innings = () => {
+  const [extras, setExtras] = useState(0);
+  const [outs, setOuts] = useState(0);
+  const [score, setScore] = useState(0);
+  const [currentOver, setCurrentOver] = useState(0.0);
+  const [ball, setBall] = useState(0);
+  const [overs, setOvers] = useState(5);
+  const [playerOne, setPlayerOne] = useState(0);
+  const [playerTwo, setPlayerTwo] = useState(0);
+  const [overScore, setOverScore] = useState(0);
+  const [thisOver, setThisOver] = useState([]);
+  const [CRR, setCRR] = useState('');
+  const [RRR, setRRR] = useState(0);
+  let temp;
   const runs = [
     0,
     1,
@@ -38,6 +51,50 @@ const Innings = () => {
       value: '10',
     },
   ];
+
+  const handleRuns = name => {
+    if (ball != 0 || currentOver != 0) {
+      const bowl = ball / 6;
+      temp = score / (currentOver + bowl);
+      temp = temp.toPrecision(2);
+      setCRR(temp);
+    } else {
+      setCRR(score);
+    }
+    if (name == 'NB' || name == 'WD') {
+      temp = score + 1;
+      setScore(temp);
+
+      setExtras(extras + 1);
+      thisOver.push(name);
+      setOverScore(overScore + 1);
+    } else if (name == 'WKT' && outs <= 10 && currentOver < overs) {
+      temp = outs + 1;
+      setOuts(temp);
+      thisOver.push(name);
+      if (ball >= 5) {
+        setThisOver([]);
+        setBall(0);
+        temp = currentOver + 1;
+        setCurrentOver(temp);
+      } else {
+        temp = ball + 1;
+        setBall(temp);
+      }
+    } else if (name == 'LB' || name == 'B') {
+    } else if (name == 'UNDO') {
+      if (thisOver.length > 1) {
+        const length = thisOver.length;
+        thisOver.pop();
+        if (thisOver[length - 1] != 'WD' || thisOver[length - 1] != 'NB') {
+          setBall(ball > 0 ? ball - 1 : ball);
+        }
+      } else {
+        setThisOver([]);
+      }
+      // setThisOver([...thisOver]);
+    }
+  };
   return (
     <ScrollView style={{backgroundColor: '#1058ad', minHeight: '100%'}}>
       <View style={styles.container}>
@@ -45,24 +102,24 @@ const Innings = () => {
           <View style={styles.recordBox}>
             <View style={styles.score}>
               <Text style={[styles.textWhite, {fontSize: 18, flex: 5}]}>
-                Your Team
-              </Text>
-              <Text style={[styles.textWhite, {fontSize: 14, flex: 1}]}>
-                74/2
+                Team A
               </Text>
               <Text style={[styles.textWhite, {fontSize: 14, flex: 2}]}>
-                (4.0/5)
+                {score}/{outs}
+              </Text>
+              <Text style={[styles.textWhite, {fontSize: 14, flex: 2}]}>
+                ({currentOver}.{ball}/{overs})
               </Text>
             </View>
             <View style={styles.score}>
               <Text style={[styles.textWhite, {fontSize: 18, flex: 5}]}>
-                Opponent Team
-              </Text>
-              <Text style={[styles.textWhite, {fontSize: 14, flex: 1}]}>
-                00/0
+                Team B
               </Text>
               <Text style={[styles.textWhite, {fontSize: 14, flex: 2}]}>
-                (0.0/5)
+                {score}/{outs}
+              </Text>
+              <Text style={[styles.textWhite, {fontSize: 14, flex: 2}]}>
+                ({currentOver}.{ball}/{overs})
               </Text>
             </View>
           </View>
@@ -72,7 +129,7 @@ const Innings = () => {
             <Text style={[styles.rateText, {fontWeight: 'bold', fontSize: 17}]}>
               CRR
             </Text>
-            <Text style={[styles.rateText]}>17.33</Text>
+            <Text style={[styles.rateText]}>{CRR}</Text>
           </View>
           <View style={[styles.divider, {borderColor: '#3280cf'}]}></View>
           <View style={styles.rate}>
@@ -86,7 +143,7 @@ const Innings = () => {
             <Text style={[styles.rateText, {fontWeight: 'bold', fontSize: 17}]}>
               Extras
             </Text>
-            <Text style={[styles.rateText]}>10</Text>
+            <Text style={[styles.rateText]}>{extras}</Text>
           </View>
         </View>
         <View style={styles.recordContainer}>
@@ -140,62 +197,51 @@ const Innings = () => {
             <View style={styles.overHead}>
               <Text style={styles.scoreHeadText}>This over</Text>
             </View>
-            <View style={styles.overBody}>
-              <Text style={styles.scoreBodyText}>-</Text>
-            </View>
-            <View style={styles.overBody}>
-              <Text style={styles.scoreBodyText}>-</Text>
-            </View>
-            <View style={styles.overBody}>
-              <Text style={styles.scoreBodyText}>-</Text>
-            </View>
-            <View style={styles.overBody}>
-              <Text style={styles.scoreBodyText}>-</Text>
-            </View>
-            <View style={styles.overBody}>
-              <Text style={styles.scoreBodyText}>-</Text>
-            </View>
-            <View style={styles.overBody}>
-              <Text style={styles.scoreBodyText}>-</Text>
+            <View style={styles.overBalls}>
+              {thisOver?.map((data, i) => (
+                <View id={'' + i} style={styles.overBody}>
+                  <Text style={styles.scoreBodyText}>{data}</Text>
+                </View>
+              ))}
             </View>
           </View>
         </View>
         <View style={styles.runs}>
-          {runs.map(i => (
-            <TouchableOpacity id={i}>
-              {i == 6 || i == 4 ? (
+          {runs.map((data, i) => (
+            <TouchableOpacity id={'' + i} onPress={() => handleRuns(data)}>
+              {data == 6 || data == 4 ? (
                 <View style={[styles.single, {backgroundColor: '#0c0'}]}>
                   <Text
                     style={[styles.align, {fontWeight: 'bold', fontSize: 26}]}>
-                    {i}
+                    {data}
                   </Text>
                 </View>
-              ) : i == 'WKT' || i == 'NB' ? (
-                <View style={[styles.single, {backgroundColor: '#f00'}]}>
+              ) : data == 'WKT' || data == 'NB' ? (
+                <View style={[styles.single, {backgroundColor: '#900'}]}>
                   <Text
                     style={[styles.align, {fontWeight: 'bold', fontSize: 20}]}>
-                    {i}
+                    {data}
                   </Text>
                 </View>
-              ) : i == 'WD' || i == 'LB' || i == 'B' ? (
-                <View style={[styles.single, {backgroundColor: '#00f'}]}>
+              ) : data == 'WD' || data == 'LB' || data == 'B' ? (
+                <View style={[styles.single, {backgroundColor: '#22f'}]}>
                   <Text
                     style={[styles.align, {fontWeight: 'bold', fontSize: 20}]}>
-                    {i}
+                    {data}
                   </Text>
                 </View>
-              ) : i == 'UNDO' ? (
+              ) : data == 'UNDO' ? (
                 <View style={[styles.single, {backgroundColor: '#0ff'}]}>
                   <Text
                     style={[styles.align, {fontWeight: 'bold', fontSize: 16}]}>
-                    {i}
+                    {data}
                   </Text>
                 </View>
               ) : (
                 <View style={[styles.single, {backgroundColor: '#3280cf'}]}>
                   <Text
                     style={[styles.align, {fontWeight: 'bold', fontSize: 20}]}>
-                    {i}
+                    {data}
                   </Text>
                 </View>
               )}

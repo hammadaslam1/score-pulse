@@ -50,8 +50,8 @@ const MyProfile = props => {
         <View style={styles.recordContainer}>
           <View style={styles.recordBox}>
             <View style={{display: 'flex', flexDirection: 'column'}}>
-              {form.map(i => (
-                <View id={i} style={{display: 'flex', flexDirection: 'row'}}>
+              {form.map((i, j) => (
+                <View id={'' + j} style={{display: 'flex', flexDirection: 'row'}}>
                   <View style={[styles.circle, styles.headCircle]}>
                     <Text
                       style={[
@@ -77,8 +77,8 @@ const MyProfile = props => {
           <Text style={styles.topic}>My Stats</Text>
         </View>
         <View style={styles.recordContainer}>
-          {record.map(item => (
-            <View id={item.type} style={styles.recordBox}>
+          {record.map((item, i) => (
+            <View id={'' + i} style={styles.recordBox}>
               <Text style={styles.records}>{item.type}</Text>
               <View style={styles.innerRecord}>
                 <View style={styles.stat}>

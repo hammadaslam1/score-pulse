@@ -7,7 +7,7 @@ import styles from '../styles/Styles';
 import DatePicker from 'react-native-date-picker';
 import SecondaryInput from '../components/inputs/SecondaryInput';
 
-const OpenMatch = () => {
+const OpenMatch = props => {
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
   const [startOpen, setStartOpen] = useState(false);
@@ -19,10 +19,15 @@ const OpenMatch = () => {
   return (
     <ScrollView style={{backgroundColor: '#1058ad', minHeight: '100%'}}>
       <View>
-        <View style={{flexDirection: 'row', justifyContent: 'space-evenly', marginTop: 30}}>
-          {arr.map(i => (
+        <View
+          style={{
+            flexDirection: 'row',
+            justifyContent: 'space-evenly',
+            marginTop: 30,
+          }}>
+          {arr.map((i, j) => (
             <View
-              key={i.id}
+              key={'' + j}
               style={{
                 flex: 1,
                 alignSelf: 'center',
@@ -51,7 +56,12 @@ const OpenMatch = () => {
               <Text
                 style={[
                   styles.topic,
-                  {fontSize: 16, fontWeight: 'bold', color: '#fff', alignSelf: 'center'},
+                  {
+                    fontSize: 16,
+                    fontWeight: 'bold',
+                    color: '#fff',
+                    alignSelf: 'center',
+                  },
                 ]}>
                 {i.value}
               </Text>
@@ -60,7 +70,11 @@ const OpenMatch = () => {
         </View>
         <SecondaryInput placeholder={'Venue'} />
         <View
-          style={{flexDirection: 'row', alignSelf: 'center', marginVertical: 30}}>
+          style={{
+            flexDirection: 'row',
+            alignSelf: 'center',
+            marginVertical: 30,
+          }}>
           <Text
             style={[
               styles.text,
@@ -102,30 +116,42 @@ const OpenMatch = () => {
         </View>
         <SecondaryInput placeholder={'Overs / Match Format'} />
         <View
-          style={{flexDirection: 'row', alignSelf: 'center', justifyContent: 'space-evenly', marginTop: 30}}>
-          <TouchableOpacity style={[styles.container, {marginTop: 100, flex: 1}]}>
+          style={{
+            flexDirection: 'row',
+            alignSelf: 'center',
+            justifyContent: 'space-evenly',
+            marginTop: 30,
+          }}>
+          <TouchableOpacity
+            style={[styles.container, {marginTop: 100, flex: 1}]}>
             <View
               style={[
                 styles.button,
                 {backgroundColor: '#3280cf', borderRadius: 10, width: 200},
               ]}>
-              <Text style={styles.topic}>Save Fixtures</Text>
+              <Text style={[styles.topic, {alignSelf: 'center'}]}>
+                Save Fixtures
+              </Text>
             </View>
           </TouchableOpacity>
-          <TouchableOpacity style={[styles.container, {marginTop: 100, flex: 1}]}>
+          <TouchableOpacity
+            style={[styles.container, {marginTop: 100, flex: 1}]}
+            onPress={() => props.navigation.navigate('Innings')}>
             <View
               style={[
                 styles.button,
                 {backgroundColor: '#3280cf', borderRadius: 10, width: 200},
               ]}>
-              <Text style={styles.topic}>Start Match</Text>
+              <Text style={[styles.topic, {alignSelf: 'center'}]}>
+                Start Match
+              </Text>
             </View>
           </TouchableOpacity>
         </View>
         <DatePicker
           modal
           mode="date"
-          title={'Start Date'}
+          title={'Date'}
           open={startOpen}
           date={startDate}
           minimumDate={new Date()}
@@ -140,14 +166,13 @@ const OpenMatch = () => {
         />
         <DatePicker
           modal
-          mode="date"
+          mode="time"
           theme="auto"
-          title={'End Date'}
+          title={'Time'}
           open={endOpen}
           date={endDate}
-          minimumDate={new Date()}
-          onConfirm={date => {
-            setEndDate(date);
+          onConfirm={time => {
+            setEndDate(new Date());
             setEndOpen(false);
           }}
           onCancel={() => {
