@@ -11,41 +11,47 @@ import {
 } from 'react-native';
 import React from 'react';
 import styles from '../styles/Styles';
+import auth from '@react-native-firebase/auth';
 
 const Home = props => {
-  return (
-    <ScrollView style={{backgroundColor: '#1058ad', minHeight: '100%'}}>
-      <View style={styles.container}>
-        <TouchableOpacity
-          style={{
-            tintColor: '#ddd',
-            alignSelf: 'flex-end',
-            margin: 10,
-          }}
-          onPress={() => props.navigation.navigate('Menu')}>
-          <Image
-            source={require('../assets/logos/menu.png')}
+  const user = auth().currentUser
+  if (!user) {
+    props.navigation.navigate("Auth");
+  } else {
+    return (
+      <ScrollView style={{backgroundColor: '#1058ad', minHeight: '100%'}}>
+        <View style={styles.container}>
+          <TouchableOpacity
             style={{
               tintColor: '#ddd',
               alignSelf: 'flex-end',
               margin: 10,
-              width: 45,
-              height: 45,
-              borderRadius: 30,
-              borderWidth: 2,
-              borderColor: '#bbb',
             }}
-            onPress={() => props.navigation.navigate('menu')}
+            onPress={() => props.navigation.navigate('Menu')}>
+            <Image
+              source={require('../assets/logos/menu.png')}
+              style={{
+                tintColor: '#ddd',
+                alignSelf: 'flex-end',
+                margin: 10,
+                width: 45,
+                height: 45,
+                borderRadius: 30,
+                borderWidth: 2,
+                borderColor: '#bbb',
+              }}
+              onPress={() => props.navigation.navigate('menu')}
+            />
+          </TouchableOpacity>
+          <Image
+            source={require('../assets/logos/icon_lite.png')}
+            alt="app logo"
+            style={styles.image}
           />
-        </TouchableOpacity>
-        <Image
-          source={require('../assets/logos/icon_lite.png')}
-          alt="app logo"
-          style={styles.image}
-        />
-      </View>
-    </ScrollView>
-  );
+        </View>
+      </ScrollView>
+    );
+  }
 };
 
 export default Home;

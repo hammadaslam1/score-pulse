@@ -10,6 +10,8 @@ import {
 } from 'react-native';
 import React from 'react';
 import styles from '../styles/Styles';
+import PrimaryButton from '../components/buttons/PrimaryButton';
+import auth from '@react-native-firebase/auth';
 
 const Menu = props => {
   const list = [
@@ -17,7 +19,7 @@ const Menu = props => {
       id: 1,
       name: 'My Matches',
       iconName: require('../assets/icons/matches.png'),
-      onPress: ()=> props.navigation.navigate("My Matches")
+      onPress: () => props.navigation.navigate('My Matches'),
     },
     {
       id: 2,
@@ -53,7 +55,7 @@ const Menu = props => {
       id: 7,
       name: 'Create Tournament',
       iconName: require('../assets/icons/flag.png'),
-      onPress: ()=> props.navigation.navigate("Create Tournament")
+      onPress: () => props.navigation.navigate('Create Tournament'),
     },
     {
       id: 8,
@@ -68,9 +70,14 @@ const Menu = props => {
       // onPress: ()=> props.navigation.navigate("Home")
     },
   ];
+  const handleSignOut = () => {
+    auth()
+      .signOut()
+      .then(() => console.log('signed out'));
+  };
   return (
     <ScrollView style={{backgroundColor: '#1058ad', minHeight: '100%'}}>
-      <View style={styles.container}>
+      <View style={[styles.container, {paddingBottom: 30}]}>
         <Image
           source={require('../assets/logos/icon_lite.png')}
           alt="app logo"
@@ -79,7 +86,10 @@ const Menu = props => {
         <Text style={styles.name}>Player Name</Text>
         <View style={{marginBottom: 50}}>
           {list.map((item, i) => (
-            <TouchableOpacity id={'' + i} activeOpacity={0.7} onPress={item.onPress}>
+            <TouchableOpacity
+              id={'' + i}
+              activeOpacity={0.7}
+              onPress={item.onPress}>
               <View style={styles.vertDivider} />
               <View style={styles.listContainer}>
                 <Image
@@ -92,6 +102,15 @@ const Menu = props => {
             </TouchableOpacity>
           ))}
         </View>
+        <PrimaryButton
+          title={'Sign out'}
+          style={{
+            marginBottom: 20,
+          }}
+          onPress={() => {
+            handleSignOut();
+          }}
+        />
       </View>
     </ScrollView>
   );

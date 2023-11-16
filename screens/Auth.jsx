@@ -23,6 +23,7 @@ import {useState} from 'react';
 import PrimaryButton from '../components/buttons/PrimaryButton';
 import Checkbox from 'expo-checkbox';
 import auth from '@react-native-firebase/auth';
+import database from '@react-native-firebase/database';
 import Spinner from 'react-native-loading-spinner-overlay';
 
 const Auth = props => {
@@ -43,6 +44,7 @@ const Auth = props => {
   const allRoundTypes = ['Batting All-Rounder', 'Bowling All-Rounder'];
 
   const handleAuth = async () => {
+    // auth().onAuthStateChanged()
     setLoading(true);
     if (!status && email && password.length >= 6 && number && fullName) {
       try {
@@ -54,7 +56,11 @@ const Auth = props => {
           });
       } catch (error) {
         setLoading(false);
-        alert(error.message);
+        if (error.code === 'auth/email-already-in-use') {
+          Alert.alert('Email address you provided is already in use!');
+        } else if (error.code === 'auth/invalid-email') {
+          Alert.alert('That email address is invalid!');
+        }
       }
     } else if (status && email && password) {
       await auth()
@@ -62,6 +68,14 @@ const Auth = props => {
         .then(() => {
           setLoading(false);
           props.navigation.navigate('Home');
+        })
+        .catch(e => {
+          setLoading(false);
+          if (password.length < 6) {
+            Alert.alert('Password must be greater than 6 characters');
+          } else {
+            Alert.alert('Please check your email and then try again!');
+          }
         });
     } else {
       setLoading(false);
@@ -69,7 +83,7 @@ const Auth = props => {
     }
   };
 
-  // if (! auth().currentUser.uid) {
+  // if (!auth().currentUser.uid) {
   return (
     <ScrollView style={{backgroundColor: '#1058ad', minHeight: '100%'}}>
       <View>
@@ -208,7 +222,7 @@ const Auth = props => {
     </ScrollView>
   );
   // } else {
-  //   props.navigation.navigate('Home')
+  //   props.navigation.navigate('Home');
   // }
 };
 
