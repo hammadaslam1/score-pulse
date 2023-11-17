@@ -9,10 +9,8 @@ import {
   Alert,
 } from 'react-native';
 import {useEffect} from 'react';
-import Auth from './screens/Auth';
-import MyProfile from './screens/MyProfile';
-import NavLinks from './navigations/NavLinks';
 import changeNavigationBarColor from 'react-native-navigation-bar-color';
+import NavLinks from './src/navigations/NavLinks';
 
 const App = () => {
   const color = async () => {

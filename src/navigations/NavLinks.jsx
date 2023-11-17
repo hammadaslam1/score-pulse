@@ -4,11 +4,9 @@ import React from 'react';
 import {Image} from 'react-native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {NavigationContainer} from '@react-navigation/native';
-import MyProfile from '../screens/MyProfile';
 import Auth from '../screens/Auth';
-import EditProfile from '../screens/EditProfile';
-import Home from '../screens/Home';
 import MenuLinks from './MenuLinks';
+import Home from '../screens/Home';
 
 const stack = createNativeStackNavigator();
 const NavLinks = props => {

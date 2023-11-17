@@ -43,16 +43,46 @@ const Auth = props => {
   const bowlerTypes = ['Fast Bowler', 'Spin Bowler'];
   const allRoundTypes = ['Batting All-Rounder', 'Bowling All-Rounder'];
 
+  const setData = userID => {
+    const userRef = database().ref('/users/' + userID);
+    userRef.set({
+      fullname: fullName,
+      number: number,
+      email: email,
+      user_ID: userID,
+      player_type: playerMainType + ' (' + playerSubType + ')',
+    });
+  };
+
   const handleAuth = async () => {
     // auth().onAuthStateChanged()
     setLoading(true);
-    if (!status && email && password.length >= 6 && number && fullName) {
+    if (
+      !status &&
+      email &&
+      password.length >= 6 &&
+      number &&
+      fullName &&
+      playerMainType &&
+      playerSubType
+    ) {
       try {
         await auth()
           .createUserWithEmailAndPassword(email, password)
-          .then(() => {
-            setLoading(false);
-            props.navigation.navigate('Home');
+          .then(async () => {
+            const user = auth().currentUser;
+            setData(user.uid)
+              .then(() => {
+                setLoading(false);
+                setStatus(true);
+                // props.navigation.navigate('Home');
+              })
+              .catch(e => {
+                setLoading(false);
+                setLoading('data not saved');
+                setStatus(true);
+                // props.navigation.navigate('Home');
+              });
           });
       } catch (error) {
         setLoading(false);

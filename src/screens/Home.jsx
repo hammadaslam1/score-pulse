@@ -8,6 +8,7 @@ import {
   Image,
   Pressable,
   TouchableOpacity,
+  StatusBar,
 } from 'react-native';
 import React from 'react';
 import styles from '../styles/Styles';
@@ -21,6 +22,7 @@ const Home = props => {
     return (
       <ScrollView style={{backgroundColor: '#1058ad', minHeight: '100%'}}>
         <View style={styles.container}>
+        <StatusBar animated={true} backgroundColor="#1058ad" />
           <TouchableOpacity
             style={{
               tintColor: '#ddd',

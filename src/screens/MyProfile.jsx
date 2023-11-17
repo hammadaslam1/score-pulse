@@ -1,8 +1,10 @@
 /* eslint-disable prettier/prettier */
 /* eslint-disable react/self-closing-comp */
 import {View, Text, StyleSheet, ScrollView, Image, Alert} from 'react-native';
-import React from 'react';
+import React, {useEffect} from 'react';
 import styles from '../styles/Styles';
+import auth from '@react-native-firebase/auth';
+import database from '@react-native-firebase/database';
 
 const MyProfile = props => {
   const record = [
@@ -35,6 +37,14 @@ const MyProfile = props => {
     'Country',
   ];
 
+  const user = auth().currentUser;
+  useEffect(() => {
+    const userRef = database().ref('users/' + user.uid);
+    userRef.on('value', snapshot => {
+      Alert.alert('snapshot: ', snapshot.val());
+    });
+  }, [user]);
+
   return (
     <ScrollView style={styles.main}>
       <View style={styles.container}>
@@ -51,7 +61,9 @@ const MyProfile = props => {
           <View style={styles.recordBox}>
             <View style={{display: 'flex', flexDirection: 'column'}}>
               {form.map((i, j) => (
-                <View id={'' + j} style={{display: 'flex', flexDirection: 'row'}}>
+                <View
+                  id={'' + j}
+                  style={{display: 'flex', flexDirection: 'row'}}>
                   <View style={[styles.circle, styles.headCircle]}>
                     <Text
                       style={[
