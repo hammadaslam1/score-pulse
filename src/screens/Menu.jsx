@@ -1,13 +1,6 @@
 /* eslint-disable prettier/prettier */
 /* eslint-disable react-native/no-inline-styles */
-import {
-  View,
-  Text,
-  ScrollView,
-  Image,
-  FlatList,
-  TouchableOpacity,
-} from 'react-native';
+import {View, Text, ScrollView, Image, TouchableOpacity} from 'react-native';
 import React from 'react';
 import styles from '../styles/Styles';
 import PrimaryButton from '../components/buttons/PrimaryButton';
@@ -43,7 +36,7 @@ const Menu = props => {
       id: 5,
       name: 'My Clubs',
       iconName: require('../assets/icons/club.png'),
-      //   onPress: ()=> props.navigation.navigate("Club Registration")
+      onPress: () => props.navigation.navigate('My Clubs'),
     },
     {
       id: 6,
@@ -87,7 +80,7 @@ const Menu = props => {
         <View style={{marginBottom: 50}}>
           {list.map((item, i) => (
             <TouchableOpacity
-              id={'' + i}
+              key={'' + i}
               activeOpacity={0.7}
               onPress={item.onPress}>
               <View style={styles.vertDivider} />

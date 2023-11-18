@@ -1,6 +1,7 @@
 /* eslint-disable prettier/prettier */
+/* eslint-disable react-native/no-inline-styles */
 /* eslint-disable react/self-closing-comp */
-import {View, Text, StyleSheet, ScrollView, Image, Alert} from 'react-native';
+import {View, Text, ScrollView, Image, Alert} from 'react-native';
 import React, {useEffect} from 'react';
 import styles from '../styles/Styles';
 import auth from '@react-native-firebase/auth';

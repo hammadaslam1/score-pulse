@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 /* eslint-disable react-native/no-inline-styles */
-/* eslint-disable react/no-unstable-nested-components */
-import {View, Text, Image, StyleSheet} from 'react-native';
+
+import {Image, StyleSheet} from 'react-native';
 import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {NavigationContainer} from '@react-navigation/native';
@@ -13,6 +13,7 @@ import RegisterClub from '../screens/RegisterClub';
 import CreateTournament from '../screens/CreateTournament';
 import OpenMatch from '../screens/OpenMatch';
 import MyMatches from '../screens/MyMatches';
+import MyClub from '../screens/MyClub';
 
 const stack = createNativeStackNavigator();
 
@@ -30,6 +31,7 @@ const MenuLinks = () => {
         <stack.Screen name="Open Match" component={OpenMatch} options={styles.header} />
         <stack.Screen name="Club Registration" component={RegisterClub} options={styles.header} />
         <stack.Screen name="Create Tournament" component={CreateTournament} options={styles.header} />
+        <stack.Screen name="My Clubs" component={MyClub} options={styles.header} />
       </stack.Navigator>
     </NavigationContainer>
   );

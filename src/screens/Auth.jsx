@@ -7,8 +7,6 @@
 
 import {
   Alert,
-  Animated,
-  Easing,
   Image,
   ScrollView,
   StatusBar,

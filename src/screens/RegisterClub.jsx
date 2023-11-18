@@ -1,4 +1,5 @@
 /* eslint-disable prettier/prettier */
+/* eslint-disable no-unused-vars */
 /* eslint-disable react-native/no-inline-styles */
 import {
   View,
@@ -52,7 +53,7 @@ const RegisterClub = props => {
             onPress: async () => {
               setLoading(true);
 
-              const userRef = database().ref('/Clubs/' + user.uid);
+              const userRef = database().ref('/Clubs').push();
               userRef
                 .set({
                   ownerID: user.uid,
@@ -75,7 +76,7 @@ const RegisterClub = props => {
                     ],
                   );
                 })
-                .catch(e => {
+                .catch(() => {
                   Alert.alert('failed');
                 });
             },
