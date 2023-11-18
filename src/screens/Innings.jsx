@@ -40,7 +40,7 @@ const Innings = () => {
   const record = [
     {
       type: 'CRR',
-      value: '17.33',
+      value: '0.0',
     },
     {
       type: 'RRR',
@@ -48,7 +48,7 @@ const Innings = () => {
     },
     {
       type: 'Extras',
-      value: '10',
+      value: '0',
     },
   ];
 

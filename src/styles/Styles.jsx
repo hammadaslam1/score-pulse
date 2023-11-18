@@ -2,6 +2,9 @@
 import {StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
+  touchable: {
+    width: 'fit-content',
+  },
   main: {
     backgroundColor: '#1058ad',
     minHeight: '100%',
@@ -278,15 +281,13 @@ const styles = StyleSheet.create({
   },
   modalContainer: {
     backgroundColor: '#fff',
-    borderTopLeftRadius: 20,
-    borderTopRightRadius: 20,
+    borderTopLeftRadius: 50,
+    borderTopRightRadius: 50,
     position: 'absolute',
     bottom: 0,
     zIndex: 2,
     width: '100%',
     padding: 20,
-    // alignItems: 'center',
-    // justifyContent: 'center',
   },
   input: {
     marginHorizontal: 65,
