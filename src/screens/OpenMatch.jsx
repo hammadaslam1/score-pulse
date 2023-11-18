@@ -1,6 +1,8 @@
 /* eslint-disable prettier/prettier */
+/* eslint-disable no-unused-vars */
+
 /* eslint-disable react-native/no-inline-styles */
-/* eslint-disable react/self-closing-comp */
+
 import {View, Text, ScrollView, Image, TouchableOpacity} from 'react-native';
 import React, {useState} from 'react';
 import styles from '../styles/Styles';
@@ -8,8 +10,11 @@ import DatePicker from 'react-native-date-picker';
 import SecondaryInput from '../components/inputs/SecondaryInput';
 import SelectTeam from '../components/buttons/SelectTeam';
 import FormatSelector from '../components/modal/FormatSelector';
+import {useSelector} from 'react-redux';
 
 const OpenMatch = props => {
+  const totalOvers = useSelector(state => state.MatchFormatReducer.totalOvers);
+  const ballType = useSelector(state => state.MatchFormatReducer.ballType);
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
   const [startOpen, setStartOpen] = useState(false);
@@ -128,7 +133,6 @@ const OpenMatch = props => {
           minimumDate={new Date()}
           onConfirm={date => {
             setStartDate(date);
-            //   alert(date.getFullYear());
             setStartOpen(false);
           }}
           onCancel={() => {

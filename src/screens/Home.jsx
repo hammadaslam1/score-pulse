@@ -1,4 +1,5 @@
 /* eslint-disable prettier/prettier */
+/* eslint-disable no-unused-vars */
 /* eslint-disable react-native/no-inline-styles */
 /* eslint-disable semi */
 import {
@@ -10,19 +11,22 @@ import {
   TouchableOpacity,
   StatusBar,
 } from 'react-native';
-import React from 'react';
+import React, {useEffect} from 'react';
 import styles from '../styles/Styles';
 import auth from '@react-native-firebase/auth';
+import {useDispatch, useSelector} from 'react-redux';
 
 const Home = props => {
-  const user = auth().currentUser
+  const user = auth().currentUser;
+  const userStore = useSelector(state => state.UserReducer.user);
+  const dispatch = useDispatch();
   if (!user) {
-    props.navigation.navigate("Auth");
+    props.navigation.navigate('Auth');
   } else {
     return (
       <ScrollView style={{backgroundColor: '#1058ad', minHeight: '100%'}}>
         <View style={styles.container}>
-        <StatusBar animated={true} backgroundColor="#1058ad" />
+          <StatusBar animated={true} backgroundColor="#1058ad" />
           <TouchableOpacity
             style={{
               tintColor: '#ddd',

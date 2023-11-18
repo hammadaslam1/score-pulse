@@ -2,7 +2,7 @@
 /* eslint-disable eqeqeq */
 /* eslint-disable no-unused-vars */
 /* eslint-disable react-native/no-inline-styles */
-/* eslint-disable react/self-closing-comp */
+
 import {
   View,
   Text,
@@ -18,6 +18,8 @@ import {
 } from 'react-native';
 import React, {useState} from 'react';
 import styles from '../../styles/Styles';
+import {useDispatch} from 'react-redux';
+import {MATCH_FORMAT} from '../../redux/types/Types';
 
 const FormatSelector = props => {
   const [selected, setSelected] = useState(false);
@@ -31,6 +33,8 @@ const FormatSelector = props => {
   const [ballType, setBallType] = useState('');
   const [wickets, setWickets] = useState(10);
   const [modalVisible, setModalVisible] = useState(false);
+
+  const dispatch = useDispatch();
 
   const handleWickets = num => {
     if (num < 0 || num > 10) {
@@ -51,7 +55,19 @@ const FormatSelector = props => {
             onPress: () => console.log('Cancel Pressed'),
             style: 'cancel',
           },
-          {text: 'OK', onPress: () => setModalVisible(false)},
+          {
+            text: 'OK',
+            onPress: () => {
+              dispatch({
+                type: MATCH_FORMAT,
+                totalOvers: totalOvers,
+                totalWickets: wickets,
+                ballType: ballType,
+              });
+              setSelected(true)
+              setModalVisible(false)
+            },
+          },
         ],
         {cancelable: false},
       );
@@ -63,7 +79,7 @@ const FormatSelector = props => {
     <View>
       <Pressable onPress={() => setModalVisible(true)}>
         {selected ? (
-          <Text style={styles.input}>{totalOvers + ' - ' + ballType}</Text>
+          <Text style={styles.input}>{totalOvers + ' overs - ' + ballType}</Text>
         ) : (
           <Text style={styles.placeholder}>{Holder}</Text>
         )}

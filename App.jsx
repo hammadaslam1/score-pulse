@@ -11,6 +11,8 @@ import {
 import {useEffect} from 'react';
 import changeNavigationBarColor from 'react-native-navigation-bar-color';
 import NavLinks from './src/navigations/NavLinks';
+import {Provider} from 'react-redux';
+import Store from './src/redux/Store';
 
 const App = () => {
   const color = async () => {
@@ -23,7 +25,11 @@ const App = () => {
   useEffect(() => {
     color();
   }, []);
-  return <NavLinks />;
+  return (
+    <Provider store={Store}>
+      <NavLinks />
+    </Provider>
+  );
 };
 
 export default App;
