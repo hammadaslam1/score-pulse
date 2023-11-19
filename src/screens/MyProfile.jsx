@@ -1,8 +1,10 @@
 /* eslint-disable prettier/prettier */
+/* eslint-disable no-unused-vars */
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react-native/no-inline-styles */
 /* eslint-disable react/self-closing-comp */
 import {View, Text, ScrollView, Image, Alert} from 'react-native';
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import styles from '../styles/Styles';
 import auth from '@react-native-firebase/auth';
 import database from '@react-native-firebase/database';
@@ -39,12 +41,27 @@ const MyProfile = props => {
   ];
 
   const user = auth().currentUser;
-  useEffect(() => {
+  const [userData, setUserData] = useState([]);
+  const [userType, setUserType] = useState([
+    'Player Type',
+    'Phone No.',
+    'Name',
+    'Email ID',
+  ]);
+  const handleSnapshot = () => {
     const userRef = database().ref('users/' + user.uid);
     userRef.on('value', snapshot => {
-      Alert.alert('snapshot: ', snapshot.val());
+      const data = snapshot.val();
+      const newArr = [];
+      for (let i in data) {
+        newArr.push(data[i]);
+      }
+      setUserData(newArr);
     });
-  }, [user]);
+  };
+  useEffect(() => {
+    handleSnapshot();
+  }, []);
 
   return (
     <ScrollView style={styles.main}>
@@ -61,17 +78,15 @@ const MyProfile = props => {
         <View style={styles.recordContainer}>
           <View style={styles.recordBox}>
             <View style={{display: 'flex', flexDirection: 'column'}}>
-              {form.map((i, j) => (
-                <View
-                  id={'' + j}
-                  style={{display: 'flex', flexDirection: 'row'}}>
+              {userData?.map((item, j) => (
+                <View style={{display: 'flex', flexDirection: 'row'}}>
                   <View style={[styles.circle, styles.headCircle]}>
                     <Text
                       style={[
                         styles.align,
                         {fontWeight: 'bold', fontSize: 15},
                       ]}>
-                      {i}
+                      {userType[j]}
                     </Text>
                   </View>
                   <View
@@ -79,7 +94,8 @@ const MyProfile = props => {
                       styles.circle,
                       {alignContent: 'center', justifyContent: 'center'},
                     ]}>
-                    <Text style={styles.align}>{i}</Text>
+                    <Text style={styles.align}>{item}</Text>
+                    {/* <Text style={styles.align}>{j}</Text> */}
                   </View>
                 </View>
               ))}
@@ -91,7 +107,7 @@ const MyProfile = props => {
         </View>
         <View style={styles.recordContainer}>
           {record.map((item, i) => (
-            <View id={'' + i} style={styles.recordBox}>
+            <View key={i} style={styles.recordBox}>
               <Text style={styles.records}>{item.type}</Text>
               <View style={styles.innerRecord}>
                 <View style={styles.stat}>

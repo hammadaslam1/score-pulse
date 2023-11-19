@@ -107,7 +107,7 @@ const RegisterClub = props => {
         </Text>
         <View style={{marginTop: 30}}>
           {register.map((i, j) => (
-            <View id={'' + j}>
+            <View key={'' + j}>
               <Text
                 style={[
                   styles.text,

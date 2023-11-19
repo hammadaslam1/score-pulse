@@ -47,7 +47,6 @@ const Auth = props => {
       fullname: fullName,
       number: number,
       email: email,
-      user_ID: userID,
       player_type: playerMainType + ' (' + playerSubType + ')',
     });
   };

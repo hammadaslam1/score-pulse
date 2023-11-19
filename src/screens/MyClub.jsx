@@ -5,46 +5,65 @@ import {
   View,
   Text,
   ScrollView,
-  Button,
-  Alert,
   Image,
   ImageBackground,
+  TouchableOpacity,
 } from 'react-native';
 import React, {useState} from 'react';
 import styles from '../styles/Styles';
 import database from '@react-native-firebase/database';
 import {useEffect} from 'react';
-import auth from '@react-native-firebase/auth'
+import auth from '@react-native-firebase/auth';
 
 const MyClub = () => {
-const user = auth().currentUser
+  const user = auth().currentUser;
   const [clubData, setClubData] = useState([]);
   const handleSnapshot = () => {
-    const myClubRef = database().ref('/Clubs').orderByChild('ownerID').equalTo(user.uid);
+    const myClubRef = database()
+      .ref('/Clubs')
+      .orderByChild('ownerID')
+      .equalTo(user.uid);
     myClubRef.on('value', snapshot => {
       const data = snapshot.val();
+      // console.log(data);
       const newArr = [];
+      const temp = [];
 
       for (const element in data) {
         newArr.push({
           id: element,
           ...data[element],
         });
-        setClubData(newArr);
       }
+      // setClubData([]);
+      for (const i in newArr) {
+        temp.push({
+          id: i,
+          ...newArr[i],
+        });
+      }
+      setClubData(temp);
+
+      // console.log(clubData);
     });
   };
   useEffect(() => {
     handleSnapshot();
-    console.log(clubData);
-  }, [1, 2]);
+  }, []);
   return (
     <ScrollView style={{backgroundColor: '#1058ad', minHeight: '100%'}}>
-      <View style={styles.container}>
-        <View style={[styles.recordContainer, {overflow: 'hidden'}]}>
-          {clubData.map((data, index) => (
+      <View style={[styles.container, {marginVertical: 30}]}>
+        {clubData.map((data, index) => (
+          <TouchableOpacity
+            key={index}
+            activeOpacity={0.8}
+            style={{
+              borderRadius: 20,
+              overflow: 'hidden',
+              marginVertical: 10,
+              elevation: 5,
+            }}>
             <View
-              key={index}
               style={[
                 styles.recordBox,
                 {
@@ -107,8 +126,8 @@ const user = auth().currentUser
                 </View>
               </View>
             </View>
-          ))}
-        </View>
+          </TouchableOpacity>
+        ))}
       </View>
     </ScrollView>
   );

@@ -18,7 +18,7 @@ const CreateTournament = () => {
       <View>
         <View style={{marginTop: 30}}>
           {register.map((data, i) => (
-            <View id={'' + i}>
+            <View key={'' + i}>
               <Text
                 style={[
                   styles.text,

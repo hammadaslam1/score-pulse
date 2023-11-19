@@ -200,7 +200,7 @@ const Innings = () => {
             </View>
             <View style={styles.overBalls}>
               {thisOver?.map((data, i) => (
-                <View id={'' + i} style={styles.overBody}>
+                <View key={'' + i} style={styles.overBody}>
                   <Text style={styles.scoreBodyText}>{data}</Text>
                 </View>
               ))}
@@ -209,7 +209,7 @@ const Innings = () => {
         </View>
         <View style={styles.runs}>
           {runs.map((data, i) => (
-            <TouchableOpacity id={'' + i} onPress={() => handleRuns(data)}>
+            <TouchableOpacity key={'' + i} onPress={() => handleRuns(data)}>
               {data == 6 || data == 4 ? (
                 <View style={[styles.single, {backgroundColor: '#0c0'}]}>
                   <Text
