@@ -43,8 +43,6 @@ const MyClub = () => {
         });
       }
       setClubData(temp);
-
-      // console.log(clubData);
     });
   };
   useEffect(() => {
@@ -62,6 +60,7 @@ const MyClub = () => {
               overflow: 'hidden',
               marginVertical: 10,
               elevation: 5,
+              // opacity: 0.1,
             }}>
             <View
               style={[
@@ -73,6 +72,7 @@ const MyClub = () => {
                   margin: 0,
                   paddingHorizontal: 0,
                   paddingVertical: 0,
+                  // opacity: 0.5
                 },
               ]}>
               <ImageBackground
@@ -83,6 +83,7 @@ const MyClub = () => {
                   height: 150,
                   justifyContent: 'center',
                   alignItems: 'center',
+                  // opacity: 0.8
                 }}
                 source={require('../assets/icons/backgroundPlaceholder.png')}>
                 <View>

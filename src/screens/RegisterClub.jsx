@@ -21,8 +21,8 @@ import Spinner from 'react-native-loading-spinner-overlay';
 const RegisterClub = props => {
   const user = auth().currentUser;
 
-  // const dispatch = useDispatch();
-
+  const [isLeather, setIsLeather] = useState(false);
+  const [isTennis, setIsTennis] = useState(false);
   const [clubName, setClubName] = useState();
   const [city, setCity] = useState();
   const [year, setYear] = useState(new Date().getFullYear());
@@ -37,11 +37,10 @@ const RegisterClub = props => {
   ];
 
   const handleClub = () => {
-    // setYear(startDate.getFullYear());
-    if (clubName && city && year) {
+    if (clubName && city && year && (isLeather || isTennis)) {
       Alert.alert(
         'Confirm Registration',
-        `Club name: ${clubName}\nCity: ${city}\nYear: ${year}`,
+        `Club name: ${clubName}\nCity: ${city}\nYear: ${year}\nLeather: ${isLeather}\nTennis: ${isTennis}`,
         [
           {
             text: 'Cancel',
@@ -60,6 +59,8 @@ const RegisterClub = props => {
                   ownerName: user.displayName,
                   Club_Name: clubName,
                   City: city,
+                  isLeather: isLeather,
+                  isTennis: isTennis,
                   Established_Year: year,
                 })
                 .then(() => {
@@ -160,6 +161,60 @@ const RegisterClub = props => {
               {year}
             </Text>
           </View>
+        </View>
+        <View style={[styles.innerRecord, {marginTop: 25}]}>
+          {/* {bType.map((ball, index) => ( */}
+          <TouchableOpacity
+            activeOpacity={0.7}
+            onPress={() => {
+              setIsLeather(!isLeather);
+            }}>
+            <View
+              style={{
+                padding: 8,
+                width: 100,
+                flex: 1,
+                alignItems: 'center',
+                borderRadius: 10,
+                backgroundColor: isLeather ? '#fff' : '#1058ad',
+                borderWidth: 2,
+                borderColor: isLeather ? '#fff' : 'tranparent',
+              }}>
+              <Text
+                style={{
+                  color: isLeather ? '#1058ad' : '#fff',
+                  fontWeight: 'bold',
+                }}>
+                Leather Ball
+              </Text>
+            </View>
+          </TouchableOpacity>
+          <TouchableOpacity
+            activeOpacity={0.7}
+            onPress={() => {
+              setIsTennis(!isTennis);
+            }}>
+            <View
+              style={{
+                padding: 8,
+                width: 100,
+                flex: 1,
+                alignItems: 'center',
+                borderRadius: 10,
+                backgroundColor: isTennis ? '#fff' : '#1058ad',
+                borderWidth: 2,
+                borderColor: isTennis ? '#fff' : 'tranparent',
+              }}>
+              <Text
+                style={{
+                  color: isTennis ? '#1058ad' : '#fff',
+                  fontWeight: 'bold',
+                }}>
+                Tape Ball
+              </Text>
+            </View>
+          </TouchableOpacity>
+          {/* ))} */}
         </View>
         {isFilled ? (
           <Text

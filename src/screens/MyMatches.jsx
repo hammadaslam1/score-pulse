@@ -3,16 +3,17 @@
 import {View, Text, ScrollView} from 'react-native';
 import React from 'react';
 import styles from '../styles/Styles';
+import MatchCard from '../components/homeCards/MatchCard';
 
 const MyMatches = () => {
   return (
     <ScrollView style={{backgroundColor: '#1058ad', minHeight: '100%'}}>
-      <View style={styles.container}>
-        <View style={styles.recordContainer}>
-        <View style={styles.recordBox}>
-          <Text>MyMatches</Text>
+      <View style={{marginVertical: 20}}>
+      {new Array(10).fill(0).map((data, i) => (
+        <View key={i} style={styles.container}>
+          <MatchCard />
         </View>
-        </View>
+      ))}
       </View>
     </ScrollView>
   );

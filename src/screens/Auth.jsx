@@ -1,4 +1,5 @@
 /* eslint-disable prettier/prettier */
+/* eslint-disable no-trailing-spaces */
 /* eslint-disable no-alert */
 /* eslint-disable eqeqeq */
 /* eslint-disable react-native/no-inline-styles */
@@ -17,7 +18,7 @@ import {
 } from 'react-native';
 import PrimaryInput from '../components/inputs/PrimaryInput';
 import RadioBtn from '../components/buttons/RadioBtn';
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import PrimaryButton from '../components/buttons/PrimaryButton';
 import Checkbox from 'expo-checkbox';
 import auth from '@react-native-firebase/auth';
@@ -110,147 +111,159 @@ const Auth = props => {
     }
   };
 
-  // if (!auth().currentUser.uid) {
-  return (
-    <ScrollView style={{backgroundColor: '#1058ad', minHeight: '100%'}}>
-      <View>
-        <StatusBar animated={true} backgroundColor="#1058ad" />
-        <Spinner visible={loading} color="#3280cf" cancelable={true} />
-        <Image
-          source={require('../assets/logos/splash.png')}
-          alt="app logo"
-          style={{alignSelf: 'center', marginTop: 80, marginBottom: 30}}
-        />
-        <Text style={styles.title}>{status ? 'Login' : 'Register'}</Text>
-        {!status ? (
-          <PrimaryInput
-            placeholder={'Full Name'}
-            value={fullName}
-            onChangeText={setfullName}
-          />
-        ) : (
-          ''
-        )}
-        <PrimaryInput
-          placeholder={'Email'}
-          value={email}
-          onChangeText={setEmail}
-        />
-        {!status ? (
-          <>
-            <PrimaryInput
-              placeholder={'Phone Number'}
-              onChangeText={setNumber}
-              value={number}
-              keyboardType={'numeric'}
-            />
-            <Text style={styles.text}>Player Type</Text>
-            <View style={styles.radioGroup}>
-              {mainTypes.map((data, i) => (
-                <RadioBtn
-                  key={i}
-                  value={data}
-                  title={data}
-                  playerType={playerMainType}
-                  data={data}
-                  onPress={() => {
-                    setPlayerMainType(data);
-                  }}
-                />
-              ))}
-            </View>
-            {playerMainType && playerMainType != 'Wicket-Keeper' ? (
-              <Text style={styles.text}>Player Style</Text>
-            ) : (
-              ''
-            )}
-            <View style={styles.radioGroup}>
-              {playerMainType == 'Batter'
-                ? subTypes?.map((data, i) => (
-                    <RadioBtn
-                      key={i}
-                      value={data}
-                      title={data}
-                      playerType={playerSubType}
-                      data={data}
-                      onPress={() => setPlayerSubType(data)}
-                    />
-                  ))
-                : ''}
-              {playerMainType == 'Bowler'
-                ? bowlerTypes?.map((data, i) => (
-                    <RadioBtn
-                      key={i}
-                      value={data}
-                      title={data}
-                      playerType={playerSubType}
-                      data={data}
-                      onPress={() => setPlayerSubType(data)}
-                    />
-                  ))
-                : ''}
-              {playerMainType == 'All-Rounder'
-                ? allRoundTypes?.map((data, i) => (
-                    <RadioBtn
-                      key={i}
-                      value={data}
-                      title={data}
-                      playerType={playerSubType}
-                      data={data}
-                      onPress={() => setPlayerSubType(data)}
-                    />
-                  ))
-                : ''}
-            </View>
-          </>
-        ) : (
-          ''
-        )}
+  const [users, setUsers] = useState(false);
 
-        <PrimaryInput
-          placeholder={'Password'}
-          secureTextEntry={!secure}
-          value={password}
-          onChangeText={setPassword}
-        />
-        <TouchableOpacity onPress={() => setSecure(!secure)}>
-          <View style={styles.checkboxview}>
-            <Checkbox
-              value={secure}
-              style={styles.checkbox}
-              onValueChange={() => setSecure(!secure)}
-              color={'transparent'}
+  useEffect(() => {
+    auth().onAuthStateChanged(user => {
+      if (user) {
+        setUsers(true);
+      } else {
+        setUsers(false);
+      }
+    });
+  }, []);
+
+  if (!users) {
+    return (
+      <ScrollView style={{backgroundColor: '#1058ad', minHeight: '100%'}}>
+        <View>
+          <StatusBar animated={true} backgroundColor="#1058ad" />
+          <Spinner visible={loading} color="#3280cf" cancelable={true} />
+          <Image
+            source={require('../assets/logos/splash.png')}
+            alt="app logo"
+            style={{alignSelf: 'center', marginTop: 80, marginBottom: 30}}
+          />
+          <Text style={styles.title}>{status ? 'Login' : 'Register'}</Text>
+          {!status ? (
+            <PrimaryInput
+              placeholder={'Full Name'}
+              value={fullName}
+              onChangeText={setfullName}
             />
-            <Text style={{color: '#fff', fontSize: 15}}>Show Password</Text>
-          </View>
-        </TouchableOpacity>
-        <PrimaryButton
-          title={status ? 'LOGIN' : 'REGISTER'}
-          onPress={() => {
-            handleAuth();
-          }}
-        />
-        <Text style={styles.status}>
-          {status ? "Don't have an account?" : 'Already registered?'}
-        </Text>
-        <TouchableOpacity onPress={() => setStatus(!status)}>
-          <Text
-            style={{
-              fontSize: 18,
-              color: '#fff',
-              textDecorationLine: 'underline',
-              alignSelf: 'center',
-              paddingVertical: 5,
-            }}>
-            {status ? 'Register' : 'Sign In'}
+          ) : (
+            ''
+          )}
+          <PrimaryInput
+            placeholder={'Email'}
+            value={email}
+            onChangeText={setEmail}
+          />
+          {!status ? (
+            <>
+              <PrimaryInput
+                placeholder={'Phone Number'}
+                onChangeText={setNumber}
+                value={number}
+                keyboardType={'numeric'}
+              />
+              <Text style={styles.text}>Player Type</Text>
+              <View style={styles.radioGroup}>
+                {mainTypes.map((data, i) => (
+                  <RadioBtn
+                    key={i}
+                    value={data}
+                    title={data}
+                    playerType={playerMainType}
+                    data={data}
+                    onPress={() => {
+                      setPlayerMainType(data);
+                    }}
+                  />
+                ))}
+              </View>
+              {playerMainType && playerMainType != 'Wicket-Keeper' ? (
+                <Text style={styles.text}>Player Style</Text>
+              ) : (
+                ''
+              )}
+              <View style={styles.radioGroup}>
+                {playerMainType == 'Batter'
+                  ? subTypes?.map((data, i) => (
+                      <RadioBtn
+                        key={i}
+                        value={data}
+                        title={data}
+                        playerType={playerSubType}
+                        data={data}
+                        onPress={() => setPlayerSubType(data)}
+                      />
+                    ))
+                  : ''}
+                {playerMainType == 'Bowler'
+                  ? bowlerTypes?.map((data, i) => (
+                      <RadioBtn
+                        key={i}
+                        value={data}
+                        title={data}
+                        playerType={playerSubType}
+                        data={data}
+                        onPress={() => setPlayerSubType(data)}
+                      />
+                    ))
+                  : ''}
+                {playerMainType == 'All-Rounder'
+                  ? allRoundTypes?.map((data, i) => (
+                      <RadioBtn
+                        key={i}
+                        value={data}
+                        title={data}
+                        playerType={playerSubType}
+                        data={data}
+                        onPress={() => setPlayerSubType(data)}
+                      />
+                    ))
+                  : ''}
+              </View>
+            </>
+          ) : (
+            ''
+          )}
+
+          <PrimaryInput
+            placeholder={'Password'}
+            secureTextEntry={!secure}
+            value={password}
+            onChangeText={setPassword}
+          />
+          <TouchableOpacity onPress={() => setSecure(!secure)}>
+            <View style={styles.checkboxview}>
+              <Checkbox
+                value={secure}
+                style={styles.checkbox}
+                onValueChange={() => setSecure(!secure)}
+                color={'transparent'}
+              />
+              <Text style={{color: '#fff', fontSize: 15}}>Show Password</Text>
+            </View>
+          </TouchableOpacity>
+          <PrimaryButton
+            title={status ? 'LOGIN' : 'REGISTER'}
+            onPress={() => {
+              handleAuth();
+            }}
+          />
+          <Text style={styles.status}>
+            {status ? "Don't have an account?" : 'Already registered?'}
           </Text>
-        </TouchableOpacity>
-      </View>
-    </ScrollView>
-  );
-  // } else {
-  //   props.navigation.navigate('Home');
-  // }
+          <TouchableOpacity onPress={() => setStatus(!status)}>
+            <Text
+              style={{
+                fontSize: 18,
+                color: '#fff',
+                textDecorationLine: 'underline',
+                alignSelf: 'center',
+                paddingVertical: 5,
+              }}>
+              {status ? 'Register' : 'Sign In'}
+            </Text>
+          </TouchableOpacity>
+        </View>
+      </ScrollView>
+    );
+  } else {
+    props.navigation.navigate('Home');
+  }
 };
 
 const styles = StyleSheet.create({

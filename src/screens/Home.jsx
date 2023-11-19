@@ -10,54 +10,162 @@ import {
   Pressable,
   TouchableOpacity,
   StatusBar,
+  Alert,
 } from 'react-native';
 import React, {useEffect} from 'react';
 import styles from '../styles/Styles';
-import auth from '@react-native-firebase/auth';
-import {useDispatch, useSelector} from 'react-redux';
+import RightIndicator from '../components/icons/RightIndicator';
+import ClubCard from '../components/homeCards/ClubCard';
+import MatchCard from '../components/homeCards/MatchCard';
+import ProfileCard from '../components/homeCards/ProfileCard';
+import TournamentCard from '../components/homeCards/TournamentCard';
 
 const Home = props => {
-  const user = auth().currentUser;
-  const userStore = useSelector(state => state.UserReducer.user);
-  const dispatch = useDispatch();
-  if (!user) {
-    props.navigation.navigate('Auth');
-  } else {
-    return (
-      <ScrollView style={{backgroundColor: '#1058ad', minHeight: '100%'}}>
-        <View style={styles.container}>
-          <StatusBar animated={true} backgroundColor="#1058ad" />
+  return (
+    <ScrollView style={{backgroundColor: '#1058ad', minHeight: '100%'}}>
+      <View style={styles.container}>
+        <StatusBar animated={true} backgroundColor="#1058ad" />
+        <View
+          style={{
+            flexDirection: 'row',
+            alignItems: 'center',
+            alignSelf: 'flex-start',
+          }}>
           <TouchableOpacity
             style={{
               tintColor: '#ddd',
               alignSelf: 'flex-end',
-              margin: 10,
+              marginHorizontal: 5,
+              marginRight: 15,
             }}
-            onPress={() => props.navigation.navigate('Menu')}>
+            onPress={() => props.navigation.navigate('Menu Links')}>
             <Image
               source={require('../assets/logos/menu.png')}
               style={{
-                tintColor: '#ddd',
+                tintColor: '#fff',
                 alignSelf: 'flex-end',
                 margin: 10,
-                width: 45,
-                height: 45,
-                borderRadius: 30,
-                borderWidth: 2,
-                borderColor: '#bbb',
+                width: 40,
+                height: 40,
               }}
-              onPress={() => props.navigation.navigate('menu')}
+              onPress={() => props.navigation.navigate('Menu')}
             />
           </TouchableOpacity>
-          <Image
-            source={require('../assets/logos/icon_lite.png')}
-            alt="app logo"
-            style={styles.image}
-          />
+          <Text
+            style={{
+              fontSize: 30,
+              fontFamily: 'verdana',
+              fontWeight: 'bold',
+              color: '#fff',
+            }}>
+            Home
+          </Text>
         </View>
-      </ScrollView>
-    );
-  }
+        {/* matches */}
+        <TouchableOpacity
+          activeOpacity={0.65}
+          style={{
+            flexDirection: 'row',
+            flex: 1,
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            paddingHorizontal: 10,
+            marginTop: 30,
+            marginBottom: 20,
+          }}>
+          <Text
+            style={{
+              flex: 1,
+              fontSize: 20,
+              fontFamily: 'monospace',
+              fontWeight: 'bold',
+              color: '#fff',
+            }}>
+            Matches
+          </Text>
+          <RightIndicator />
+        </TouchableOpacity>
+        <MatchCard />
+        {/* profile */}
+        <TouchableOpacity
+          activeOpacity={0.65}
+          style={{
+            flexDirection: 'row',
+            flex: 1,
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            paddingHorizontal: 10,
+            marginTop: 30,
+            marginBottom: 20,
+          }}>
+          <Text
+            style={{
+              flex: 1,
+              fontSize: 20,
+              fontFamily: 'monospace',
+              fontWeight: 'bold',
+              color: '#fff',
+            }}>
+            Profile
+          </Text>
+          <RightIndicator />
+        </TouchableOpacity>
+        <ProfileCard />
+        {/* tournaments */}
+        <TouchableOpacity
+          activeOpacity={0.65}
+          style={{
+            flexDirection: 'row',
+            flex: 1,
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            paddingHorizontal: 10,
+            marginTop: 30,
+            marginBottom: 20,
+          }}>
+          <Text
+            style={{
+              flex: 1,
+              fontSize: 20,
+              fontFamily: 'monospace',
+              fontWeight: 'bold',
+              color: '#fff',
+            }}>
+            Tournaments
+          </Text>
+          <RightIndicator />
+        </TouchableOpacity>
+        <TournamentCard />
+        {/* clubs */}
+        <TouchableOpacity
+          activeOpacity={0.65}
+          style={{
+            flexDirection: 'row',
+            flex: 1,
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            paddingHorizontal: 10,
+            marginTop: 30,
+            marginBottom: 20,
+          }}>
+          <Text
+            style={{
+              flex: 1,
+              fontSize: 20,
+              fontFamily: 'monospace',
+              fontWeight: 'bold',
+              color: '#fff',
+            }}>
+            Clubs
+          </Text>
+          <RightIndicator />
+        </TouchableOpacity>
+        <ClubCard />
+      </View>
+    </ScrollView>
+  );
+  // }
+  // });
 };
 
 export default Home;

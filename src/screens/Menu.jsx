@@ -1,12 +1,21 @@
 /* eslint-disable prettier/prettier */
 /* eslint-disable react-native/no-inline-styles */
-import {View, Text, ScrollView, Image, TouchableOpacity} from 'react-native';
-import React from 'react';
+import {
+  View,
+  Text,
+  ScrollView,
+  Image,
+  TouchableOpacity,
+  Alert,
+} from 'react-native';
+import React, {useState} from 'react';
 import styles from '../styles/Styles';
 import PrimaryButton from '../components/buttons/PrimaryButton';
 import auth from '@react-native-firebase/auth';
+import Spinner from 'react-native-loading-spinner-overlay';
 
 const Menu = props => {
+  const [loading, setLoading] = useState(false);
   const list = [
     {
       id: 1,
@@ -64,13 +73,22 @@ const Menu = props => {
     },
   ];
   const handleSignOut = () => {
+    setLoading(true);
     auth()
       .signOut()
-      .then(() => console.log('signed out'));
+      .then(() => {
+        setLoading(false);
+        props.navigation.popToTop();
+      })
+      .catch(e => {
+        setLoading(false);
+        props.navigation.popToTop();
+      });
   };
   return (
     <ScrollView style={{backgroundColor: '#1058ad', minHeight: '100%'}}>
       <View style={[styles.container, {paddingBottom: 30}]}>
+        <Spinner visible={loading} color="#3280cf" cancelable={true} />
         <Image
           source={require('../assets/logos/icon_lite.png')}
           alt="app logo"

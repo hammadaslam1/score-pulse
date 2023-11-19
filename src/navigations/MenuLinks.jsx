@@ -14,26 +14,71 @@ import CreateTournament from '../screens/CreateTournament';
 import OpenMatch from '../screens/OpenMatch';
 import MyMatches from '../screens/MyMatches';
 import MyClub from '../screens/MyClub';
+import {createStackNavigator} from '@react-navigation/stack';
+import * as native from '@react-navigation/native';
+// import NavLinks from './NavLinks';
+// import App from '../../App';
 
-const stack = createNativeStackNavigator();
+const stack = createStackNavigator();
 
 const MenuLinks = () => {
   return (
-    <NavigationContainer independent={true}>
+    // <native.NavigationContainer independent={true}>
       <stack.Navigator
         screenOptions={{headerShown: true}}
         initialRouteName="Menu">
-        <stack.Screen name="Menu" component={Menu} options={styles.headerSpecial} />
-        <stack.Screen name="My Matches" component={MyMatches} options={styles.header} />
-        <stack.Screen name="My Profile" component={MyProfile} options={styles.header} />
-        <stack.Screen name="Edit Profile" component={EditProfile} options={styles.header} />
-        <stack.Screen name="Innings" component={Innings} options={styles.header} />
-        <stack.Screen name="Open Match" component={OpenMatch} options={styles.header} />
-        <stack.Screen name="Club Registration" component={RegisterClub} options={styles.header} />
-        <stack.Screen name="Create Tournament" component={CreateTournament} options={styles.header} />
-        <stack.Screen name="My Clubs" component={MyClub} options={styles.header} />
+        <stack.Screen
+          name="Menu"
+          component={Menu}
+          options={styles.headerSpecial}
+        />
+        <stack.Screen
+          name="My Matches"
+          component={MyMatches}
+          options={styles.header}
+        />
+        <stack.Screen
+          name="My Profile"
+          component={MyProfile}
+          options={styles.header}
+        />
+        <stack.Screen
+          name="Edit Profile"
+          component={EditProfile}
+          options={styles.header}
+        />
+        <stack.Screen
+          name="Innings"
+          component={Innings}
+          options={styles.header}
+        />
+        <stack.Screen
+          name="Open Match"
+          component={OpenMatch}
+          options={styles.header}
+        />
+        <stack.Screen
+          name="Club Registration"
+          component={RegisterClub}
+          options={styles.header}
+        />
+        <stack.Screen
+          name="Create Tournament"
+          component={CreateTournament}
+          options={styles.header}
+        />
+        <stack.Screen
+          name="My Clubs"
+          component={MyClub}
+          options={styles.header}
+        />
+        {/* <stack.Screen
+          name="App"
+          component={App}
+          options={styles.header}
+        /> */}
       </stack.Navigator>
-    </NavigationContainer>
+    // {/* </native.NavigationContainer> */}
   );
 };
 

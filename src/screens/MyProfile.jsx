@@ -42,6 +42,7 @@ const MyProfile = props => {
 
   const user = auth().currentUser;
   const [userData, setUserData] = useState([]);
+  const [data, setData] = useState([]);
   const [userType, setUserType] = useState([
     'Player Type',
     'Phone No.',
@@ -51,11 +52,12 @@ const MyProfile = props => {
   const handleSnapshot = () => {
     const userRef = database().ref('users/' + user.uid);
     userRef.on('value', snapshot => {
-      const data = snapshot.val();
+      const el = snapshot.val();
       const newArr = [];
-      for (let i in data) {
-        newArr.push(data[i]);
+      for (let i in el) {
+        newArr.push(el[i]);
       }
+      setData(el);
       setUserData(newArr);
     });
   };
@@ -71,7 +73,7 @@ const MyProfile = props => {
           alt="app logo"
           style={styles.image}
         />
-        <Text style={styles.name}>Player Name</Text>
+        <Text style={styles.name}>{data.fullname}</Text>
         <View>
           <Text style={styles.topic}>My Details</Text>
         </View>
@@ -79,7 +81,7 @@ const MyProfile = props => {
           <View style={styles.recordBox}>
             <View style={{display: 'flex', flexDirection: 'column'}}>
               {userData?.map((item, j) => (
-                <View style={{display: 'flex', flexDirection: 'row'}}>
+                <View key={j} style={{display: 'flex', flexDirection: 'row'}}>
                   <View style={[styles.circle, styles.headCircle]}>
                     <Text
                       style={[
