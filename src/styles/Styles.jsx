@@ -25,6 +25,8 @@ const styles = StyleSheet.create({
     borderColor: '#fff',
   },
   name: {
+    textShadowRadius: 2,
+    textShadowColor: '#000',
     fontSize: 24,
     fontWeight: 'bold',
     color: '#fff',
@@ -32,6 +34,8 @@ const styles = StyleSheet.create({
     marginBottom: 40,
   },
   records: {
+    textShadowRadius: 2,
+    textShadowColor: '#000',
     fontSize: 18,
     color: '#fff',
     fontWeight: 'bold',
@@ -47,7 +51,7 @@ const styles = StyleSheet.create({
   recordBox: {
     margin: 15,
     width: 330,
-    paddingHorizontal: 20,
+    paddingHorizontal: 10,
     paddingVertical: 10,
     borderRadius: 10,
   },
@@ -56,11 +60,14 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-evenly',
     alignItems: 'center',
-    marginVertical: 5,
+    // marginVertical: 5,
   },
   stat: {
     flex: 1,
-    fontSize: 14,
+    textShadowRadius: 2,
+    textShadowColor: '#000',
+    fontSize: 16,
+    fontWeight: 'bold',
     color: '#fff',
     textAlign: 'center',
     padding: 2,
@@ -68,9 +75,11 @@ const styles = StyleSheet.create({
   divider: {
     borderWidth: 1,
     backgroundColor: '#1058ad',
-    borderRadius: 2,
+    borderRadius: 20,
+    // elevation: 5,
     borderColor: '#1058ad',
-    paddingVertical: 20,
+    paddingVertical: 30,
+    // paddingHorizontal: 2,
   },
   vertDivider: {
     borderWidth: 1,
@@ -80,6 +89,8 @@ const styles = StyleSheet.create({
     paddingHorizontal: 170,
   },
   topic: {
+    textShadowRadius: 2,
+    textShadowColor: '#000',
     fontSize: 20,
     fontFamily: 'monospace',
     color: '#fff',
@@ -103,13 +114,17 @@ const styles = StyleSheet.create({
   align: {
     textAlign: 'center',
     color: '#fff',
+    textShadowRadius: 2,
+    textShadowColor: '#000',
     fontSize: 13,
   },
   button: {
     // width:
     paddingHorizontal: 30,
     paddingVertical: 10,
-    // fontSize: 26,
+    textShadowRadius: 2,
+    textShadowColor: '#000',// 
+    fontSize: 26,
     '&:hover': {
       opacity: 0.7,
     },
@@ -122,6 +137,8 @@ const styles = StyleSheet.create({
   },
   text: {
     fontWeight: 'bold',
+    textShadowRadius: 2,
+    textShadowColor: '#000',
     fontSize: 22,
     color: '#fff',
     marginHorizontal: 20,
@@ -214,6 +231,8 @@ const styles = StyleSheet.create({
   },
   scoreHeadText: {
     color: '#fff',
+    textShadowRadius: 2,
+    textShadowColor: '#000',
     fontSize: 16,
     fontWeight: 'bold',
     textAlign: 'center',
@@ -221,6 +240,8 @@ const styles = StyleSheet.create({
   },
   scoreBodyText: {
     color: '#fff',
+    textShadowRadius: 2,
+    textShadowColor: '#000',
     fontSize: 12,
     textAlign: 'center',
     paddingVertical: 2,

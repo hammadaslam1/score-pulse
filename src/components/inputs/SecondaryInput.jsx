@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-/* eslint-disable semi */
+/* eslint-disable react/react-in-jsx-scope */
 
 import {StyleSheet, TextInput, View} from 'react-native';
 

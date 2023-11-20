@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 /* eslint-disable no-unused-vars */
 /* eslint-disable react-native/no-inline-styles */
-/* eslint-disable semi */
+
 import {
   View,
   Text,
@@ -124,7 +124,8 @@ const Home = props => {
             paddingHorizontal: 10,
             marginTop: 30,
             marginBottom: 20,
-          }} onPress={() => props.navigation.navigate('Tournaments')}>
+          }}
+          onPress={() => props.navigation.navigate('Tournaments')}>
           <Text
             style={{
               flex: 1,
@@ -150,7 +151,7 @@ const Home = props => {
             marginTop: 30,
             marginBottom: 20,
           }}
-          onPress={()=> props.navigation.navigate('Clubs')}>
+          onPress={() => props.navigation.navigate('Clubs')}>
           <Text
             style={{
               flex: 1,

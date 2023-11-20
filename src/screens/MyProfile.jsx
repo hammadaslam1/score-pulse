@@ -38,25 +38,22 @@ const MyProfile = props => {
     },
   ];
 
-  const form = [
-    'Email ID',
-    'Playing Role',
-    'Batting Style',
-    'Bowling Style',
-    'Jersey No.',
-    'Country',
-  ];
+  // const form = [
+  //   'Email ID',
+  //   'Playing Role',
+  //   'Batting Style',
+  //   'Bowling Style',
+  //   'Jersey No.',
+  //   'Country',
+  // ];
 
   const user = auth().currentUser;
   const [userData, setUserData] = useState([]);
-  const [data, setData] = useState([]);
-  const [userType, setUserType] = useState([
-    'Player Type',
-    'Phone No.',
-    'Name',
-    'Email ID',
-  ]);
-  const handleSnapshot = () => {
+  const [statData, setStatData] = useState([]);
+  const [data1, setData1] = useState([]);
+  // const [data2, setData2] = useState([]);
+  const [userType, setUserType] = useState(['Phone No', 'Jersey No', 'Email ID', 'Name', 'Main Role', 'Bowling Style', 'Batting Style']);
+  const handleUserShot = () => {
     const userRef = database().ref('users/' + user.uid);
     userRef.on('value', snapshot => {
       const el = snapshot.val();
@@ -64,12 +61,26 @@ const MyProfile = props => {
       for (let i in el) {
         newArr.push(el[i]);
       }
-      setData(el);
+      setData1(el);
       setUserData(newArr);
     });
   };
+  const handleStatShot = () => {
+    const statRef = database().ref('players/records/' + user.uid);
+    statRef.on('value', snapshot => {
+      const el = snapshot.val();
+      const newArr = [];
+      for (let i in el) {
+        newArr.push(el[i]);
+      }
+      // setData2(el);
+      setStatData(newArr);
+      console.log(snapshot);
+    });
+  };
   useEffect(() => {
-    handleSnapshot();
+    handleUserShot();
+    handleStatShot();
   }, []);
 
   return (
@@ -78,15 +89,15 @@ const MyProfile = props => {
         <View>
           <Image
             source={
-              userData.userImage
-                ? require('../assets/icons/place.png')
-                : require('../assets/logos/icon_lite.png')
+              // userData.userImage
+              // ? require(userData.userImage):
+              require('../assets/logos/icon_lite.png')
             }
             alt="app logo"
             style={styles.image}
           />
         </View>
-        <Text style={styles.name}>{data.fullname}</Text>
+        <Text style={styles.name}>{data1.fullname}</Text>
         <View>
           <Text style={styles.topic}>My Details</Text>
         </View>
@@ -109,7 +120,7 @@ const MyProfile = props => {
                       styles.circle,
                       {alignContent: 'center', justifyContent: 'center'},
                     ]}>
-                    <Text style={styles.align}>{item}</Text>
+                    <Text style={[styles.align, {fontSize: 15}]}>{item}</Text>
                     {/* <Text style={styles.align}>{j}</Text> */}
                   </View>
                 </View>
@@ -121,48 +132,113 @@ const MyProfile = props => {
           <Text style={styles.topic}>My Stats</Text>
         </View>
         <View style={styles.recordContainer}>
-          {record.map((item, i) => (
-            <View key={i} style={styles.recordBox}>
-              <Text style={styles.records}>{item.type}</Text>
-              <View style={styles.innerRecord}>
-                <View style={styles.stat}>
-                  <Text style={styles.stat}>{item.runs}</Text>
-                  <Text style={styles.stat}>0</Text>
+          {statData.map((item, i) => (
+            <View key={i}>
+              <View style={styles.recordBox}>
+                <Text
+                  style={[
+                    styles.records,
+                    styles.headCircle,
+                    {fontWeight: 900, borderRadius: 30, padding: 2},
+                  ]}>
+                  Batting
+                </Text>
+                <View style={styles.innerRecord}>
+                  <View style={styles.stat}>
+                    <Text style={styles.stat}>Runs</Text>
+                    <Text style={styles.stat}>{item.runs}</Text>
+                  </View>
+                  <View style={styles.divider}></View>
+                  <View style={styles.stat}>
+                    <Text style={styles.stat}>Average</Text>
+                    <Text style={styles.stat}>{item.battingAverage}</Text>
+                  </View>
+                  <View style={styles.divider}></View>
+                  <View style={styles.stat}>
+                    <Text style={styles.stat}>High Score</Text>
+                    <Text style={styles.stat}>{item.highScore}</Text>
+                  </View>
                 </View>
-                <View style={styles.divider}></View>
-                <View style={styles.stat}>
-                  <Text style={styles.stat}>{item.average}</Text>
-                  <Text style={styles.stat}>0</Text>
+              </View>
+              <View style={styles.recordBox}>
+                <Text
+                  style={[
+                    styles.records,
+                    styles.headCircle,
+                    {fontWeight: 900, borderRadius: 30, padding: 2},
+                  ]}>
+                  Bowling
+                </Text>
+                <View style={styles.innerRecord}>
+                  <View style={styles.stat}>
+                    <Text style={styles.stat}>Wickets</Text>
+                    <Text style={styles.stat}>{item.wickets}</Text>
+                  </View>
+                  <View style={styles.divider}></View>
+                  <View style={styles.stat}>
+                    <Text style={styles.stat}>Average</Text>
+                    <Text style={styles.stat}>{item.bowlingAverage}</Text>
+                  </View>
+                  <View style={styles.divider}></View>
+                  <View style={styles.stat}>
+                    <Text style={styles.stat}>Best Bowling</Text>
+                    <Text style={styles.stat}>{item.bestBowling}</Text>
+                  </View>
                 </View>
-                <View style={styles.divider}></View>
-                <View style={styles.stat}>
-                  <Text style={styles.stat}>{item.scores}</Text>
-                  <Text style={styles.stat}>0</Text>
+              </View>
+              <View style={styles.recordBox}>
+                <Text
+                  style={[
+                    styles.records,
+                    styles.headCircle,
+                    {fontWeight: 900, borderRadius: 30, padding: 2},
+                  ]}>
+                  Fielding
+                </Text>
+                <View style={styles.innerRecord}>
+                  <View style={styles.stat}>
+                    <Text style={styles.stat}>Catches</Text>
+                    <Text style={styles.stat}>{item.catches}</Text>
+                  </View>
+                  <View style={styles.divider}></View>
+                  <View style={styles.stat}>
+                    <Text style={styles.stat}>Stumpings</Text>
+                    <Text style={styles.stat}>{item.stumpings}</Text>
+                  </View>
+                  <View style={styles.divider}></View>
+                  <View style={styles.stat}>
+                    <Text style={styles.stat}>Runouts</Text>
+                    <Text style={styles.stat}>{item.runouts}</Text>
+                  </View>
                 </View>
               </View>
             </View>
           ))}
         </View>
-        <TouchableOpacity activeOpacity={0.6} style={[styles.recordContainer, {marginVertical: 0}]}>
+        <TouchableOpacity
+          activeOpacity={0.6}
+          style={[styles.recordContainer, {marginVertical: 0}]}
+          onPress={() => props.navigation.navigate('Add Scores')}>
           <View style={styles.button}>
             <Text
               style={[
                 styles.align,
                 {fontWeight: 'bold', fontSize: 16, fontFamily: 'monospace'},
-              ]}
-              onPress={() => props.navigation.navigate('Add Scores')}>
+              ]}>
               Add Past Scores
             </Text>
           </View>
         </TouchableOpacity>
-        <TouchableOpacity activeOpacity={0.6} style={styles.recordContainer}>
+        <TouchableOpacity
+          activeOpacity={0.6}
+          style={styles.recordContainer}
+          onPress={() => props.navigation.navigate('Edit Profile')}>
           <View style={styles.button}>
             <Text
               style={[
                 styles.align,
                 {fontWeight: 'bold', fontSize: 16, fontFamily: 'monospace'},
-              ]}
-              onPress={() => props.navigation.navigate('Edit Profile')}>
+              ]}>
               Edit Profile
             </Text>
           </View>

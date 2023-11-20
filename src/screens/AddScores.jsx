@@ -1,5 +1,4 @@
 /* eslint-disable prettier/prettier */
-/* eslint-disable no-unused-vars */
 /* eslint-disable react-native/no-inline-styles */
 import {View, Text, ScrollView, TouchableOpacity, Alert} from 'react-native';
 import React, {useState} from 'react';
@@ -40,7 +39,9 @@ const AddScores = props => {
 
   const handleTour = () => {
     setLoading(true);
-    const scoreRef = database().ref('/players/records/' + user.uid);
+    const scoreRef = database()
+      .ref('/players/records/' + user.uid)
+      .push();
     scoreRef
       .set({
         matches: matches,

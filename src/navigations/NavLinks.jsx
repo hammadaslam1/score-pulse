@@ -1,12 +1,11 @@
 /* eslint-disable prettier/prettier */
-/* eslint-disable react/no-unstable-nested-components */
+/* eslint-disable react-native/no-inline-styles */
+
 import React from 'react';
 import Auth from '../screens/Auth';
-import MenuLinks from './MenuLinks';
 import Home from '../screens/Home';
 import {createStackNavigator} from '@react-navigation/stack';
 import {NavigationContainer} from '@react-navigation/native';
-import auth from '@react-native-firebase/auth';
 import MyProfile from '../screens/MyProfile';
 import ProfileCard from '../components/homeCards/ProfileCard';
 import Menu from '../screens/Menu';

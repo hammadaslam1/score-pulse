@@ -2,13 +2,13 @@
 /* eslint-disable eqeqeq */
 /* eslint-disable react/react-in-jsx-scope */
 
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
 
 const RadioBtn = props => {
   const playerType = props.playerType;
   const data = props.data;
   return (
-    <View style={styles.radioButton}>
+    <TouchableOpacity activeOpacity={1} style={styles.radioButton} onPress={props.onPress}>
       <View style={styles.radioWrapper}>
         <View style={styles.radioCircle} onPress={props.onPress}>
           {data == playerType ? <View style={styles.radioBg} /> : ''}
@@ -17,7 +17,7 @@ const RadioBtn = props => {
           {props.title}
         </Text>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 
