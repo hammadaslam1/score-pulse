@@ -19,22 +19,37 @@ import RegisterClub from '../screens/RegisterClub';
 import CreateTournament from '../screens/CreateTournament';
 import MyClub from '../screens/MyClub';
 import MyTournaments from '../screens/MyTournaments';
+import Tournaments from '../screens/Tournaments';
+import Clubs from '../screens/Clubs';
+import AddScores from '../screens/AddScores';
 
 const stack = createStackNavigator();
 const NavLinks = props => {
-  const user = auth().currentUser;
+  // const user = auth().currentUser;
   return (
     <NavigationContainer independent={true}>
       <stack.Navigator
-        initialRouteName={!user ? 'Auth' : 'Home'}
+        initialRouteName={'Auth'}
         screenOptions={{headerShown: true}}>
-        <stack.Screen name="Auth" gestureEnabled={true} options={{headerShown: false}} component={Auth} />
-        {/* <stack.Screen
-          name="Menu Links"
+        <stack.Screen
+          name="Auth"
           gestureEnabled={true}
-          component={MenuLinks}
-        /> */}
-        <stack.Screen name="Home" gestureEnabled={true} options={{headerShown: false}} component={Home} />
+          options={{headerShown: false}}
+          component={Auth}
+        />
+        <stack.Screen
+          name="Add Scores"
+          gestureEnabled={true}
+          options={styles.header}
+          component={AddScores}
+        />
+
+        <stack.Screen
+          name="Home"
+          gestureEnabled={true}
+          options={{headerShown: false}}
+          component={Home}
+        />
         <stack.Screen
           name="ProfileCard"
           gestureEnabled={true}
@@ -47,8 +62,30 @@ const NavLinks = props => {
           component={MyProfile}
           options={styles.header}
         />
-        <stack.Screen name="Menu" gestureEnabled={true} options={styles.header} component={Menu} />
-        <stack.Screen name="My Tournaments" gestureEnabled={true} options={styles.header} component={MyTournaments} />
+        <stack.Screen
+          name="Menu"
+          gestureEnabled={true}
+          options={styles.header}
+          component={Menu}
+        />
+        <stack.Screen
+          name="My Tournaments"
+          gestureEnabled={true}
+          options={styles.header}
+          component={MyTournaments}
+        />
+        <stack.Screen
+          name="Tournaments"
+          gestureEnabled={true}
+          options={styles.header}
+          component={Tournaments}
+        />
+        <stack.Screen
+          name="Clubs"
+          gestureEnabled={true}
+          options={styles.header}
+          component={Clubs}
+        />
         <stack.Screen
           name="My Matches"
           gestureEnabled={true}

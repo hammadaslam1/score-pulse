@@ -3,7 +3,14 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react-native/no-inline-styles */
 /* eslint-disable react/self-closing-comp */
-import {View, Text, ScrollView, Image, Alert} from 'react-native';
+import {
+  View,
+  Text,
+  ScrollView,
+  Image,
+  Alert,
+  TouchableOpacity,
+} from 'react-native';
 import React, {useEffect, useState} from 'react';
 import styles from '../styles/Styles';
 import auth from '@react-native-firebase/auth';
@@ -68,11 +75,17 @@ const MyProfile = props => {
   return (
     <ScrollView style={styles.main}>
       <View style={styles.container}>
-        <Image
-          source={require('../assets/logos/icon_lite.png')}
-          alt="app logo"
-          style={styles.image}
-        />
+        <View>
+          <Image
+            source={
+              userData.userImage
+                ? require('../assets/icons/place.png')
+                : require('../assets/logos/icon_lite.png')
+            }
+            alt="app logo"
+            style={styles.image}
+          />
+        </View>
         <Text style={styles.name}>{data.fullname}</Text>
         <View>
           <Text style={styles.topic}>My Details</Text>
@@ -130,18 +143,30 @@ const MyProfile = props => {
             </View>
           ))}
         </View>
-        <View style={styles.recordContainer}>
+        <TouchableOpacity activeOpacity={0.6} style={[styles.recordContainer, {marginVertical: 0}]}>
           <View style={styles.button}>
             <Text
               style={[
                 styles.align,
-                {fontWeight: 'bold', fontSize: 20, fontFamily: 'monospace'},
+                {fontWeight: 'bold', fontSize: 16, fontFamily: 'monospace'},
               ]}
-              onPress={() => props.navigation.navigate('Edit Profile')}>
-              Edit
+              onPress={() => props.navigation.navigate('Add Scores')}>
+              Add Past Scores
             </Text>
           </View>
-        </View>
+        </TouchableOpacity>
+        <TouchableOpacity activeOpacity={0.6} style={styles.recordContainer}>
+          <View style={styles.button}>
+            <Text
+              style={[
+                styles.align,
+                {fontWeight: 'bold', fontSize: 16, fontFamily: 'monospace'},
+              ]}
+              onPress={() => props.navigation.navigate('Edit Profile')}>
+              Edit Profile
+            </Text>
+          </View>
+        </TouchableOpacity>
       </View>
     </ScrollView>
   );

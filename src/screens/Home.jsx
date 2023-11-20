@@ -124,7 +124,7 @@ const Home = props => {
             paddingHorizontal: 10,
             marginTop: 30,
             marginBottom: 20,
-          }} onPress={() => props.navigation.navigate('My Tournaments')}>
+          }} onPress={() => props.navigation.navigate('Tournaments')}>
           <Text
             style={{
               flex: 1,
@@ -149,7 +149,8 @@ const Home = props => {
             paddingHorizontal: 10,
             marginTop: 30,
             marginBottom: 20,
-          }}>
+          }}
+          onPress={()=> props.navigation.navigate('Clubs')}>
           <Text
             style={{
               flex: 1,

@@ -16,7 +16,7 @@ import auth from '@react-native-firebase/auth';
 const ClubCard = props => {
   const [clubData, setClubData] = useState([]);
   const handleSnapshot = () => {
-    const myClubRef = database().ref('/Clubs');
+    const myClubRef = database().ref('/Clubs').limitToFirst(5);
     myClubRef.on('value', snapshot => {
       const data = snapshot.val();
       const newArr = [];
@@ -73,7 +73,7 @@ const ClubCard = props => {
               style={{
                 flex: 2,
                 backgroundColor: '#1058ad',
-                width: 150,
+                width: 120,
                 height: 150,
                 justifyContent: 'center',
                 alignItems: 'center',
