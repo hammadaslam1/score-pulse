@@ -55,7 +55,6 @@ const CreateTournament = props => {
       sessionYear &&
       (isLeather || isTennis)
     ) {
-      
       Alert.alert(
         'Confirm Tournament Creation',
         `Club name: ${clubName}\nCity: ${city}\nSession: ${sessionYear}\nLeather: ${isLeather}\nTennis: ${isTennis}\nStart Date: ${startDate}\nEnd Date: ${endDate}\nTournament Name: ${tournament}`,
@@ -81,15 +80,15 @@ const CreateTournament = props => {
                   isTennis: isTennis,
                   startDate:
                     startDate.getDate() +
-                    ' - ' +
+                    '-' +
                     startDate.getMonth() +
-                    ' - ' +
+                    '-' +
                     startDate.getFullYear(),
                   endDate:
                     endDate.getDate() +
-                    ' - ' +
+                    '-' +
                     endDate.getMonth() +
-                    ' - ' +
+                    '-' +
                     endDate.getFullYear(),
                 })
                 .then(() => {

@@ -45,14 +45,11 @@ const ProfileCard = props => {
         style={{
           borderRadius: 30,
           overflow: 'hidden',
-        //   marginLeft: 20,
+          //   marginLeft: 20,
           elevation: 5,
           marginBottom: 10,
         }}
-        onPress={() => {
-          alert('pressed');
-        //   props.navigation.navigate('My Profile');
-        }}>
+        {...props}>
         <View
           style={[
             styles.recordBox,

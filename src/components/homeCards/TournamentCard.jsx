@@ -1,4 +1,5 @@
 /* eslint-disable prettier/prettier */
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/self-closing-comp */
 /* eslint-disable react-native/no-inline-styles */
 import {
@@ -9,80 +10,113 @@ import {
   Image,
   ImageBackground,
 } from 'react-native';
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import styles from '../../styles/Styles';
+import database from '@react-native-firebase/database';
+import auth from '@react-native-firebase/auth';
 
 const TournamentCard = () => {
-    
+  const [clubData, setClubData] = useState([]);
+  const handleSnapshot = () => {
+    const myClubRef = database().ref('/Tournaments');
+    myClubRef.on('value', snapshot => {
+      const data = snapshot.val();
+      const newArr = [];
+      const temp = [];
+
+      for (const element in data) {
+        newArr.push({
+          id: element,
+          ...data[element],
+        });
+      }
+      // setClubData([]);
+      for (const i in newArr) {
+        temp.push({
+          id: i,
+          ...newArr[i],
+        });
+      }
+      setClubData(temp);
+      console.log(clubData);
+    });
+  };
+  useEffect(() => {
+    handleSnapshot();
+  }, []);
+
   return (
     <ScrollView
       horizontal={true}
       showsHorizontalScrollIndicator={false}
       style={{flex: 1, marginRight: 20, paddingBottom: 10}}>
-      <TouchableOpacity
-        //   key={index}
-        activeOpacity={0.8}
-        style={{
-          borderRadius: 30,
-          overflow: 'hidden',
-        //   marginLeft: 20,
-          elevation: 5,
-          marginBottom: 10,
-        }}>
-        <View
-          style={[
-            styles.recordBox,
-            {
-              flex: 1,
-              flexDirection: 'row',
-              borderRadius: 50,
-              margin: 0,
-              paddingHorizontal: 0,
-              paddingVertical: 0,
-            },
-          ]}>
+      {clubData.map((data, index) => (
+        <TouchableOpacity
+          key={index}
+          activeOpacity={0.8}
+          style={{
+            borderRadius: 30,
+            overflow: 'hidden',
+            marginLeft: 20,
+            elevation: 5,
+            marginBottom: 10,
+          }}>
           <View
-            style={{
-              flex: 1,
-              flexDirection: 'column',
-            //   padding: 20,
-            //   paddingVertical: 10,
-              backgroundColor: '#3280cf',
-              //   justifyContent: 'space-between',
-            }}>
-            <ImageBackground
+            style={[
+              styles.recordBox,
+              {
+                flex: 1,
+                flexDirection: 'row',
+                borderRadius: 50,
+                margin: 0,
+                paddingHorizontal: 0,
+                paddingVertical: 0,
+              },
+            ]}>
+            <View
               style={{
-                flex: 2,
-                backgroundColor: '#1058ad',
-                // width: 150,
-                height: 200,
-                justifyContent: 'center',
-                alignItems: 'center',
-              }}
-              source={require('../../assets/icons/backgroundPlaceholder.png')}>
-              <View>
-                <Image
-                  source={require('../../assets/icons/clubProfile.png')}
-                  style={{width: 100, height: 100}}
-                />
-              </View>
-            </ImageBackground>
-            <View style={{padding: 10, paddingHorizontal: 20}}>
-              <Text style={[styles.topic, {marginBottom: 5, fontSize: 13}]}>
-                {/* {item.City} */} City Name
-              </Text>
-              <Text style={[styles.topic, {marginBottom: 5, fontSize: 17, fontWeight: 900}]}>
-                {/* {item.City} */} Tournament Name
-              </Text>
-              <TouchableOpacity>
-                <Text style={[styles.topic, {fontSize: 13}]}>
-                  {/*{item.Established_Year} */} Club Name
+                flex: 1,
+                flexDirection: 'column',
+                backgroundColor: '#3280cf',
+              }}>
+              <ImageBackground
+                style={{
+                  flex: 2,
+                  backgroundColor: '#1058ad',
+                  height: 200,
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                }}
+                source={require('../../assets/icons/backgroundPlaceholder.png')}>
+                <View>
+                  <Image
+                    source={require('../../assets/icons/clubProfile.png')}
+                    style={{width: 100, height: 100}}
+                  />
+                </View>
+              </ImageBackground>
+              <View style={{padding: 10, paddingHorizontal: 20}}>
+                <Text style={[styles.topic, {marginBottom: 5, fontSize: 13}]}>
+                  {data.City}
                 </Text>
-              </TouchableOpacity>
+                <Text
+                  style={[
+                    styles.topic,
+                    {marginBottom: 5, fontSize: 17, fontWeight: 900},
+                  ]}>
+                  {data.Tournament}
+                </Text>
+                  <Text style={{fontSize: 12, fontWeight: 'normal', color: '#fffa'}}>
+                    {data.startDate} to {data.endDate}
+                  </Text>
+                  <Text style={[styles.topic, {fontSize: 13, fontWeight: 900}]}>
+                    {data.Club_Name}
+                  </Text>
+              </View>
             </View>
           </View>
-        </View>
-      </TouchableOpacity>
+        </TouchableOpacity>
+      ))}
     </ScrollView>
   );
 };

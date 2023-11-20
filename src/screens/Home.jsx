@@ -38,7 +38,7 @@ const Home = props => {
               marginHorizontal: 5,
               marginRight: 15,
             }}
-            onPress={() => props.navigation.navigate('Menu Links')}>
+            onPress={() => props.navigation.navigate('Menu')}>
             <Image
               source={require('../assets/logos/menu.png')}
               style={{
@@ -64,6 +64,7 @@ const Home = props => {
         {/* matches */}
         <TouchableOpacity
           activeOpacity={0.65}
+          onPress={() => props.navigation.navigate('My Matches')}
           style={{
             flexDirection: 'row',
             flex: 1,
@@ -89,6 +90,7 @@ const Home = props => {
         {/* profile */}
         <TouchableOpacity
           activeOpacity={0.65}
+          onPress={() => props.navigation.navigate('My Profile')}
           style={{
             flexDirection: 'row',
             flex: 1,
@@ -110,7 +112,7 @@ const Home = props => {
           </Text>
           <RightIndicator />
         </TouchableOpacity>
-        <ProfileCard />
+        <ProfileCard onPress={() => props.navigation.navigate('My Profile')} />
         {/* tournaments */}
         <TouchableOpacity
           activeOpacity={0.65}
@@ -122,7 +124,7 @@ const Home = props => {
             paddingHorizontal: 10,
             marginTop: 30,
             marginBottom: 20,
-          }}>
+          }} onPress={() => props.navigation.navigate('My Tournaments')}>
           <Text
             style={{
               flex: 1,

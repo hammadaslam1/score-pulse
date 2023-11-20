@@ -4,15 +4,16 @@ import {View, Text, ScrollView, Image, TouchableOpacity} from 'react-native';
 import React from 'react';
 import styles from '../styles/Styles';
 import MatchCard from '../components/homeCards/MatchCard';
+import TournamentCard from '../components/homeCards/TournamentCard';
 
-const MyMatches = props => {
+const MyTournaments = props => {
   return (
     <ScrollView style={{backgroundColor: '#1058ad', minHeight: '100%'}}>
       
       <View style={{marginVertical: 20}}>
-        {new Array(10).fill(0).map((data, i) => (
+        {new Array(3).fill(0).map((data, i) => (
           <View key={i} style={styles.container}>
-            <MatchCard />
+            <TournamentCard />
           </View>
         ))}
       </View>
@@ -20,4 +21,4 @@ const MyMatches = props => {
   );
 };
 
-export default MyMatches;
+export default MyTournaments;
