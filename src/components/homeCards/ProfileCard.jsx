@@ -7,8 +7,11 @@ import React, {useState, useEffect} from 'react';
 import styles from '../../styles/Styles';
 import database from '@react-native-firebase/database';
 import auth from '@react-native-firebase/auth';
+import {useDispatch} from 'react-redux';
+import {PROFILE_DATA} from '../../redux/types/Types';
 
 const ProfileCard = props => {
+  const dispatch = useDispatch();
   const record = [
     {
       matches: 'Matches',
@@ -31,7 +34,18 @@ const ProfileCard = props => {
       }
       setMyData(data);
       setUserData(newArr);
-      setStatData(newArr);
+      dispatch({
+        type: PROFILE_DATA,
+        phoneNo: data.number,
+        jerseyNo: data.jerseyNo,
+        email: data.email,
+        name: data.fullname,
+        mainRole: data.playingRole,
+        bowlingStyle: data.bowlingStyle,
+        username: data.username,
+        battingStyle: data.battingStyle,
+        club: data.club
+      });
     });
     statRef.on('value', snapshot => {
       const data = snapshot.val();
@@ -91,14 +105,14 @@ const ProfileCard = props => {
               <Text
                 style={[
                   styles.topic,
-                  {textAlign: 'left', fontSize: 15, fontWeight: 'bold'},
+                  {textAlign: 'left', fontSize: 18, fontWeight: 'bold'},
                 ]}>
                 {myData.fullname}
               </Text>
               <View
                 style={[
                   styles.vertDivider,
-                  {backgroundColor: '#1058ad', padding: 5, borderRadius: 50},
+                  {backgroundColor: '#1058ad', padding: 5, borderRadius: 50, marginTop: 5},
                 ]}
               />
             </View>

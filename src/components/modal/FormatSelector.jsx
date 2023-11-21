@@ -126,6 +126,7 @@ const FormatSelector = props => {
             <View style={[styles.innerRecord, {marginTop: 15}]}>
               {overNo.map((overs, i) => (
                 <TouchableOpacity
+                  key={i}
                   activeOpacity={0.7}
                   onPress={() => {
                     // Alert.alert(overs)
@@ -189,8 +190,9 @@ const FormatSelector = props => {
               Ball Type <Text style={{color: '#f00'}}>*</Text>
             </Text>
             <View style={[styles.innerRecord, {marginTop: 25}]}>
-              {bType.map(ball => (
+              {bType.map((ball, i) => (
                 <TouchableOpacity
+                  key={i}
                   activeOpacity={0.7}
                   onPress={() => {
                     setBallType(ball);

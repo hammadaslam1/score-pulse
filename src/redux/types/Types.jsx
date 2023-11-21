@@ -15,3 +15,7 @@ export const MATCH_FORMAT = 'MATCH_FORMAT';
 
 export const TEAM_SELECTOR_A = 'TEAM_SELECTOR_A';
 export const TEAM_SELECTOR_B = 'TEAM_SELECTOR_B';
+
+// PROFILE DATA
+
+export const PROFILE_DATA = 'PROFILE_DATA';

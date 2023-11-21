@@ -15,8 +15,29 @@ import React, {useEffect, useState} from 'react';
 import styles from '../styles/Styles';
 import auth from '@react-native-firebase/auth';
 import database from '@react-native-firebase/database';
+import {useSelector} from 'react-redux';
 
 const MyProfile = props => {
+  const phoneNo = useSelector(state => state.ProfileReducer.phoneNo);
+  const jerseyNo = useSelector(state => state.ProfileReducer.jerseyNo);
+  const email = useSelector(state => state.ProfileReducer.email);
+  const club = useSelector(state => state.ProfileReducer.club);
+  const name = useSelector(state => state.ProfileReducer.name);
+  const mainRole = useSelector(state => state.ProfileReducer.mainRole);
+  const bowlingStyle = useSelector(state => state.ProfileReducer.bowlingStyle);
+  const username = useSelector(state => state.ProfileReducer.username);
+  const battingStyle = useSelector(state => state.ProfileReducer.battingStyle);
+  const userData = [
+    {title: 'Name', value: name},
+    {title: 'Username', value: username},
+    {title: 'Email', value: email},
+    {title: 'Club', value: club},
+    {title: 'Jersey No', value: jerseyNo},
+    {title: 'Main Role', value: mainRole},
+    {title: 'Batting Style', value: battingStyle},
+    {title: 'Bowling Style', value: bowlingStyle},
+    {title: 'Phone No', value: phoneNo},
+  ];
   const record = [
     {
       type: 'Batting',
@@ -38,29 +59,11 @@ const MyProfile = props => {
     },
   ];
 
-  // const form = [
-  //   'Email ID',
-  //   'Playing Role',
-  //   'Batting Style',
-  //   'Bowling Style',
-  //   'Jersey No.',
-  //   'Country',
-  // ];
-
   const user = auth().currentUser;
-  const [userData, setUserData] = useState([]);
+  // const [userData, setUserData] = useState([]);
   const [statData, setStatData] = useState([]);
   const [data1, setData1] = useState([]);
-  // const [data2, setData2] = useState([]);
-  const [userType, setUserType] = useState([
-    'Phone No',
-    'Jersey No',
-    'Email ID',
-    'Name',
-    'Main Role',
-    'Bowling Style',
-    'Batting Style',
-  ]);
+
   const handleUserShot = () => {
     const userRef = database().ref('users/' + user.uid);
     userRef.on('value', snapshot => {
@@ -70,7 +73,7 @@ const MyProfile = props => {
         newArr.push(el[i]);
       }
       setData1(el);
-      setUserData(newArr);
+      // setUserData(newArr);
     });
   };
   const handleStatShot = () => {
@@ -104,7 +107,7 @@ const MyProfile = props => {
             style={styles.image}
           />
         </View>
-        <Text style={styles.name}>{data1.fullname}</Text>
+        <Text style={styles.name}>{name}</Text>
         <View>
           <Text style={styles.topic}>My Details</Text>
         </View>
@@ -119,7 +122,7 @@ const MyProfile = props => {
                         styles.align,
                         {fontWeight: 'bold', fontSize: 15},
                       ]}>
-                      {userType[j]}
+                      {item.title}
                     </Text>
                   </View>
                   <View
@@ -127,7 +130,9 @@ const MyProfile = props => {
                       styles.circle,
                       {alignContent: 'center', justifyContent: 'center'},
                     ]}>
-                    <Text style={[styles.align, {fontSize: 15}]}>{item}</Text>
+                    <Text style={[styles.align, {fontSize: 15}]}>
+                      {item.value}
+                    </Text>
                     {/* <Text style={styles.align}>{j}</Text> */}
                   </View>
                 </View>

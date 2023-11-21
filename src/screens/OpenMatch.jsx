@@ -14,8 +14,8 @@ import {useSelector} from 'react-redux';
 import TeamSelector from '../components/modal/TeamSelector';
 
 const OpenMatch = props => {
-
   const teamA = useSelector(state => state.TeamAReducer.teamName);
+
   const teamB = useSelector(state => state.TeamBReducer.teamName);
   const totalOvers = useSelector(state => state.MatchFormatReducer.totalOvers);
   const ballType = useSelector(state => state.MatchFormatReducer.ballType);
@@ -23,7 +23,9 @@ const OpenMatch = props => {
   const [endDate, setEndDate] = useState(new Date());
   const [startOpen, setStartOpen] = useState(false);
   const [endOpen, setEndOpen] = useState(false);
-  console.log(teamA, teamB);
+  const pic = Math.floor(Math.random() * 33);
+  console.log(pic);
+  // console.log(teamA, teamB);
   const arr = [
     {type: 'TEAM_SELECTOR_A', name: 'Team A', reducer: teamA},
     {type: 'TEAM_SELECTOR_B', name: 'Team B', reducer: teamB},
@@ -43,8 +45,12 @@ const OpenMatch = props => {
               style={{
                 padding: 20,
               }}>
-              {/* <SelectTeam name={i.value} /> */}
-              <TeamSelector type={i.type} name={i.name} reducer={i.reducer} />
+              <TeamSelector
+                type={i.type}
+                name={i.name}
+                reducer={i.reducer}
+                pic={pic}
+              />
             </View>
           ))}
         </View>

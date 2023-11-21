@@ -20,7 +20,7 @@ const Menu = props => {
       id: 2,
       name: 'My Tournaments',
       iconName: require('../assets/icons/trophy.png'),
-      // onPress: ()=> props.navigation.navigate("Home")
+      onPress: ()=> props.navigation.navigate("My Tournaments")
     },
     {
       id: 3,
@@ -32,7 +32,7 @@ const Menu = props => {
       id: 4,
       name: 'My Teams',
       iconName: require('../assets/icons/team.png'),
-      // onPress: ()=> props.navigation.navigate("Home")
+      onPress: ()=> props.navigation.navigate("My Team")
     },
     {
       id: 5,
@@ -62,7 +62,7 @@ const Menu = props => {
       id: 9,
       name: 'Settings',
       iconName: require('../assets/icons/settings.png'),
-      // onPress: ()=> props.navigation.navigate("Home")
+      // onPress: ()=> props.navigation.navigate("Settings")
     },
   ];
   const handleSignOut = () => {

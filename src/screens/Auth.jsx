@@ -30,6 +30,7 @@ const Auth = props => {
   const [fullName, setfullName] = useState('');
   const [number, setNumber] = useState('');
   const [email, setEmail] = useState('');
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
   const [playerMainType, setPlayerMainType] = useState('');
@@ -46,7 +47,8 @@ const Auth = props => {
       fullname: fullName,
       number: number,
       email: email,
-      player_type: playerMainType + ' (' + playerSubType + ')',
+      playingRole: playerMainType,
+      username: username,
     });
   };
 
@@ -62,6 +64,8 @@ const Auth = props => {
       playerMainType &&
       playerSubType
     ) {
+      const temp = email.split('@');
+      setUsername(temp[0]);
       try {
         await auth()
           .createUserWithEmailAndPassword(email, password)

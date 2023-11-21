@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-/* eslint-disable eqeqeq */
+
 /* eslint-disable no-unused-vars */
 /* eslint-disable react-native/no-inline-styles */
 
@@ -16,15 +16,23 @@ import {
   Image,
   TouchableOpacity,
 } from 'react-native';
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import styles from '../../styles/Styles';
 import {useDispatch, useSelector} from 'react-redux';
 import {MATCH_FORMAT} from '../../redux/types/Types';
 import {ScrollView} from 'react-native-gesture-handler';
+import database from '@react-native-firebase/database';
 
 const TeamSelector = props => {
+  // console.log(pic);
+  const picture = props.pic;
+  const url = `../assets/profile/${picture}.png`;
+  console.log(url);
   const team = props.reducer;
-//   const teamB = useSelector(state => state.TeamBReducer.teamName);
+
+  const imageLinkA = useSelector(state => state.TeamAReducer.imageLink);
+  const imageLinkB = useSelector(state => state.TeamBReducer.imageLink);
+  //   const teamB = useSelector(state => state.TeamBReducer.teamName);
   const [selected, setSelected] = useState(false);
   const [teamName, setTeamName] = useState('Team');
   const [error, setError] = useState(false);
@@ -40,11 +48,40 @@ const TeamSelector = props => {
 
   const dispatch = useDispatch();
 
-  const handleFormat = name => {
-    if (name) {
+  const [clubData, setClubData] = useState([]);
+  const handleSnapshot = () => {
+    const myClubRef = database().ref('/Clubs');
+    myClubRef.on('value', snapshot => {
+      const data = snapshot.val();
+      const newArr = [];
+      const temp = [];
+
+      for (const element in data) {
+        newArr.push({
+          id: element,
+          ...data[element],
+        });
+      }
+      // setClubData([]);
+      for (const i in newArr) {
+        temp.push({
+          id: i,
+          ...newArr[i],
+        });
+      }
+      setClubData(temp);
+      // console.log(clubData);
+    });
+  };
+  useEffect(() => {
+    handleSnapshot();
+  }, []);
+
+  const handleTeams = (id, name) => {
+    if (name && id) {
       Alert.alert(
         'Confirmation!',
-        `Are you sure to select ${totalOvers} overs ${ballType} format?`,
+        `Are you sure to select ${name}?`,
         [
           {
             text: 'Cancel',
@@ -56,7 +93,9 @@ const TeamSelector = props => {
             onPress: () => {
               dispatch({
                 type: props.type,
-                teamName: teamName,
+                teamName: name,
+                id: id,
+                // imageLink: require(url),
               });
               setSelected(true);
               setModalVisible(false);
@@ -66,6 +105,7 @@ const TeamSelector = props => {
         {cancelable: false},
       );
     } else {
+      console.log(id, name);
       setIsOver(true);
     }
   };
@@ -80,7 +120,7 @@ const TeamSelector = props => {
       </Text>
       <TouchableOpacity onPress={() => setModalVisible(true)}>
         <Image
-          source={require('../../assets/icons/plus.png')}
+          source={require('../../assets/profile/2.png')}
           style={{
             borderRadius: 50,
             width: 80,
@@ -178,10 +218,13 @@ const TeamSelector = props => {
             </Text>
             <ScrollView
               showsVerticalScrollIndicator={false}
-              style={{height: 350}}>
+              style={{height: 350, marginTop: 20}}>
               <View>
-                {new Array(6).fill(1).map((i, j) => (
-                  <TouchableOpacity key={j} style={{backgroundColor: '#0002'}}>
+                {clubData.map((i, j) => (
+                  <TouchableOpacity
+                    key={j}
+                    style={{backgroundColor: '#0002'}}
+                    onPress={() => handleTeams(i.id, i.Club_Name)}>
                     <View
                       style={{
                         marginVertical: 5,
@@ -213,7 +256,7 @@ const TeamSelector = props => {
                               fontWeight: 'bold',
                             },
                           ]}>
-                          Team Name
+                          {i.Club_Name}
                         </Text>
                         <Text
                           style={[
@@ -225,7 +268,7 @@ const TeamSelector = props => {
                               //   marginHorizontal: 5,
                             },
                           ]}>
-                          Club Name
+                          {i.City}
                         </Text>
                       </View>
                     </View>

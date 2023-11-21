@@ -18,15 +18,17 @@ import {launchImageLibrary, launchCamera} from 'react-native-image-picker';
 import Spinner from 'react-native-loading-spinner-overlay';
 import database from '@react-native-firebase/database';
 import auth from '@react-native-firebase/auth';
+import {useSelector} from 'react-redux';
 
 const EditProfile = props => {
   const user = auth().currentUser;
+  const name = useSelector(state => state.ProfileReducer.name);
   const [playerMainType, setPlayerMainType] = useState('');
   const [playerSubType, setPlayerSubType] = useState('');
   const [playerBowlerType, setPlayerBowlerType] = useState('');
   const [loading, setLoading] = useState(false);
   const [isFilled, setIsFilled] = useState(false);
-  const [name, setName] = useState('');
+  const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [jerseyNo, setJerseyNo] = useState('');
 
@@ -41,7 +43,7 @@ const EditProfile = props => {
 
   const handleEditProfile = () => {
     if (
-      name &&
+      username &&
       email &&
       playerMainType &&
       playerSubType &&
@@ -52,7 +54,7 @@ const EditProfile = props => {
       const userRef = database().ref('users/' + user.uid);
       userRef
         .update({
-          fullname: name,
+          username: username,
           email: email,
           playingRole: playerMainType,
           battingStyle: playerSubType,
@@ -81,14 +83,15 @@ const EditProfile = props => {
           style={styles.image}
         />
       </TouchableOpacity>
+      <Text style={[styles.align, styles.topic]}>{name}</Text>
       <Spinner visible={loading} color="#3280cf" cancelable={true} />
       <View style={{marginVertical: 30}}>
         <View style={{marginHorizontal: 30}}>
-          <Text style={[styles.topic, {marginTop: 10}]}>Player Name</Text>
+          <Text style={[styles.topic, {marginTop: 10}]}>Username</Text>
         </View>
         <SecondaryInput
-          placeholder="Player Name"
-          onChangeText={setName}
+          placeholder="Username"
+          onChangeText={setUsername}
           onChange={() => setIsFilled(false)}
         />
         <View style={{marginHorizontal: 30}}>

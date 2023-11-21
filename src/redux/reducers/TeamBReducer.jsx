@@ -4,6 +4,7 @@ import {TEAM_SELECTOR_B} from '../types/Types';
 
 const defaultState = {
   teamName: 'Team B',
+  id: '',
 };
 
 const TeamBReducer = (state = defaultState, action) => {
@@ -12,6 +13,7 @@ const TeamBReducer = (state = defaultState, action) => {
       return {
         ...state,
         teamName: action.teamName,
+        id: action.id,
       };
 
     default:
