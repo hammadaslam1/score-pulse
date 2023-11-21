@@ -8,6 +8,7 @@ import {configureStore} from '@reduxjs/toolkit';
 import thunk from 'redux-thunk';
 import TeamBReducer from './reducers/TeamBReducer';
 import ProfileReducer from './reducers/ProfileReducer';
+import TossReducer from './reducers/TossReducer';
 
 const reducers = combineReducers({
   UserReducer,
@@ -16,6 +17,7 @@ const reducers = combineReducers({
   TeamAReducer,
   TeamBReducer,
   ProfileReducer,
+  TossReducer,
 });
 
 const Store = configureStore({reducer: reducers}, applyMiddleware(thunk));

@@ -95,7 +95,7 @@ const FormatSelector = props => {
         }}>
         <View style={styles.modalContainer}>
           <TouchableOpacity
-            style={[styles.touchable, {shadowColor: '#000'}]}
+            style={{shadowColor: '#000'}}
             onPress={() => setModalVisible(false)}>
             <Image
               source={require('../../assets/icons/downArrow.png')}

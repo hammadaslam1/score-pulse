@@ -12,9 +12,11 @@ import SelectTeam from '../components/buttons/SelectTeam';
 import FormatSelector from '../components/modal/FormatSelector';
 import {useSelector} from 'react-redux';
 import TeamSelector from '../components/modal/TeamSelector';
+import TossModal from '../components/modal/TossModal';
 
 const OpenMatch = props => {
   const teamA = useSelector(state => state.TeamAReducer.teamName);
+  const [isToss, setIsToss] = useState(false);
 
   const teamB = useSelector(state => state.TeamBReducer.teamName);
   const totalOvers = useSelector(state => state.MatchFormatReducer.totalOvers);
@@ -24,8 +26,6 @@ const OpenMatch = props => {
   const [startOpen, setStartOpen] = useState(false);
   const [endOpen, setEndOpen] = useState(false);
   const pic = Math.floor(Math.random() * 33);
-  console.log(pic);
-  // console.log(teamA, teamB);
   const arr = [
     {type: 'TEAM_SELECTOR_A', name: 'Team A', reducer: teamA},
     {type: 'TEAM_SELECTOR_B', name: 'Team B', reducer: teamB},
@@ -124,7 +124,7 @@ const OpenMatch = props => {
           </TouchableOpacity>
           <TouchableOpacity
             style={[styles.container, {marginTop: 100, flex: 1}]}
-            onPress={() => props.navigation.navigate('Innings')}>
+            onPress={() => setIsToss(true)}>
             <View
               style={[
                 styles.button,
@@ -136,6 +136,7 @@ const OpenMatch = props => {
             </View>
           </TouchableOpacity>
         </View>
+        {isToss ? <TossModal visibility={isToss} onPress={()=>setIsToss(!isToss)} press={()=>props.navigation.navigate('Innings')} setIsToss={setIsToss} /> : ''}
         <DatePicker
           modal
           mode="date"

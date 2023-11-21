@@ -3,7 +3,7 @@ import {StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
   touchable: {
-    width: 'fit-content',
+    width: 30,
   },
   main: {
     backgroundColor: '#1058ad',
@@ -281,6 +281,30 @@ const styles = StyleSheet.create({
     backgroundColor: '#00000066',
     height: '100%',
     width: '100%',
+  },
+  tossMain: {
+    height: '100%',
+    // flex: 1,
+    
+    flexDirection: 'row',
+    marginVertical: 'auto',
+    justifyContent: 'center',
+    alignItems: 'center',
+    alignContent: 'center',
+  },
+  tossContainer: {
+    alignSelf: 'center',
+    alignContent: 'center',
+    backgroundColor: '#fff',
+    borderRadius: 50,
+    // borderTopLeftRadius: 50,
+    // borderTopRightRadius: 50,
+    // position: 'absolute',
+    // bottom: 0,
+    // zIndex: 2,
+    // height: '100%',
+    width: '90%',
+    padding: 20,
   },
   modalContainer: {
     backgroundColor: '#fff',

@@ -19,3 +19,7 @@ export const TEAM_SELECTOR_B = 'TEAM_SELECTOR_B';
 // PROFILE DATA
 
 export const PROFILE_DATA = 'PROFILE_DATA';
+
+// TOSS DATA
+
+export const TOSS_DATA = 'TOSS_DATA'

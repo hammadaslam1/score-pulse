@@ -7,7 +7,7 @@ import Spinner from 'react-native-loading-spinner-overlay';
 import styles from '../styles/Styles';
 import SecondaryInput from '../components/inputs/SecondaryInput';
 
-const MyTeam = (props) => {
+const MyTeam = props => {
   const [loading, setLoading] = useState(false);
   const [isFilled, setIsFilled] = useState(false);
   return (
@@ -37,20 +37,20 @@ const MyTeam = (props) => {
             />
           </View> */}
           <TouchableOpacity
-          activeOpacity={0.6}
-          style={styles.recordContainer}
-          // onPress={() => props.navigation.navigate('Create Team')}
+            activeOpacity={0.6}
+            style={styles.recordContainer}
+            // onPress={() => props.navigation.navigate('Create Team')}
           >
-          <View style={styles.button}>
-            <Text
-              style={[
-                styles.align,
-                {fontWeight: 'bold', fontSize: 16, fontFamily: 'monospace'},
-              ]}>
-              Edit Profile
-            </Text>
-          </View>
-        </TouchableOpacity>
+            <View style={styles.button}>
+              <Text
+                style={[
+                  styles.align,
+                  {fontWeight: 'bold', fontSize: 16, fontFamily: 'monospace'},
+                ]}>
+                Add Player
+              </Text>
+            </View>
+          </TouchableOpacity>
         </View>
       </View>
     </ScrollView>

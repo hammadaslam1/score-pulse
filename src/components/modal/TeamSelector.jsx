@@ -26,7 +26,7 @@ import database from '@react-native-firebase/database';
 const TeamSelector = props => {
   // console.log(pic);
   const picture = props.pic;
-  const url = `../assets/profile/${picture}.png`;
+  const url = `../../assets/profile/${picture}.png`;
   console.log(url);
   const team = props.reducer;
 
