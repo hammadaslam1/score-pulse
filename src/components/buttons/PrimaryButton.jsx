@@ -2,7 +2,6 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/react-in-jsx-scope */
 /* eslint-disable react-native/no-inline-styles */
-/* eslint-disable semi */
 
 import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
 import styles from '../../styles/Styles';

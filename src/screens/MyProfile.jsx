@@ -52,7 +52,15 @@ const MyProfile = props => {
   const [statData, setStatData] = useState([]);
   const [data1, setData1] = useState([]);
   // const [data2, setData2] = useState([]);
-  const [userType, setUserType] = useState(['Phone No', 'Jersey No', 'Email ID', 'Name', 'Main Role', 'Bowling Style', 'Batting Style']);
+  const [userType, setUserType] = useState([
+    'Phone No',
+    'Jersey No',
+    'Email ID',
+    'Name',
+    'Main Role',
+    'Bowling Style',
+    'Batting Style',
+  ]);
   const handleUserShot = () => {
     const userRef = database().ref('users/' + user.uid);
     userRef.on('value', snapshot => {
@@ -75,7 +83,6 @@ const MyProfile = props => {
       }
       // setData2(el);
       setStatData(newArr);
-      console.log(snapshot);
     });
   };
   useEffect(() => {

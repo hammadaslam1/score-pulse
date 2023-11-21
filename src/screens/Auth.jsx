@@ -1,5 +1,4 @@
 /* eslint-disable prettier/prettier */
-/* eslint-disable no-trailing-spaces */
 /* eslint-disable no-alert */
 /* eslint-disable eqeqeq */
 /* eslint-disable react-native/no-inline-styles */
@@ -72,6 +71,12 @@ const Auth = props => {
             setData(user.uid)
               .then(() => {
                 setLoading(false);
+                setfullName('');
+                setEmail('');
+                setNumber('');
+                setPlayerMainType('');
+                setPlayerSubType('');
+                setPassword('');
                 setStatus(true);
                 // props.navigation.navigate('Home');
               })
@@ -95,6 +100,8 @@ const Auth = props => {
         .signInWithEmailAndPassword(email, password)
         .then(() => {
           setLoading(false);
+          setEmail('');
+          setPassword('');
           props.navigation.navigate('Home');
         })
         .catch(e => {

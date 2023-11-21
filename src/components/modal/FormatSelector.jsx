@@ -64,8 +64,8 @@ const FormatSelector = props => {
                 totalWickets: wickets,
                 ballType: ballType,
               });
-              setSelected(true)
-              setModalVisible(false)
+              setSelected(true);
+              setModalVisible(false);
             },
           },
         ],
@@ -79,7 +79,9 @@ const FormatSelector = props => {
     <View>
       <Pressable onPress={() => setModalVisible(true)}>
         {selected ? (
-          <Text style={styles.input}>{totalOvers + ' overs - ' + ballType}</Text>
+          <Text style={styles.input}>
+            {totalOvers + ' overs - ' + ballType}
+          </Text>
         ) : (
           <Text style={styles.placeholder}>{Holder}</Text>
         )}

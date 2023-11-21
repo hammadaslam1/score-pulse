@@ -1,13 +1,6 @@
 /* eslint-disable prettier/prettier */
 /* eslint-disable react-native/no-inline-styles */
-import {
-  View,
-  Text,
-  ScrollView,
-  Image,
-  TouchableOpacity,
-  Alert,
-} from 'react-native';
+import {View, Text, ScrollView, Image, TouchableOpacity} from 'react-native';
 import React, {useState} from 'react';
 import styles from '../styles/Styles';
 import PrimaryButton from '../components/buttons/PrimaryButton';

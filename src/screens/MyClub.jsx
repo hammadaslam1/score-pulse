@@ -25,7 +25,6 @@ const MyClub = () => {
       .equalTo(user.uid);
     myClubRef.on('value', snapshot => {
       const data = snapshot.val();
-      // console.log(data);
       const newArr = [];
       const temp = [];
 

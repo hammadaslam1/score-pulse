@@ -50,7 +50,7 @@ const MatchCard = () => {
                   flexDirection: 'row',
                   alignItems: 'center',
                   justifyContent: 'space-between',
-                  marginVertical: 3
+                  marginVertical: 3,
                 }}>
                 <View style={{flexDirection: 'row', alignItems: 'center'}}>
                   <Image
@@ -66,8 +66,20 @@ const MatchCard = () => {
                   </Text>
                 </View>
                 <View style={{flexDirection: 'row', alignItems: 'center'}}>
-                  <Text style={[styles.topic , {color: '#fff', fontSize: 14, marginHorizontal: 3}]}>0.0</Text>
-                  <Text style={[styles.topic , {color: '#fff', fontSize: 14, marginHorizontal: 3}]}>(0.0)</Text>
+                  <Text
+                    style={[
+                      styles.topic,
+                      {color: '#fff', fontSize: 14, marginHorizontal: 3},
+                    ]}>
+                    0.0
+                  </Text>
+                  <Text
+                    style={[
+                      styles.topic,
+                      {color: '#fff', fontSize: 14, marginHorizontal: 3},
+                    ]}>
+                    (0.0)
+                  </Text>
                 </View>
               </View>
               <View
@@ -75,7 +87,7 @@ const MatchCard = () => {
                   flexDirection: 'row',
                   alignItems: 'center',
                   justifyContent: 'space-between',
-                  marginVertical: 3
+                  marginVertical: 3,
                 }}>
                 <View style={{flexDirection: 'row', alignItems: 'center'}}>
                   <Image
@@ -91,8 +103,20 @@ const MatchCard = () => {
                   </Text>
                 </View>
                 <View style={{flexDirection: 'row', alignItems: 'center'}}>
-                  <Text style={[styles.topic , {color: '#fff', fontSize: 14, marginHorizontal: 3}]}>0.0</Text>
-                  <Text style={[styles.topic , {color: '#fff', fontSize: 14, marginHorizontal: 3}]}>(0.0)</Text>
+                  <Text
+                    style={[
+                      styles.topic,
+                      {color: '#fff', fontSize: 14, marginHorizontal: 3},
+                    ]}>
+                    0.0
+                  </Text>
+                  <Text
+                    style={[
+                      styles.topic,
+                      {color: '#fff', fontSize: 14, marginHorizontal: 3},
+                    ]}>
+                    (0.0)
+                  </Text>
                 </View>
               </View>
               <Text style={[styles.topic, {marginVertical: 10, fontSize: 13}]}>

@@ -11,7 +11,6 @@ import {
 import React, {useState, useEffect} from 'react';
 import styles from '../../styles/Styles';
 import database from '@react-native-firebase/database';
-import auth from '@react-native-firebase/auth';
 
 const ClubCard = props => {
   const [clubData, setClubData] = useState([]);
@@ -28,7 +27,6 @@ const ClubCard = props => {
           ...data[element],
         });
       }
-      // setClubData([]);
       for (const i in newArr) {
         temp.push({
           id: i,

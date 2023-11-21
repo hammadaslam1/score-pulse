@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 /* eslint-disable react-native/no-inline-styles */
-import {View, Text, TouchableOpacity, Image} from 'react-native';
+import {Text, TouchableOpacity, Image} from 'react-native';
 import React from 'react';
 import styles from '../../styles/Styles';
 
@@ -10,7 +10,7 @@ const SelectTeam = props => {
       <Text
         style={[
           styles.topic,
-          {fontSize: 12, color: '#4391e0', alignSelf: 'center'},
+          {fontSize: 12, color: '#fffd', alignSelf: 'center'},
         ]}>
         Open Match
       </Text>

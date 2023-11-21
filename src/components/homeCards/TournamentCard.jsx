@@ -1,6 +1,4 @@
 /* eslint-disable prettier/prettier */
-/* eslint-disable react-hooks/exhaustive-deps */
-/* eslint-disable react/self-closing-comp */
 /* eslint-disable react-native/no-inline-styles */
 import {
   View,
@@ -13,7 +11,7 @@ import {
 import React, {useState, useEffect} from 'react';
 import styles from '../../styles/Styles';
 import database from '@react-native-firebase/database';
-import auth from '@react-native-firebase/auth';
+// import auth from '@react-native-firebase/auth';
 
 const TournamentCard = () => {
   const [clubData, setClubData] = useState([]);
@@ -38,7 +36,6 @@ const TournamentCard = () => {
         });
       }
       setClubData(temp);
-      console.log(clubData);
     });
   };
   useEffect(() => {
@@ -106,12 +103,13 @@ const TournamentCard = () => {
                   ]}>
                   {data.Tournament}
                 </Text>
-                  <Text style={{fontSize: 12, fontWeight: 'normal', color: '#fffa'}}>
-                    {data.startDate} to {data.endDate}
-                  </Text>
-                  <Text style={[styles.topic, {fontSize: 13, fontWeight: 900}]}>
-                    {data.Club_Name}
-                  </Text>
+                <Text
+                  style={{fontSize: 12, fontWeight: 'normal', color: '#fffa'}}>
+                  {data.startDate} to {data.endDate}
+                </Text>
+                <Text style={[styles.topic, {fontSize: 13, fontWeight: 900}]}>
+                  {data.Club_Name}
+                </Text>
               </View>
             </View>
           </View>

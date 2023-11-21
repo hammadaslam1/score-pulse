@@ -1,7 +1,6 @@
 /* eslint-disable prettier/prettier */
-/* eslint-disable no-alert */
 /* eslint-disable react-native/no-inline-styles */
-import {View, Text, Image, Pressable} from 'react-native';
+import {Image, Pressable} from 'react-native';
 import React from 'react';
 
 const ImageButtons = props => {
@@ -10,7 +9,10 @@ const ImageButtons = props => {
   };
 
   return (
-    <Pressable onPress={() => {handlePress();}}>
+    <Pressable
+      onPress={() => {
+        handlePress();
+      }}>
       <Image
         source={require('../../assets/logos/menu.png')}
         alt="app logo"

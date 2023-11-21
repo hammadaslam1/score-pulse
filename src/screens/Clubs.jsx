@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable no-unused-vars */
 /* eslint-disable react-native/no-inline-styles */
 import {
   View,
@@ -22,7 +22,6 @@ const Clubs = () => {
     const myClubRef = database().ref('/Clubs');
     myClubRef.on('value', snapshot => {
       const data = snapshot.val();
-      // console.log(data);
       const newArr = [];
       const temp = [];
 
