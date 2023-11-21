@@ -14,7 +14,7 @@ const SelectTeam = props => {
         ]}>
         Open Match
       </Text>
-      <TouchableOpacity>
+      <TouchableOpacity onPress={props.onPress}>
         <Image
           source={require('../../assets/icons/plus.png')}
           style={{

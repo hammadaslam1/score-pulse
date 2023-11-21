@@ -18,9 +18,11 @@ const ProfileCard = props => {
   ];
   const user = auth().currentUser;
   const [userData, setUserData] = useState([]);
+  const [statData, setStatData] = useState([]);
   const [myData, setMyData] = useState([]);
   const handleSnapshot = () => {
     const userRef = database().ref('users/' + user.uid);
+    const statRef = database().ref('players/records/' + user.uid);
     userRef.on('value', snapshot => {
       const data = snapshot.val();
       const newArr = [];
@@ -29,6 +31,15 @@ const ProfileCard = props => {
       }
       setMyData(data);
       setUserData(newArr);
+      setStatData(newArr);
+    });
+    statRef.on('value', snapshot => {
+      const data = snapshot.val();
+      const newArr = [];
+      for (let i in data) {
+        newArr.push(data[i]);
+      }
+      setStatData(newArr);
     });
   };
   useEffect(() => {
@@ -46,9 +57,10 @@ const ProfileCard = props => {
         style={{
           borderRadius: 30,
           overflow: 'hidden',
-          //   marginLeft: 20,
+          // margin: 3,
           elevation: 5,
           marginBottom: 10,
+          marginHorizontal: 3,
         }}
         {...props}>
         <View
@@ -86,12 +98,12 @@ const ProfileCard = props => {
               <View
                 style={[
                   styles.vertDivider,
-                  {backgroundColor: '#1058ad', padding: 1},
+                  {backgroundColor: '#1058ad', padding: 5, borderRadius: 50},
                 ]}
               />
             </View>
             {/* <View style={{flexDirection: 'row'}}> */}
-            {record.map((item, i) => (
+            {statData.map((item, i) => (
               // <View key={i} style={styles.recordBox}>
               <View key={i} style={{flexDirection: 'row'}}>
                 <View style={{flexDirection: 'column', flex: 1}}>
@@ -102,7 +114,7 @@ const ProfileCard = props => {
                       marginVertical: 7,
                       marginTop: 20,
                     }}>
-                    {item.matches}
+                    Matches
                   </Text>
                   <Text
                     style={{
@@ -112,7 +124,7 @@ const ProfileCard = props => {
                       fontSize: 22,
                       fontWeight: 'bold',
                     }}>
-                    0
+                    {item.matches ? item.matches : 0}
                   </Text>
                 </View>
                 <View style={{flexDirection: 'column', flex: 1}}>
@@ -123,7 +135,7 @@ const ProfileCard = props => {
                       marginVertical: 7,
                       marginTop: 20,
                     }}>
-                    {item.runs}
+                    Runs
                   </Text>
                   <Text
                     style={{
@@ -133,7 +145,7 @@ const ProfileCard = props => {
                       fontSize: 22,
                       fontWeight: 'bold',
                     }}>
-                    0
+                    {item.runs ? item.runs : 0}
                   </Text>
                 </View>
                 <View style={{flexDirection: 'column', flex: 1}}>
@@ -144,7 +156,7 @@ const ProfileCard = props => {
                       marginVertical: 7,
                       marginTop: 20,
                     }}>
-                    {item.wickets}
+                    Wickets
                   </Text>
                   <Text
                     style={{
@@ -154,7 +166,7 @@ const ProfileCard = props => {
                       fontSize: 22,
                       fontWeight: 'bold',
                     }}>
-                    0
+                    {item.wickets ? item.wickets : 0}
                   </Text>
                 </View>
               </View>

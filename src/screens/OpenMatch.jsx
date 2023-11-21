@@ -11,17 +11,22 @@ import SecondaryInput from '../components/inputs/SecondaryInput';
 import SelectTeam from '../components/buttons/SelectTeam';
 import FormatSelector from '../components/modal/FormatSelector';
 import {useSelector} from 'react-redux';
+import TeamSelector from '../components/modal/TeamSelector';
 
 const OpenMatch = props => {
+
+  const teamA = useSelector(state => state.TeamAReducer.teamName);
+  const teamB = useSelector(state => state.TeamBReducer.teamName);
   const totalOvers = useSelector(state => state.MatchFormatReducer.totalOvers);
   const ballType = useSelector(state => state.MatchFormatReducer.ballType);
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
   const [startOpen, setStartOpen] = useState(false);
   const [endOpen, setEndOpen] = useState(false);
+  console.log(teamA, teamB);
   const arr = [
-    {id: 1, value: 'Team A'},
-    {id: 2, value: 'Team B'},
+    {type: 'TEAM_SELECTOR_A', name: 'Team A', reducer: teamA},
+    {type: 'TEAM_SELECTOR_B', name: 'Team B', reducer: teamB},
   ];
   return (
     <ScrollView style={{backgroundColor: '#1058ad', minHeight: '100%'}}>
@@ -34,11 +39,12 @@ const OpenMatch = props => {
           }}>
           {arr.map((i, j) => (
             <View
-              key={i + j}
+              key={j}
               style={{
                 padding: 20,
               }}>
-              <SelectTeam name={i.value} />
+              {/* <SelectTeam name={i.value} /> */}
+              <TeamSelector type={i.type} name={i.name} reducer={i.reducer} />
             </View>
           ))}
         </View>

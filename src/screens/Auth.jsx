@@ -1,5 +1,4 @@
 /* eslint-disable prettier/prettier */
-/* eslint-disable no-alert */
 /* eslint-disable eqeqeq */
 /* eslint-disable react-native/no-inline-styles */
 /* eslint-disable react/react-in-jsx-scope */
@@ -78,13 +77,11 @@ const Auth = props => {
                 setPlayerSubType('');
                 setPassword('');
                 setStatus(true);
-                // props.navigation.navigate('Home');
               })
               .catch(e => {
                 setLoading(false);
                 setLoading('data not saved');
                 setStatus(true);
-                // props.navigation.navigate('Home');
               });
           });
       } catch (error) {
@@ -106,15 +103,20 @@ const Auth = props => {
         })
         .catch(e => {
           setLoading(false);
-          if (password.length < 6) {
-            Alert.alert('Password must be greater than 6 characters');
-          } else {
-            Alert.alert('Please check your email and then try again!');
+          if (e.code == 'auth/invalid-login') {
+            Alert.alert('Invalid Email or Password', '😞');
+          } else if (e.code == 'auth/invalid-email') {
+            Alert.alert(
+              'Invalid Email',
+              'The email address is badly formatted 🥴',
+            );
+          } else if (e.code == 'auth/network-request-failed') {
+            Alert.alert('No Internet', 'Please Connect to the Internet 🙂');
           }
         });
     } else {
       setLoading(false);
-      alert('Please check your credentials!');
+      Alert.alert('Please check your credentials!');
     }
   };
 
