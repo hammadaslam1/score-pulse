@@ -8,19 +8,14 @@ import {
   Text,
   Modal,
   Alert,
-  TextInput,
   StyleSheet,
-  Touchable,
-  Pressable,
-  Button,
   Image,
   TouchableOpacity,
+  ScrollView,
 } from 'react-native';
 import React, {useState, useEffect} from 'react';
 import styles from '../../styles/Styles';
 import {useDispatch, useSelector} from 'react-redux';
-import {MATCH_FORMAT} from '../../redux/types/Types';
-import {ScrollView} from 'react-native-gesture-handler';
 import database from '@react-native-firebase/database';
 
 const TeamSelector = props => {
@@ -153,7 +148,7 @@ const TeamSelector = props => {
         }}>
         <View style={styles.modalContainer}>
           <TouchableOpacity
-            style={[styles.touchable, {shadowColor: '#000'}]}
+            style={{shadowColor: '#000'}}
             onPress={() => setModalVisible(false)}>
             <Image
               source={require('../../assets/icons/downArrow.png')}
@@ -223,7 +218,8 @@ const TeamSelector = props => {
                 {clubData.map((i, j) => (
                   <TouchableOpacity
                     key={j}
-                    style={{backgroundColor: '#0002'}}
+                    activeOpacity={0.7}
+                    style={{backgroundColor: '#0000'}}
                     onPress={() => handleTeams(i.id, i.Club_Name)}>
                     <View
                       style={{

@@ -12,15 +12,32 @@ import {
   StatusBar,
   Alert,
 } from 'react-native';
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import styles from '../styles/Styles';
 import RightIndicator from '../components/icons/RightIndicator';
 import ClubCard from '../components/homeCards/ClubCard';
 import MatchCard from '../components/homeCards/MatchCard';
 import ProfileCard from '../components/homeCards/ProfileCard';
 import TournamentCard from '../components/homeCards/TournamentCard';
+import MenuModal from '../components/modal/MenuModal';
+import auth from '@react-native-firebase/auth';
 
 const Home = props => {
+  const [menu, setMenu] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const handleSignOut = () => {
+    setLoading(true);
+    auth()
+      .signOut()
+      .then(() => {
+        setLoading(false);
+        props.navigation.popToTop();
+      })
+      .catch(e => {
+        setLoading(false);
+        props.navigation.popToTop();
+      });
+  };
   return (
     <ScrollView style={{backgroundColor: '#1058ad', minHeight: '100%'}}>
       <View style={styles.container}>
@@ -38,7 +55,8 @@ const Home = props => {
               marginHorizontal: 5,
               marginRight: 15,
             }}
-            onPress={() => props.navigation.navigate('Menu')}>
+            onPress={() => setMenu(true)}
+            >
             <Image
               source={require('../assets/logos/menu.png')}
               style={{
@@ -48,7 +66,7 @@ const Home = props => {
                 width: 40,
                 height: 40,
               }}
-              onPress={() => props.navigation.navigate('Menu')}
+              // onPress={() => props.navigation.navigate('Menu')}
             />
           </TouchableOpacity>
           <Text
@@ -61,6 +79,28 @@ const Home = props => {
             Home
           </Text>
         </View>
+        {menu ? (
+          <MenuModal
+            visibility={menu}
+            setMenu={setMenu}
+            myMatches={() => props.navigation.navigate('My Matches')}
+            myTournaments={() => props.navigation.navigate('My Tournaments')}
+            myProfile={() => props.navigation.navigate('My Profile')}
+            myTeam={() => props.navigation.navigate('My Team')}
+            myClubs={() => props.navigation.navigate('My Clubs')}
+            openMatch={() => props.navigation.navigate('Open Match')}
+            handleSignOut={() => handleSignOut()}
+            createTournament={() =>
+              props.navigation.navigate('Create Tournament')
+            }
+            clubRegistration={() =>
+              props.navigation.navigate('Club Registration')
+            }
+            settings={() => props.navigation.navigate('settings')}
+          />
+        ) : (
+          ''
+        )}
         {/* matches */}
         <TouchableOpacity
           activeOpacity={0.65}

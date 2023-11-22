@@ -43,6 +43,9 @@ const Auth = props => {
 
   const setData = userID => {
     const userRef = database().ref('/users/' + userID);
+    // const temp = email.split('@');
+    const temp = email.split('@');
+    setUsername(temp[0]);
     userRef.set({
       fullname: fullName,
       number: number,

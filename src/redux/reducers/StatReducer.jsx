@@ -13,7 +13,7 @@ const defaultState = {
   club: '------',
 };
 
-const ProfileReducer = (state = defaultState, action) => {
+const StatReducer = (state = defaultState, action) => {
   switch (action.type) {
     case PROFILE_DATA:
       return {
@@ -33,4 +33,4 @@ const ProfileReducer = (state = defaultState, action) => {
       return state;
   }
 };
-export default ProfileReducer;
+export default StatReducer;

@@ -44,7 +44,7 @@ const ProfileCard = props => {
         bowlingStyle: data.bowlingStyle,
         username: data.username,
         battingStyle: data.battingStyle,
-        club: data.club
+        club: data.club,
       });
     });
     statRef.on('value', snapshot => {
@@ -112,7 +112,12 @@ const ProfileCard = props => {
               <View
                 style={[
                   styles.vertDivider,
-                  {backgroundColor: '#1058ad', padding: 5, borderRadius: 50, marginTop: 5},
+                  {
+                    backgroundColor: '#1058ad',
+                    padding: 5,
+                    borderRadius: 50,
+                    marginTop: 5,
+                  },
                 ]}
               />
             </View>

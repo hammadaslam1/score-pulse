@@ -9,10 +9,11 @@ import styles from '../../styles/Styles';
 const PrimaryButton = props => {
   return (
     <TouchableOpacity
-      style={[styles.container, {marginTop: 20}]}
+      style={[styles.container, {marginTop: 20, elevation: 5}]}
+      activeOpacity={0.7}
       onPress={props.onPress}>
       <View
-        style={[styles.button, {backgroundColor: '#3280cf', borderRadius: 10}]}>
+        style={[styles.button, {backgroundColor: '#3280cf', borderRadius: 10}, props.style]}>
         <Text style={styles.text}>{props.title}</Text>
       </View>
     </TouchableOpacity>
