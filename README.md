@@ -1,9 +1,9 @@
 
 # score-pulse
 
-- [Hammad Aslam's Portfolio](https://mha-portfolio.web.app) - see other projects from the developer
 - Score Pulse is basically an android app for those local players and clubs who want to maintain and keep track of their record for improvement.
 - It helps those clubs who didn't have much technology for maintaining **cricket scores** 
+- [Hammad Aslam's Portfolio](https://mha-portfolio.web.app) - see other projects from the developer
 
 
 # Follow me
