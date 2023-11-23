@@ -22,7 +22,9 @@ const ProfileCard = props => {
   const user = auth().currentUser;
   const [userData, setUserData] = useState([]);
   const [statData, setStatData] = useState([]);
-  const [myData, setMyData] = useState([]);
+  const [myData, setMyData] = useState({fullname: '-------'});
+  const [name, setName] = useState('-');
+  // console.log(myData.fullname);
   const handleSnapshot = () => {
     const userRef = database().ref('users/' + user.uid);
     const statRef = database().ref('players/records/' + user.uid);
@@ -34,18 +36,20 @@ const ProfileCard = props => {
       }
       setMyData(data);
       setUserData(newArr);
+      console.log(data);
       dispatch({
         type: PROFILE_DATA,
-        phoneNo: data.number,
-        jerseyNo: data.jerseyNo,
-        email: data.email,
-        name: data.fullname,
-        mainRole: data.playingRole,
-        bowlingStyle: data.bowlingStyle,
-        username: data.username,
-        battingStyle: data.battingStyle,
-        club: data.club,
+        phoneNo: data ? data.number : '',
+        jerseyNo: data ? data.jerseyNo : '',
+        email: data ? data.email : '',
+        name: data ? data.fullname : '',
+        mainRole: data ? data.playingRole : '',
+        bowlingStyle: data ? data.bowlingStyle : '',
+        username: data ? data.username : '',
+        battingStyle: data ? data.battingStyle : '',
+        club: data ? data.club : '',
       });
+      setName(data ? data.fullname : '-');
     });
     statRef.on('value', snapshot => {
       const data = snapshot.val();
@@ -107,7 +111,7 @@ const ProfileCard = props => {
                   styles.topic,
                   {textAlign: 'left', fontSize: 18, fontWeight: 'bold'},
                 ]}>
-                {myData.fullname}
+                {name}
               </Text>
               <View
                 style={[

@@ -43,7 +43,7 @@ const ClubCard = props => {
   return (
     <ScrollView
       showsHorizontalScrollIndicator={false}
-      horizontal={true}
+      horizontal={props.horizontal}
       style={{flex: 1, marginRight: 20, paddingBottom: 10}}>
       {clubData.length >= 1 ? (
         clubData.map((item, index) => (

@@ -14,7 +14,7 @@ import database from '@react-native-firebase/database';
 import NothingCard from './NothingCard';
 // import auth from '@react-native-firebase/auth';
 
-const TournamentCard = () => {
+const TournamentCard = props => {
   const [clubData, setClubData] = useState([]);
   const handleSnapshot = () => {
     const myClubRef = database().ref('/Tournaments');
@@ -45,7 +45,7 @@ const TournamentCard = () => {
 
   return (
     <ScrollView
-      horizontal={true}
+      horizontal={props.horizontal}
       showsHorizontalScrollIndicator={false}
       style={{flex: 1, marginRight: 20, paddingBottom: 10}}>
       {clubData.length >= 1 ? (

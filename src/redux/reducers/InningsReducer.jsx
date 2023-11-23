@@ -9,6 +9,7 @@ const defaultState = {
   runRate: 0,
   sixes: 0,
   fours: 0,
+  balls: 0,
 };
 
 const InningsReducer = (state = defaultState, action) => {
@@ -23,6 +24,7 @@ const InningsReducer = (state = defaultState, action) => {
         runRate: action.runRate,
         sixes: action.sixes,
         fours: action.fours,
+        balls: action.balls,
       };
     case SECOND_INNINGS:
       return {
@@ -34,6 +36,7 @@ const InningsReducer = (state = defaultState, action) => {
         runRate: action.runRate,
         sixes: action.sixes,
         fours: action.fours,
+        balls: action.balls,
       };
 
     default:

@@ -30,10 +30,12 @@ const Home = props => {
     auth()
       .signOut()
       .then(() => {
+        setMenu(false);
         setLoading(false);
         props.navigation.popToTop();
       })
       .catch(e => {
+        setMenu(false);
         setLoading(false);
         props.navigation.popToTop();
       });
@@ -55,8 +57,7 @@ const Home = props => {
               marginHorizontal: 5,
               marginRight: 15,
             }}
-            onPress={() => setMenu(true)}
-            >
+            onPress={() => setMenu(true)}>
             <Image
               source={require('../assets/logos/menu.png')}
               style={{
@@ -178,7 +179,7 @@ const Home = props => {
           </Text>
           <RightIndicator />
         </TouchableOpacity>
-        <TournamentCard />
+        <TournamentCard horizontal={true} />
         {/* clubs */}
         <TouchableOpacity
           activeOpacity={0.65}
@@ -204,7 +205,7 @@ const Home = props => {
           </Text>
           <RightIndicator />
         </TouchableOpacity>
-        <ClubCard />
+        <ClubCard horizontal={true} />
       </View>
     </ScrollView>
   );

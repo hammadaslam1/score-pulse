@@ -92,7 +92,7 @@ const MenuModal = props => {
         onRequestClose={() => {
           props.setMenu(false);
         }}>
-        <View style={styles.modalContainer}>
+        <View style={[styles.modalContainer, {backgroundColor: '#fff', marginTop: 10}]}>
           <TouchableOpacity
             style={{shadowColor: '#000'}}
             onPress={() => props.setMenu(false)}>
@@ -113,7 +113,7 @@ const MenuModal = props => {
           </View>
           <View style={{padding: 10, marginVertical: 10}}>
             <ScrollView
-            //   style={[styles.innerRecord, {marginTop: 25, marginBottom: 15}]}
+              // style={{maxHeight:400}}
             >
               {list.map((item, i) => (
                 <TouchableOpacity
@@ -122,8 +122,8 @@ const MenuModal = props => {
                   onPress={() => {
                     console.log(item.onPress);
                     // handleFunction(item.onPress);
-                    props.setMenu(false)
-                    item.onPress();
+                    props.setMenu(false);
+                    item.onPress ? item.onPress() : '';
                   }}
                   //   style={{backgroundColor: '#0002'}}
                 >

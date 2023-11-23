@@ -285,7 +285,7 @@ const styles = StyleSheet.create({
   tossMain: {
     height: '100%',
     // flex: 1,
-    
+
     flexDirection: 'row',
     marginVertical: 'auto',
     justifyContent: 'center',
