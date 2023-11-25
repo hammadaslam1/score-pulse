@@ -115,7 +115,7 @@ const TeamSelector = props => {
       </Text>
       <TouchableOpacity onPress={() => setModalVisible(true)}>
         <Image
-          source={require('../../assets/profile/2.png')}
+          source={require('../../assets/logos/icon.png')}
           style={{
             borderRadius: 50,
             width: 80,

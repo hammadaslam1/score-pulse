@@ -22,6 +22,7 @@ import Tournaments from '../screens/Tournaments';
 import Clubs from '../screens/Clubs';
 import AddScores from '../screens/AddScores';
 import MyTeam from '../screens/MyTeam';
+import AllPlayers from '../screens/AllPlayers';
 
 const stack = createStackNavigator();
 const NavLinks = props => {
@@ -125,6 +126,11 @@ const NavLinks = props => {
         <stack.Screen
           name="My Team"
           component={MyTeam}
+          options={styles.header}
+        />
+        <stack.Screen
+          name="Add Players"
+          component={AllPlayers}
           options={styles.header}
         />
       </stack.Navigator>

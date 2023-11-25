@@ -43,7 +43,7 @@ const MenuModal = props => {
     },
     {
       id: 4,
-      name: 'My Teams',
+      name: 'My Team',
       iconName: require('../../assets/icons/team.png'),
       onPress: props.myTeam,
     },

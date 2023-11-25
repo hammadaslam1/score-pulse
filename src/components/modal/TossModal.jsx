@@ -96,7 +96,7 @@ const TossModal = props => {
             style={[styles.touchable, {shadowColor: '#000'}]}
             onPress={props.onPress}>
             <Image
-              source={require('../../assets/icons/close.png')}
+              source={require('../../assets/logos/icon.png')}
               style={{width: 30, height: 30, padding: 10}}
             />
           </TouchableOpacity>
@@ -123,7 +123,7 @@ const TossModal = props => {
                   backgroundColor: toss == teamA ? '#1058ad33' : '#fff',
                 }}>
                 <Image
-                  source={require('../../assets/profile/2.png')}
+                  source={require('../../assets/logos/icon.png')}
                   style={{
                     borderRadius: 50,
                     width: 60,
@@ -147,7 +147,7 @@ const TossModal = props => {
                   backgroundColor: toss == teamB ? '#1058ad33' : '#fff',
                 }}>
                 <Image
-                  source={require('../../assets/profile/2.png')}
+                  source={require('../../assets/logos/icon.png')}
                   style={{
                     borderRadius: 50,
                     width: 60,

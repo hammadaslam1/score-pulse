@@ -8,6 +8,9 @@ const styles = StyleSheet.create({
   fullWidth: {
     width: '100%',
   },
+  fullHeight: {
+    height: '100',
+  },
   main: {
     backgroundColor: '#1058ad',
     minHeight: '100%',

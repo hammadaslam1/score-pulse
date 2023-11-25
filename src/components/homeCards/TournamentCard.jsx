@@ -47,7 +47,7 @@ const TournamentCard = props => {
     <ScrollView
       horizontal={props.horizontal}
       showsHorizontalScrollIndicator={false}
-      style={[styles.fullWidth, {flex: 1, marginRight: 0, paddingBottom: 10}]}>
+      style={{flex: 1, marginRight: 0, paddingBottom: 10}}>
       {clubData.length >= 1 ? (
         clubData.map((data, index) => (
           <TouchableOpacity

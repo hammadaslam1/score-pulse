@@ -42,16 +42,27 @@ const Auth = props => {
   const allRoundTypes = ['Batting All-Rounder', 'Bowling All-Rounder'];
 
   const setData = userID => {
-    const userRef = database().ref('/users/' + userID);
-    // const temp = email.split('@');
     const temp = email.split('@');
+    console.log(temp);
     setUsername(temp[0]);
+    const userRef = database().ref('/users/' + userID);
+    const playerRef = database().ref('/team/players').push();
+    // const temp = email.split('@');
     userRef.set({
       fullname: fullName,
       number: number,
       email: email,
       playingRole: playerMainType,
       username: username,
+    });
+    playerRef.set({
+      fullname: fullName,
+      number: number,
+      email: email,
+      playingRole: playerMainType,
+      username: username,
+      userId: userID,
+      selected: false,
     });
   };
 

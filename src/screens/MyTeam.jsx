@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 /* eslint-disable no-unused-vars */
 /* eslint-disable react-native/no-inline-styles */
-import {View, Text, ScrollView, TouchableOpacity} from 'react-native';
+import {View, Text, ScrollView, TouchableOpacity, Image} from 'react-native';
 import React, {useState} from 'react';
 import Spinner from 'react-native-loading-spinner-overlay';
 import styles from '../styles/Styles';
@@ -11,10 +11,10 @@ const MyTeam = props => {
   const [loading, setLoading] = useState(false);
   const [isFilled, setIsFilled] = useState(false);
   return (
-    <ScrollView style={{backgroundColor: '#1058ad', minHeight: '100%'}}>
-      <View>
+    <ScrollView style={[styles.fullHeight, {backgroundColor: '#1058ad'}]}>
+      <View style={[styles.fullHeight]}>
         <Spinner visible={loading} color="#3280cf" cancelable={true} />
-        <View style={{marginTop: 30}}>
+        <View style={[styles.fullHeight]}>
           {/* {register.map((data, i) => ( */}
           {/* <View>
             <Text
@@ -38,18 +38,35 @@ const MyTeam = props => {
           </View> */}
           <TouchableOpacity
             activeOpacity={0.6}
-            style={styles.recordContainer}
-            // onPress={() => props.navigation.navigate('Create Team')}
+            style={{
+              backgroundColor: '#3280cf',
+              width: 180,
+              padding: 10,
+              // position: 'absolute',
+              // bottom: 0,
+              // right: 10,
+              // top: 10,
+              // left: 10,
+              // height: 80,
+              flex: 1,
+              flexDirection: 'row',
+              alignItems: 'center',
+              justifyContent: 'center',
+              borderRadius: 50,
+            }}
+            onPress={() => props.navigation.navigate('Add Players')}
           >
-            <View style={styles.button}>
-              <Text
-                style={[
-                  styles.align,
-                  {fontWeight: 'bold', fontSize: 16, fontFamily: 'monospace'},
-                ]}>
-                Add Player
-              </Text>
-            </View>
+            <Image
+              source={require('../assets/icons/plus.png')}
+              style={{tintColor: '#fff', width: 40, height: 40, marginRight: 5}}
+            />
+            <Text
+              style={[
+                styles.align,
+                {fontWeight: 'bold', fontSize: 16, fontFamily: 'monospace'},
+              ]}>
+              Add Player
+            </Text>
           </TouchableOpacity>
         </View>
       </View>
