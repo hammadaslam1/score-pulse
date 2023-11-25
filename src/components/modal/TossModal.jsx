@@ -40,17 +40,24 @@ const TossModal = props => {
 
   const [toss, setToss] = useState('');
   const [elect, setElect] = useState('');
+  const [bat1, setBat1] = useState('');
+  const [bat2, setBat2] = useState('');
 
   const dispatch = useDispatch();
 
   const handleFormat = () => {
-    if (toss && elect) {
+    if (toss == teamA && elect == 'bat') {
+      setBat1(teamA);
+      setBat2(teamB);
+      console.log(teamA);
       dispatch({
         type: TOSS_DATA,
-        toss: totalOvers,
-        elect: wickets,
+        toss: toss,
+        elect: elect,
+        bat1: teamA,
+        bat2: teamB,
       });
-
+      props.setIsToss(false)
       Alert.alert(
         'Confirmation!',
         `${toss} have won the toss and elected to ${elect} first`,
@@ -69,7 +76,7 @@ const TossModal = props => {
       );
       setSelected(true);
       //   setModalVisible(false);
-    //   props.setIsToss(false);
+      //   props.setIsToss(false);
     } else {
       setIsOver(true);
     }

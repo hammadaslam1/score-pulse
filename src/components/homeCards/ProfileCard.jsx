@@ -36,7 +36,7 @@ const ProfileCard = props => {
       }
       setMyData(data);
       setUserData(newArr);
-      console.log(data);
+      // console.log(data);
       dispatch({
         type: PROFILE_DATA,
         phoneNo: data ? data.number : '',
@@ -67,15 +67,12 @@ const ProfileCard = props => {
     <ScrollView
       showsHorizontalScrollIndicator={false}
       horizontal={true}
-      style={{flex: 1, marginRight: 20, paddingBottom: 10}}>
-      {/* {matchData.map((item, index) => ( */}
+      style={{flex: 1, paddingBottom: 10}}>
       <TouchableOpacity
-        //   key={index}
         activeOpacity={0.8}
         style={{
           borderRadius: 30,
           overflow: 'hidden',
-          // margin: 3,
           elevation: 5,
           marginBottom: 10,
           marginHorizontal: 3,
@@ -104,7 +101,6 @@ const ProfileCard = props => {
             <View
               style={{
                 flex: 1,
-                // alignItems: 'center',
               }}>
               <Text
                 style={[
@@ -125,9 +121,7 @@ const ProfileCard = props => {
                 ]}
               />
             </View>
-            {/* <View style={{flexDirection: 'row'}}> */}
             {statData.map((item, i) => (
-              // <View key={i} style={styles.recordBox}>
               <View key={i} style={{flexDirection: 'row'}}>
                 <View style={{flexDirection: 'column', flex: 1}}>
                   <Text
@@ -193,13 +187,10 @@ const ProfileCard = props => {
                   </Text>
                 </View>
               </View>
-              // </View>
             ))}
-            {/* </View> */}
           </View>
         </View>
       </TouchableOpacity>
-      {/* ))} */}
     </ScrollView>
   );
 };

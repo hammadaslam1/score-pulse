@@ -22,7 +22,7 @@ const TeamSelector = props => {
   // console.log(pic);
   const picture = props.pic;
   const url = `../../assets/profile/${picture}.png`;
-  console.log(url);
+  // console.log(url);
   const team = props.reducer;
 
   const imageLinkA = useSelector(state => state.TeamAReducer.imageLink);
@@ -100,7 +100,7 @@ const TeamSelector = props => {
         {cancelable: false},
       );
     } else {
-      console.log(id, name);
+      // console.log(id, name);
       setIsOver(true);
     }
   };

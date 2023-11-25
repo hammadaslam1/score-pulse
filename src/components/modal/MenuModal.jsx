@@ -120,7 +120,7 @@ const MenuModal = props => {
                   key={'' + i}
                   activeOpacity={0.7}
                   onPress={() => {
-                    console.log(item.onPress);
+                    // console.log(item.onPress);
                     // handleFunction(item.onPress);
                     props.setMenu(false);
                     item.onPress ? item.onPress() : '';

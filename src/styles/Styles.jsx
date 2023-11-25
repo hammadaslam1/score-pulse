@@ -5,6 +5,9 @@ const styles = StyleSheet.create({
   touchable: {
     width: 30,
   },
+  fullWidth: {
+    width: '100%',
+  },
   main: {
     backgroundColor: '#1058ad',
     minHeight: '100%',
@@ -56,7 +59,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-evenly',
     alignItems: 'center',
-    // marginVertical: 5,
   },
   stat: {
     flex: 1,
@@ -71,10 +73,8 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     backgroundColor: '#1058ad',
     borderRadius: 20,
-    // elevation: 5,
     borderColor: '#1058ad',
     paddingVertical: 30,
-    // paddingHorizontal: 2,
   },
   vertDivider: {
     borderWidth: 1,
@@ -91,7 +91,6 @@ const styles = StyleSheet.create({
   circle: {
     flex: 2,
     height: 39,
-    // width: 39,
     backgroundColor: '#4391e0',
     borderRadius: 30,
     marginHorizontal: 2,
@@ -100,7 +99,6 @@ const styles = StyleSheet.create({
   headCircle: {
     backgroundColor: '#1058ad',
     flex: 1,
-    // flex: 1,
     alignContent: 'center',
     justifyContent: 'center',
   },
@@ -122,7 +120,6 @@ const styles = StyleSheet.create({
   },
   text: {
     fontWeight: 'bold',
-
     fontSize: 22,
     color: '#fff',
     marginHorizontal: 20,
@@ -139,13 +136,8 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     alignSelf: 'stretch',
     padding: 10,
-    // borderRadius: 4,
-    // shadowOffset: {width: -1, height: 1},
-    // shadowOpacity: 0.9,
     elevation: 5,
     backgroundColor: '#3280cf',
-
-    // alignItems: 'flex-start',
   },
   statRow: {
     flexDirection: 'row',
@@ -237,12 +229,9 @@ const styles = StyleSheet.create({
   },
   overBalls: {
     flex: 4,
-    // display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
     flexWrap: 'wrap',
-    // padding: 5,
-    // width: 350,
   },
   overHead: {
     flex: 1,
@@ -250,8 +239,6 @@ const styles = StyleSheet.create({
     paddingVertical: 4,
   },
   overBody: {
-    // flex: 1,
-    // paddingHorizontal: 10,
     paddingVertical: 4,
     width: 50,
   },
@@ -261,12 +248,10 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap',
     justifyContent: 'space-evenly',
     rowGap: 10,
-    // columnGap: 5,
     padding: 5,
     width: 350,
   },
   single: {
-    // borderRadius: 1,
     marginRight: 5,
     width: 55,
     alignContent: 'center',
@@ -284,7 +269,6 @@ const styles = StyleSheet.create({
   },
   tossMain: {
     height: '100%',
-    // flex: 1,
 
     flexDirection: 'row',
     marginVertical: 'auto',
@@ -297,12 +281,6 @@ const styles = StyleSheet.create({
     alignContent: 'center',
     backgroundColor: '#fff',
     borderRadius: 50,
-    // borderTopLeftRadius: 50,
-    // borderTopRightRadius: 50,
-    // position: 'absolute',
-    // bottom: 0,
-    // zIndex: 2,
-    // height: '100%',
     width: '90%',
     padding: 20,
   },
@@ -328,7 +306,6 @@ const styles = StyleSheet.create({
   },
   placeholder: {
     marginHorizontal: 65,
-    // borderRadius: 15,
     backgroundColor: '#1058ad',
     marginVertical: 10,
     padding: 5,

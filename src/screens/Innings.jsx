@@ -6,19 +6,24 @@
 import {View, Text, ScrollView, TouchableOpacity} from 'react-native';
 import React, {useState} from 'react';
 import styles from '../styles/Styles';
+import {useSelector} from 'react-redux';
 
-const Innings = () => {
+const Innings = props => {
+  const bat1 = useSelector(state => state.TossReducer.bat1);
+  const bat2 = useSelector(state => state.TossReducer.bat2);
+  const scoresA = useSelector(state => state.TeamAReducer.scores);
+  const scoresB = useSelector(state => state.TeamBReducer.scores);
   const [extras, setExtras] = useState(0);
   const [outs, setOuts] = useState(0);
   const [score, setScore] = useState(0);
-  const [currentOver, setCurrentOver] = useState(0.0);
+  const [currentOver, setCurrentOver] = useState(0);
   const [ball, setBall] = useState(0);
   const [overs, setOvers] = useState(5);
   const [playerOne, setPlayerOne] = useState(0);
   const [playerTwo, setPlayerTwo] = useState(0);
   const [overScore, setOverScore] = useState(0);
   const [thisOver, setThisOver] = useState([]);
-  const [CRR, setCRR] = useState('');
+  const [CRR, setCRR] = useState(0.0);
   const [RRR, setRRR] = useState(0);
   let temp;
   const runs = [
@@ -38,6 +43,7 @@ const Innings = () => {
     'UNDO',
     '...',
   ];
+  // console.log(bat1);
   const record = [
     {
       type: 'CRR',
@@ -96,6 +102,7 @@ const Innings = () => {
       // setThisOver([...thisOver]);
     }
   };
+  // console.log('hammad');
   return (
     <ScrollView style={{backgroundColor: '#1058ad', minHeight: '100%'}}>
       <View style={styles.container}>
@@ -103,7 +110,7 @@ const Innings = () => {
           <View style={styles.recordBox}>
             <View style={styles.score}>
               <Text style={[styles.textWhite, {fontSize: 18, flex: 5}]}>
-                Team A
+                {bat1}
               </Text>
               <Text style={[styles.textWhite, {fontSize: 14, flex: 2}]}>
                 {score}/{outs}
@@ -114,7 +121,7 @@ const Innings = () => {
             </View>
             <View style={styles.score}>
               <Text style={[styles.textWhite, {fontSize: 18, flex: 5}]}>
-                Team B
+                {bat2}
               </Text>
               <Text style={[styles.textWhite, {fontSize: 14, flex: 2}]}>
                 {score}/{outs}
@@ -137,7 +144,7 @@ const Innings = () => {
             <Text style={[styles.rateText, {fontWeight: 'bold', fontSize: 17}]}>
               RRR
             </Text>
-            <Text style={[styles.rateText]}>0.0</Text>
+            <Text style={[styles.rateText]}>{RRR}</Text>
           </View>
           <View style={[styles.divider, {borderColor: '#3280cf'}]}></View>
           <View style={styles.rate}>

@@ -82,13 +82,13 @@ const CreateTournament = props => {
                   startDate:
                     startDate.getDate() +
                     '-' +
-                    startDate.getMonth() +
+                    (startDate.getMonth() + 1) +
                     '-' +
                     startDate.getFullYear(),
                   endDate:
                     endDate.getDate() +
                     '-' +
-                    endDate.getMonth() +
+                    (endDate.getMonth() + 1) +
                     '-' +
                     endDate.getFullYear(),
                 })

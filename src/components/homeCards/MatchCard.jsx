@@ -12,7 +12,7 @@ const MatchCard = () => {
     <ScrollView
       showsHorizontalScrollIndicator={false}
       horizontal={true}
-      style={{flex: 1, marginRight: 20, paddingBottom: 10}}>
+      style={{flex: 1,paddingBottom: 10}}>
       {matchData.length >= 1 ? (
         matchData.map((item, index) => (
           <TouchableOpacity
@@ -23,7 +23,7 @@ const MatchCard = () => {
               overflow: 'hidden',
               elevation: 5,
               marginBottom: 10,
-              marginRight: 3,
+              marginHorizontal: 10,
             }}>
             <View
               style={[

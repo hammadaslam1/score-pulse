@@ -2,6 +2,7 @@
 import {FIRST_INNINGS, SECOND_INNINGS} from '../types/Types';
 
 const defaultState = {
+  team: '------',
   totalScore: 0,
   wickets: 0,
   overs: 0,
@@ -17,6 +18,7 @@ const InningsReducer = (state = defaultState, action) => {
     case FIRST_INNINGS:
       return {
         ...state,
+        team: action.team,
         totalScore: action.totalScore,
         wickets: action.wickets,
         overs: action.overs,
@@ -29,6 +31,7 @@ const InningsReducer = (state = defaultState, action) => {
     case SECOND_INNINGS:
       return {
         ...state,
+        team: action.team,
         totalScore: action.totalScore,
         wickets: action.wickets,
         overs: action.overs,
