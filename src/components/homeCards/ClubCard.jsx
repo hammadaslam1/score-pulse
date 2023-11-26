@@ -44,7 +44,7 @@ const ClubCard = props => {
     <ScrollView
       showsHorizontalScrollIndicator={false}
       horizontal={props.horizontal}
-      style={{flex: 1, marginRight: 20, paddingBottom: 10}}>
+      style={{flex: 1, marginRight: 0, paddingBottom: 10}}>
       {clubData.length >= 1 ? (
         clubData.map((item, index) => (
           <TouchableOpacity
@@ -53,10 +53,10 @@ const ClubCard = props => {
             style={{
               borderRadius: 30,
               overflow: 'hidden',
-              marginLeft: 20,
+              marginLeft: 10,
               elevation: 5,
               marginBottom: 10,
-              marginRight: 3,
+              marginRight: 10,
             }}>
             <View
               style={[

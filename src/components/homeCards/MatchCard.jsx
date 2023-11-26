@@ -6,13 +6,13 @@ import React, {useState} from 'react';
 import styles from '../../styles/Styles';
 import NothingCard from './NothingCard';
 
-const MatchCard = () => {
+const MatchCard = props => {
   const [matchData, setMatchData] = useState([]);
   return (
     <ScrollView
       showsHorizontalScrollIndicator={false}
-      horizontal={true}
-      style={{flex: 1,paddingBottom: 10}}>
+      horizontal={props.horizontal}
+      style={{flex: 1, paddingBottom: 10}}>
       {matchData.length >= 1 ? (
         matchData.map((item, index) => (
           <TouchableOpacity
@@ -31,7 +31,6 @@ const MatchCard = () => {
                 {
                   flex: 1,
                   flexDirection: 'row',
-                  borderRadius: 50,
                   margin: 0,
                   paddingHorizontal: 0,
                   paddingVertical: 0,
@@ -40,7 +39,7 @@ const MatchCard = () => {
               <View
                 style={{
                   flex: 1,
-                  padding: 20,
+                  padding: 15,
                   paddingVertical: 20,
                   backgroundColor: '#3280cf',
                   justifyContent: 'space-between',
@@ -140,7 +139,7 @@ const MatchCard = () => {
                     <Text
                       style={[
                         styles.topic,
-                        {fontSize: 15, fontWeight: 'bold'},
+                        {fontSize: 13, fontWeight: 'bold'},
                       ]}>
                       {/*{item.Established_Year} */} View Tournament {'>>'}
                     </Text>

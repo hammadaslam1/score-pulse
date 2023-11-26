@@ -105,7 +105,7 @@ const ProfileCard = props => {
               <Text
                 style={[
                   styles.topic,
-                  {textAlign: 'left', fontSize: 18, fontWeight: 'bold'},
+                  {textAlign: 'left', fontSize: 16, fontWeight: 'bold'},
                 ]}>
                 {name}
               </Text>

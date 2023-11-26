@@ -47,7 +47,7 @@ const TournamentCard = props => {
     <ScrollView
       horizontal={props.horizontal}
       showsHorizontalScrollIndicator={false}
-      style={{flex: 1, marginRight: 0, paddingBottom: 10}}>
+      style={{flex: 1, marginRight: 0,paddingBottom: 10}}>
       {clubData.length >= 1 ? (
         clubData.map((data, index) => (
           <TouchableOpacity
@@ -82,7 +82,7 @@ const TournamentCard = props => {
                   style={{
                     flex: 2,
                     backgroundColor: '#1058ad',
-                    height: 200,
+                    height: 150,
                     justifyContent: 'center',
                     alignItems: 'center',
                   }}
@@ -90,11 +90,11 @@ const TournamentCard = props => {
                   <View>
                     <Image
                       source={require('../../assets/icons/clubProfile.png')}
-                      style={{width: 100, height: 100}}
+                      style={{width: 70, height: 70}}
                     />
                   </View>
                 </ImageBackground>
-                <View
+                {/* <View
                   style={[
                     styles.vertDivider,
                     {
@@ -105,7 +105,7 @@ const TournamentCard = props => {
                       marginLeft: -5,
                     },
                   ]}
-                />
+                /> */}
                 <View style={{padding: 10, paddingHorizontal: 20}}>
                   <Text style={[styles.topic, {marginBottom: 5, fontSize: 13}]}>
                     {data.City}

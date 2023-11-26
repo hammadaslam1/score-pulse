@@ -9,7 +9,7 @@ import styles from '../../styles/Styles';
 const PrimaryButton = props => {
   return (
     <TouchableOpacity
-      style={[styles.container, {marginTop: 20, elevation: 5}]}
+      style={[styles.container, {marginTop: 15, elevation: 5}]}
       activeOpacity={0.7}
       onPress={props.onPress}>
       <View

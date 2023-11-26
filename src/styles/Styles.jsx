@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   fullHeight: {
-    height: '100',
+    minHeight: '100%',
   },
   main: {
     backgroundColor: '#1058ad',
@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
   },
   recordBox: {
     margin: 15,
-    width: 330,
+    width: 300,
     paddingHorizontal: 10,
     paddingVertical: 10,
     borderRadius: 10,
@@ -108,12 +108,12 @@ const styles = StyleSheet.create({
   align: {
     textAlign: 'center',
     color: '#fff',
-    fontSize: 13,
+    fontSize: 10,
   },
   button: {
-    paddingHorizontal: 30,
+    paddingHorizontal: 20,
     paddingVertical: 10,
-    fontSize: 26,
+    // fontSize: 24,
   },
   radioGroup: {
     flexDirection: 'row',
@@ -123,7 +123,7 @@ const styles = StyleSheet.create({
   },
   text: {
     fontWeight: 'bold',
-    fontSize: 22,
+    fontSize: 20,
     color: '#fff',
     marginHorizontal: 20,
   },
@@ -131,8 +131,8 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
-    marginVertical: 10,
-    marginLeft: -20,
+    marginVertical: 8,
+    marginLeft: 10,
   },
   statsContainer: {
     flex: 1,
@@ -289,13 +289,13 @@ const styles = StyleSheet.create({
   },
   modalContainer: {
     backgroundColor: '#fff',
-    borderTopLeftRadius: 50,
-    borderTopRightRadius: 50,
+    borderTopLeftRadius: 30,
+    borderTopRightRadius: 30,
     position: 'absolute',
     bottom: 0,
     zIndex: 2,
     width: '100%',
-    padding: 20,
+    padding: 15,
   },
   input: {
     marginHorizontal: 65,

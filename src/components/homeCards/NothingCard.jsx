@@ -23,7 +23,7 @@ const NothingCard = () => {
             paddingVertical: 0,
             // borderRadius: 20,
             overflow: 'hidden',
-            elevation: 5
+            elevation: 5,
           },
         ]}>
         <View

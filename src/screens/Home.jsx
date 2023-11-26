@@ -64,15 +64,15 @@ const Home = props => {
                 tintColor: '#fff',
                 alignSelf: 'flex-end',
                 margin: 10,
-                width: 40,
-                height: 40,
+                width: 30,
+                height: 30,
               }}
               // onPress={() => props.navigation.navigate('Menu')}
             />
           </TouchableOpacity>
           <Text
             style={{
-              fontSize: 30,
+              fontSize: 24,
               fontFamily: 'verdana',
               fontWeight: 'bold',
               color: '#fff',
@@ -112,8 +112,8 @@ const Home = props => {
             justifyContent: 'space-between',
             alignItems: 'center',
             paddingHorizontal: 10,
-            marginTop: 30,
-            marginBottom: 20,
+            marginTop: 20,
+            marginBottom: 10,
           }}>
           <Text
             style={{
@@ -127,7 +127,7 @@ const Home = props => {
           </Text>
           <RightIndicator />
         </TouchableOpacity>
-        <MatchCard />
+        <MatchCard horizontal={true}  />
         {/* profile */}
         <TouchableOpacity
           activeOpacity={0.65}
@@ -138,8 +138,8 @@ const Home = props => {
             justifyContent: 'space-between',
             alignItems: 'center',
             paddingHorizontal: 10,
-            marginTop: 30,
-            marginBottom: 20,
+            marginTop: 20,
+            marginBottom: 10,
           }}>
           <Text
             style={{
@@ -163,8 +163,8 @@ const Home = props => {
             justifyContent: 'space-between',
             alignItems: 'center',
             paddingHorizontal: 10,
-            marginTop: 30,
-            marginBottom: 20,
+            marginTop: 20,
+            marginBottom: 10,
           }}
           onPress={() => props.navigation.navigate('Tournaments')}>
           <Text
@@ -189,8 +189,8 @@ const Home = props => {
             justifyContent: 'space-between',
             alignItems: 'center',
             paddingHorizontal: 10,
-            marginTop: 30,
-            marginBottom: 20,
+            marginTop: 20,
+            marginBottom: 10,
           }}
           onPress={() => props.navigation.navigate('Clubs')}>
           <Text

@@ -98,10 +98,10 @@ const MenuModal = props => {
             onPress={() => props.setMenu(false)}>
             <Image
               source={require('../../assets/icons/downArrow.png')}
-              style={{width: 30, height: 30, padding: 10, alignSelf: 'center'}}
+              style={{width: 20, height: 20, padding: 10, alignSelf: 'center'}}
             />
           </TouchableOpacity>
-          <View style={{shadowRadius: 5, shadowColor: '#f00'}}>
+          <View>
             <Text
               style={[
                 styles.align,
@@ -111,7 +111,7 @@ const MenuModal = props => {
               Menu
             </Text>
           </View>
-          <View style={{padding: 10, marginVertical: 10}}>
+          <View style={{padding: 10, marginVertical: 5}}>
             <ScrollView
               // style={{maxHeight:400}}
             >
@@ -120,19 +120,15 @@ const MenuModal = props => {
                   key={'' + i}
                   activeOpacity={0.7}
                   onPress={() => {
-                    // console.log(item.onPress);
-                    // handleFunction(item.onPress);
                     props.setMenu(false);
                     item.onPress ? item.onPress() : '';
                   }}
-                  //   style={{backgroundColor: '#0002'}}
                 >
-                  {/* <View style={styles.vertDivider} /> */}
-                  <View style={[styles.listContainer, {marginLeft: 10}]}>
+                  <View style={[styles.listContainer]}>
                     <Image
                       source={item.iconName}
                       alt="app logo"
-                      style={{height: 35, width: 35, tintColor: '#1058ad'}}
+                      style={{height: 30, width: 30, tintColor: '#1058ad'}}
                     />
                     <Text style={[styles.text, {color: '#1058ad'}]}>
                       {item.name}
