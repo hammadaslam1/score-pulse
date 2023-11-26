@@ -139,7 +139,7 @@ const ProfileCard = props => {
                       textAlign: 'center',
                       marginVertical: 7,
                       fontSize: 22,
-                      fontWeight: 'bold',
+                      fontWeight: 'normal',
                     }}>
                     {item.matches ? item.matches : 0}
                   </Text>
@@ -160,7 +160,7 @@ const ProfileCard = props => {
                       textAlign: 'center',
                       marginVertical: 7,
                       fontSize: 22,
-                      fontWeight: 'bold',
+                      fontWeight: 'normal',
                     }}>
                     {item.runs ? item.runs : 0}
                   </Text>
@@ -181,7 +181,7 @@ const ProfileCard = props => {
                       textAlign: 'center',
                       marginVertical: 7,
                       fontSize: 22,
-                      fontWeight: 'bold',
+                      fontWeight: 'normal',
                     }}>
                     {item.wickets ? item.wickets : 0}
                   </Text>

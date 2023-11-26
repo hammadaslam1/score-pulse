@@ -14,6 +14,7 @@ import styles from '../styles/Styles';
 import database from '@react-native-firebase/database';
 import {useEffect} from 'react';
 import auth from '@react-native-firebase/auth';
+import NothingCard from '../components/homeCards/NothingCard';
 
 const MyClub = () => {
   const user = auth().currentUser;
@@ -48,87 +49,99 @@ const MyClub = () => {
     handleSnapshot();
   }, []);
   return (
-    <ScrollView style={{backgroundColor: '#1058ad', minHeight: '100%'}}>
-      <View style={[styles.container, {marginVertical: 30}]}>
-        {clubData.map((data, index) => (
-          <TouchableOpacity
-            key={index}
-            activeOpacity={0.8}
-            style={{
-              borderRadius: 20,
-              overflow: 'hidden',
-              marginVertical: 10,
-              elevation: 5,
-              // opacity: 0.1,
-            }}>
-            <View
-              style={[
-                styles.recordBox,
-                {
-                  width: 370,
-                  flexDirection: 'row',
-                  borderRadius: 50,
-                  margin: 0,
-                  paddingHorizontal: 0,
-                  paddingVertical: 0,
-                  // opacity: 0.5
-                },
-              ]}>
-              <ImageBackground
-                style={{
-                  flex: 2,
-                  backgroundColor: '#1058ad',
-                  width: 150,
-                  height: 150,
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                  // opacity: 0.8
-                }}
-                source={require('../assets/icons/backgroundPlaceholder.png')}>
-                <View>
-                  <Image
-                    source={require('../assets/icons/clubProfile.png')}
-                    style={{width: 60, height: 60}}
-                  />
-                </View>
-              </ImageBackground>
+    <ScrollView style={{flex:1,backgroundColor: '#1058ad', minHeight: '100%'}}>
+      {/* <View style={[styles.container, {marginVertical: 30}]}> */}
+        {clubData.length >= 1 ? (
+          clubData.map((data, index) => (
+            <TouchableOpacity
+              key={index}
+              activeOpacity={0.8}
+              style={{
+                borderRadius: 20,
+                overflow: 'hidden',
+                marginHorizontal: 10,
+                elevation: 5,
+                // opacity: 0.1,
+                marginBottom: 10,
+              }}>
               <View
-                style={{
-                  flex: 3,
-                  padding: 20,
-                  paddingVertical: 20,
-                  backgroundColor: '#3280cf',
-                  justifyContent: 'space-between',
-                }}>
-                <View>
-                  <Text
-                    style={[styles.topic, {fontWeight: 'bold', fontSize: 13}]}>
-                    {data.Club_Name}
-                  </Text>
-                  <Text
-                    style={[styles.topic, {marginVertical: 10, fontSize: 13}]}>
-                    {data.City}
-                  </Text>
-                </View>
-                <View style={{flexDirection: 'row'}}>
-                  <Image
-                    source={require('../assets/icons/pakistan.png')}
-                    style={{width: 15, height: 15, marginHorizontal: 2}}
-                  />
-                  <Image
-                    source={require('../assets/icons/leatherBall.png')}
-                    style={{width: 15, height: 15, marginHorizontal: 2}}
-                  />
-                  <Image
-                    source={require('../assets/icons/tennis.png')}
-                    style={{width: 15, height: 15, marginHorizontal: 2}}
-                  />
+                style={[
+                  styles.recordBox,
+                  {
+                    width: 330,
+                    flex: 1,
+                    flexDirection: 'row',
+                    borderRadius: 50,
+                    margin: 0,
+                    paddingHorizontal: 0,
+                    paddingVertical: 0,
+                    // opacity: 0.5
+                  },
+                ]}>
+                <ImageBackground
+                  style={{
+                    flex: 2,
+                    backgroundColor: '#1058ad',
+                    width: 150,
+                    height: 150,
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    // opacity: 0.8
+                  }}
+                  source={require('../assets/icons/backgroundPlaceholder.png')}>
+                  <View>
+                    <Image
+                      source={require('../assets/icons/clubProfile.png')}
+                      style={{width: 60, height: 60}}
+                    />
+                  </View>
+                </ImageBackground>
+                <View
+                  style={{
+                    flex: 3,
+                    padding: 20,
+                    paddingVertical: 20,
+                    backgroundColor: '#3280cf',
+                    justifyContent: 'space-between',
+                  }}>
+                  <View>
+                    <Text
+                      style={[
+                        styles.topic,
+                        {fontWeight: 'bold', fontSize: 13},
+                      ]}>
+                      {data.Club_Name}
+                    </Text>
+                    <Text
+                      style={[
+                        styles.topic,
+                        {marginVertical: 10, fontSize: 13},
+                      ]}>
+                      {data.City}
+                    </Text>
+                  </View>
+                  <View style={{flexDirection: 'row'}}>
+                    <Image
+                      source={require('../assets/icons/pakistan.png')}
+                      style={{width: 15, height: 15, marginHorizontal: 2}}
+                    />
+                    <Image
+                      source={require('../assets/icons/leatherBall.png')}
+                      style={{width: 15, height: 15, marginHorizontal: 2}}
+                    />
+                    <Image
+                      source={require('../assets/icons/tennis.png')}
+                      style={{width: 15, height: 15, marginHorizontal: 2}}
+                    />
+                  </View>
                 </View>
               </View>
-            </View>
-          </TouchableOpacity>
-        ))}
-      </View>
+            </TouchableOpacity>
+          ))
+        ) : (
+          <NothingCard />
+        )}
+      {/* </View> */}
     </ScrollView>
   );
 };

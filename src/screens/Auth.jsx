@@ -298,14 +298,15 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-evenly',
-    padding: 16,
+    padding: 12,
   },
   text: {
     marginTop: 10,
-    marginLeft: 20,
-    fontSize: 19,
+    marginLeft: 25,
+    fontSize: 18,
     color: '#fff',
     fontWeight: 'bold',
+    fontFamily: 'monospace',
   },
   checkboxview: {
     display: 'flex',
@@ -321,7 +322,7 @@ const styles = StyleSheet.create({
   },
   title: {
     padding: 20,
-    fontSize: 40,
+    fontSize: 32,
     textAlign: 'center',
     fontWeight: 'bold',
     fontFamily: 'monospace',

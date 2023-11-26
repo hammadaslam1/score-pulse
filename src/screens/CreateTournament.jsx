@@ -129,7 +129,7 @@ const CreateTournament = props => {
                 style={[
                   styles.text,
                   {
-                    fontSize: 20,
+                    fontSize: 18,
                     alignSelf: 'flex-start',
                     marginTop: 25,
                     marginRight: 20,
@@ -151,7 +151,7 @@ const CreateTournament = props => {
               style={[
                 styles.text,
                 {
-                  fontSize: 20,
+                  fontSize: 17,
                   fontFamily: 'monospace',
                   flex: 1,
                   textAlign: 'center',
@@ -163,7 +163,7 @@ const CreateTournament = props => {
               style={[
                 styles.text,
                 {
-                  fontSize: 20,
+                  fontSize: 17,
                   fontFamily: 'monospace',
                   flex: 1,
                   textAlign: 'center',
@@ -178,6 +178,7 @@ const CreateTournament = props => {
               style={[
                 styles.text,
                 {
+                  fontWeight: 'normal',
                   fontSize: 14,
                   flex: 1,
                   textAlign: 'center',
@@ -189,7 +190,7 @@ const CreateTournament = props => {
               onPress={() => setStartOpen(true)}>
               {startDate.getDate() +
                 '-' +
-                startDate.getMonth() +
+                (startDate.getMonth() + 1) +
                 '-' +
                 startDate.getFullYear()}
             </Text>
@@ -197,6 +198,7 @@ const CreateTournament = props => {
               style={[
                 styles.text,
                 {
+                  fontWeight: 'normal',
                   fontSize: 14,
                   flex: 1,
                   textAlign: 'center',
@@ -208,7 +210,7 @@ const CreateTournament = props => {
               onPress={() => setEndOpen(true)}>
               {endDate.getDate() +
                 '-' +
-                endDate.getMonth() +
+                (endDate.getMonth() + 1) +
                 '-' +
                 endDate.getFullYear()}
             </Text>
@@ -217,7 +219,7 @@ const CreateTournament = props => {
             style={[
               styles.text,
               {
-                fontSize: 20,
+                fontSize: 18,
                 alignSelf: 'flex-start',
                 marginTop: 25,
                 marginRight: 20,
@@ -248,7 +250,7 @@ const CreateTournament = props => {
                   <Text
                     style={{
                       color: isType == ball ? '#1058ad' : '#fff',
-                      fontWeight: 'bold',
+                      fontWeight: 'normal',
                       fontSize: 16,
                     }}>
                     {ball}
@@ -293,7 +295,7 @@ const CreateTournament = props => {
         {isFilled ? (
           <Text
             style={{
-              fontSize: 20,
+              fontSize: 17,
               fontFamily: 'monospace',
               marginTop: 40,
               textAlign: 'center',

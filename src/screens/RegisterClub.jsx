@@ -97,7 +97,7 @@ const RegisterClub = props => {
           style={[
             styles.text,
             {
-              fontSize: 25,
+              fontSize: 22,
               alignSelf: 'flex-start',
               marginTop: 25,
               marginRight: 20,
@@ -113,7 +113,7 @@ const RegisterClub = props => {
                 style={[
                   styles.text,
                   {
-                    fontSize: 20,
+                    fontSize: 18,
                     alignSelf: 'flex-start',
                     marginTop: 25,
                     marginRight: 20,
@@ -134,7 +134,7 @@ const RegisterClub = props => {
               style={[
                 styles.text,
                 {
-                  fontSize: 20,
+                  fontSize: 18,
                   alignSelf: 'flex-start',
                   marginTop: 25,
                   marginRight: 20,
@@ -155,6 +155,7 @@ const RegisterClub = props => {
                   paddingBottom: 8,
                   marginHorizontal: 120,
                   marginTop: 20,
+                  fontWeight: 'normal',
                 },
               ]}
               onPress={() => setStartOpen(true)}>
@@ -183,7 +184,7 @@ const RegisterClub = props => {
               <Text
                 style={{
                   color: isLeather ? '#1058ad' : '#fff',
-                  fontWeight: 'bold',
+                  fontWeight: 'normal',
                 }}>
                 Leather Ball
               </Text>
@@ -208,7 +209,7 @@ const RegisterClub = props => {
               <Text
                 style={{
                   color: isTennis ? '#1058ad' : '#fff',
-                  fontWeight: 'bold',
+                  fontWeight: 'normal',
                 }}>
                 Tape Ball
               </Text>
@@ -219,7 +220,7 @@ const RegisterClub = props => {
         {isFilled ? (
           <Text
             style={{
-              fontSize: 20,
+              fontSize: 16,
               fontFamily: 'monospace',
               marginTop: 40,
               textAlign: 'center',

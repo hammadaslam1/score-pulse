@@ -11,6 +11,9 @@ const styles = StyleSheet.create({
   fullHeight: {
     minHeight: '100%',
   },
+  halgHeight: {
+    height: '50%',
+  },
   main: {
     backgroundColor: '#1058ad',
     minHeight: '100%',
@@ -38,7 +41,7 @@ const styles = StyleSheet.create({
     marginBottom: 40,
   },
   records: {
-    fontSize: 18,
+    fontSize: 16,
     color: '#fff',
     fontWeight: 'bold',
     fontFamily: 'monospace',
@@ -66,7 +69,7 @@ const styles = StyleSheet.create({
   stat: {
     flex: 1,
 
-    fontSize: 16,
+    fontSize: 14,
     fontWeight: 'bold',
     color: '#fff',
     textAlign: 'center',
@@ -296,6 +299,7 @@ const styles = StyleSheet.create({
     zIndex: 2,
     width: '100%',
     padding: 15,
+    // paddingTop: 500,
   },
   input: {
     marginHorizontal: 65,

@@ -120,7 +120,7 @@ const MyProfile = props => {
                     <Text
                       style={[
                         styles.align,
-                        {fontWeight: 'bold', fontSize: 15},
+                        {fontWeight: 'bold', fontSize: 13},
                       ]}>
                       {item.title}
                     </Text>
@@ -130,7 +130,7 @@ const MyProfile = props => {
                       styles.circle,
                       {alignContent: 'center', justifyContent: 'center'},
                     ]}>
-                    <Text style={[styles.align, {fontSize: 15}]}>
+                    <Text style={[styles.align, {fontSize: 13}]}>
                       {item.value}
                     </Text>
                     {/* <Text style={styles.align}>{j}</Text> */}

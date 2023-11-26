@@ -14,7 +14,7 @@ const MyTeam = props => {
     <ScrollView style={[styles.fullHeight, {backgroundColor: '#1058ad'}]}>
       <View style={[styles.fullHeight]}>
         <Spinner visible={loading} color="#3280cf" cancelable={true} />
-        <View style={[styles.fullHeight]}>
+        <View>
           {/* {register.map((data, i) => ( */}
           {/* <View>
             <Text
@@ -42,17 +42,13 @@ const MyTeam = props => {
               backgroundColor: '#3280cf',
               width: 180,
               padding: 10,
-              // position: 'absolute',
-              // bottom: 0,
-              // right: 10,
-              // top: 10,
-              // left: 10,
-              // height: 80,
               flex: 1,
               flexDirection: 'row',
               alignItems: 'center',
               justifyContent: 'center',
+              alignSelf: 'center',
               borderRadius: 50,
+              marginTop: 20,
             }}
             onPress={() => props.navigation.navigate('Add Players')}
           >

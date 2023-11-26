@@ -31,12 +31,12 @@ const styles = StyleSheet.create({
   },
   radioLabel: {
     marginRight: 10,
-    fontSize: 17,
+    fontSize: 14,
     color: '#fff',
   },
   radioCircle: {
-    height: 20,
-    width: 20,
+    height: 15,
+    width: 15,
     borderColor: 'white',
     borderWidth: 1,
     borderRadius: 10,
@@ -50,8 +50,8 @@ const styles = StyleSheet.create({
   },
   radioBg: {
     backgroundColor: 'white',
-    height: 13,
-    width: 13,
+    height: 15,
+    width: 15,
     borderRadius: 10,
   },
 });

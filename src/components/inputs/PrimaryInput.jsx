@@ -7,7 +7,11 @@ const PrimaryInput = props => {
   return (
     <View>
       {/* <Text>PrimaryInput</Text> */}
-      <TextInput style={styles.input} {...props} />
+      <TextInput
+        placeholderTextColor={'#1058ad88'}
+        style={styles.input}
+        {...props}
+      />
     </View>
   );
 };
@@ -18,8 +22,10 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     backgroundColor: '#ffffff',
     marginVertical: 10,
-    padding: 15,
+    padding: 10,
     elevation: 10,
+    color: '#1058ad',
+    fontWeight: 'bold',
   },
 });
 
