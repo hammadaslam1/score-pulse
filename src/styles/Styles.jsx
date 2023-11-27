@@ -34,14 +34,14 @@ const styles = StyleSheet.create({
     borderColor: '#fff',
   },
   name: {
-    fontSize: 24,
+    fontSize: 22,
     fontWeight: 'bold',
     color: '#fff',
     fontFamily: 'monospace',
     marginBottom: 40,
   },
   records: {
-    fontSize: 16,
+    fontSize: 15,
     color: '#fff',
     fontWeight: 'bold',
     fontFamily: 'monospace',
@@ -69,8 +69,8 @@ const styles = StyleSheet.create({
   stat: {
     flex: 1,
 
-    fontSize: 14,
-    fontWeight: 'bold',
+    fontSize: 13,
+    // fontWeight: 'bold',
     color: '#fff',
     textAlign: 'center',
     padding: 2,
@@ -90,7 +90,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 170,
   },
   topic: {
-    fontSize: 20,
+    fontSize: 18,
     fontFamily: 'monospace',
     color: '#fff',
   },
@@ -318,8 +318,8 @@ const styles = StyleSheet.create({
     padding: 5,
     borderBottomColor: '#3280cf',
     borderBottomWidth: 2,
-    color: '#000',
-    opacity: 0.35,
+    color: '#fff',
+    opacity: 0.4,
     textAlign: 'center',
   },
 });

@@ -44,6 +44,7 @@ const OpenMatch = props => {
               key={j}
               style={{
                 padding: 20,
+                width: '50%',
               }}>
               <TeamSelector
                 type={i.type}
@@ -61,24 +62,25 @@ const OpenMatch = props => {
             alignSelf: 'center',
             marginBottom: 30,
             marginTop: 35,
-            marginHorizontal: 45,
+            marginHorizontal: 30,
           }}>
           <Text
             style={[
               styles.text,
               {
-                fontSize: 18,
+                fontSize: 17,
                 flex: 1,
                 textAlign: 'center',
                 borderBottomColor: '#3280cf',
                 borderBottomWidth: 2,
                 paddingBottom: 8,
+                fontWeight: 'normal',
               },
             ]}
             onPress={() => setStartOpen(true)}>
             {startDate.getDate() +
               '-' +
-              startDate.getMonth() +
+              (startDate.getMonth() + 1) +
               '-' +
               startDate.getFullYear()}
           </Text>
@@ -86,12 +88,13 @@ const OpenMatch = props => {
             style={[
               styles.text,
               {
-                fontSize: 18,
+                fontSize: 17,
                 flex: 1,
                 textAlign: 'center',
                 borderBottomColor: '#3280cf',
                 borderBottomWidth: 2,
                 paddingBottom: 8,
+                fontWeight: 'normal',
               },
             ]}
             onPress={() => setEndOpen(true)}>
@@ -108,35 +111,46 @@ const OpenMatch = props => {
             flexDirection: 'row',
             alignSelf: 'center',
             justifyContent: 'space-evenly',
-            marginTop: 30,
+            // marginTop: 5,
           }}>
           <TouchableOpacity
-            style={[styles.container, {marginTop: 100, flex: 1}]}>
+          activeOpacity={0.6}
+            style={[styles.container, {marginTop: 100, flex: 1, width: '50%'}]}>
             <View
               style={[
                 styles.button,
-                {backgroundColor: '#3280cf', borderRadius: 10, width: 200},
+                {backgroundColor: '#3280cf', borderRadius: 10, paddingHorizontal: 0, width: '90%', alignSelf: 'center'},
               ]}>
-              <Text style={[styles.topic, {alignSelf: 'center'}]}>
+              <Text style={[styles.topic, {alignSelf: 'center', fontSize: 16}]}>
                 Save Fixtures
               </Text>
             </View>
           </TouchableOpacity>
           <TouchableOpacity
-            style={[styles.container, {marginTop: 100, flex: 1}]}
+          activeOpacity={0.6}
+            style={[styles.container, {marginTop: 100, flex: 1, width: '50%'}]}
             onPress={() => setIsToss(true)}>
             <View
               style={[
                 styles.button,
-                {backgroundColor: '#3280cf', borderRadius: 10, width: 200},
+                {backgroundColor: '#3280cf', borderRadius: 10, paddingHorizontal: 0, width: '90%', alignSelf: 'center'},
               ]}>
-              <Text style={[styles.topic, {alignSelf: 'center'}]}>
+              <Text style={[styles.topic, {alignSelf: 'center', fontSize: 16}]}>
                 Start Match
               </Text>
             </View>
           </TouchableOpacity>
         </View>
-        {isToss ? <TossModal visibility={isToss} onPress={()=>setIsToss(!isToss)} press={()=>props.navigation.navigate('Innings')} setIsToss={setIsToss} /> : ''}
+        {isToss ? (
+          <TossModal
+            visibility={isToss}
+            onPress={() => setIsToss(!isToss)}
+            press={() => props.navigation.navigate('Innings')}
+            setIsToss={setIsToss}
+          />
+        ) : (
+          ''
+        )}
         <DatePicker
           modal
           mode="date"

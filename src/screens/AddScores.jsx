@@ -74,7 +74,7 @@ const AddScores = props => {
                 style={[
                   styles.text,
                   {
-                    fontSize: 20,
+                    fontSize: 17,
                     alignSelf: 'flex-start',
                     marginTop: 25,
                     marginRight: 20,
@@ -116,7 +116,7 @@ const AddScores = props => {
               <Text
                 style={[
                   styles.align,
-                  {fontWeight: 'bold', fontSize: 16, fontFamily: 'monospace'},
+                  {fontWeight: 'bold', fontSize: 15, fontFamily: 'monospace'},
                 ]}>
                 Add Scores
               </Text>

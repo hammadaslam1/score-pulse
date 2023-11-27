@@ -127,7 +127,7 @@ const Home = props => {
           </Text>
           <RightIndicator />
         </TouchableOpacity>
-        <MatchCard horizontal={true}  />
+        <MatchCard horizontal={true} />
         {/* profile */}
         <TouchableOpacity
           activeOpacity={0.65}

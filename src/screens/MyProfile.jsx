@@ -120,7 +120,7 @@ const MyProfile = props => {
                     <Text
                       style={[
                         styles.align,
-                        {fontWeight: 'bold', fontSize: 13},
+                        {fontWeight: 'bold', fontSize: 12},
                       ]}>
                       {item.title}
                     </Text>
@@ -130,7 +130,7 @@ const MyProfile = props => {
                       styles.circle,
                       {alignContent: 'center', justifyContent: 'center'},
                     ]}>
-                    <Text style={[styles.align, {fontSize: 13}]}>
+                    <Text style={[styles.align, {fontSize: 12}]}>
                       {item.value}
                     </Text>
                     {/* <Text style={styles.align}>{j}</Text> */}
@@ -157,17 +157,17 @@ const MyProfile = props => {
                 </Text>
                 <View style={styles.innerRecord}>
                   <View style={styles.stat}>
-                    <Text style={styles.stat}>Runs</Text>
+                    <Text style={[styles.stat]}>Runs</Text>
                     <Text style={styles.stat}>{item.runs}</Text>
                   </View>
                   <View style={styles.divider}></View>
                   <View style={styles.stat}>
-                    <Text style={styles.stat}>Average</Text>
+                    <Text style={[styles.stat]}>Average</Text>
                     <Text style={styles.stat}>{item.battingAverage}</Text>
                   </View>
                   <View style={styles.divider}></View>
                   <View style={styles.stat}>
-                    <Text style={styles.stat}>High Score</Text>
+                    <Text style={[styles.stat]}>High Score</Text>
                     <Text style={styles.stat}>{item.highScore}</Text>
                   </View>
                 </View>
@@ -235,7 +235,7 @@ const MyProfile = props => {
             <Text
               style={[
                 styles.align,
-                {fontWeight: 'bold', fontSize: 16, fontFamily: 'monospace'},
+                {fontWeight: 'bold', fontSize: 15, fontFamily: 'monospace'},
               ]}>
               Add Past Scores
             </Text>
@@ -249,7 +249,7 @@ const MyProfile = props => {
             <Text
               style={[
                 styles.align,
-                {fontWeight: 'bold', fontSize: 16, fontFamily: 'monospace'},
+                {fontWeight: 'bold', fontSize: 15, fontFamily: 'monospace'},
               ]}>
               Edit Profile
             </Text>

@@ -99,7 +99,7 @@ const FormatSelector = props => {
             onPress={() => setModalVisible(false)}>
             <Image
               source={require('../../assets/icons/downArrow.png')}
-              style={{width: 30, height: 30, padding: 10, alignSelf: 'center'}}
+              style={{width: 28, height: 28, padding: 10, alignSelf: 'center'}}
             />
           </TouchableOpacity>
           <View style={{padding: 10, marginVertical: 10}}>
@@ -125,26 +125,28 @@ const FormatSelector = props => {
             />
             <View style={[styles.innerRecord, {marginTop: 15}]}>
               {overNo.map((overs, i) => (
-                <TouchableOpacity
-                  key={i}
-                  activeOpacity={0.7}
-                  onPress={() => {
-                    // Alert.alert(overs)
-                    setIsOver(false);
-                    setTotalOvers(overs);
-                  }}>
-                  <View
-                    style={{
-                      padding: 5,
-                      width: 50,
-                      flex: 1,
-                      alignItems: 'center',
-                      borderRadius: 10,
-                      backgroundColor: '#3280cf',
+                <View key={i} style={styles.container}>
+                  <TouchableOpacity
+                    activeOpacity={0.7}
+                    onPress={() => {
+                      // Alert.alert(overs)
+                      setIsOver(false);
+                      setTotalOvers(overs);
                     }}>
-                    <Text style={{color: '#fff'}}>{overs}</Text>
-                  </View>
-                </TouchableOpacity>
+                    <View
+                      style={{
+                        padding: 5,
+                        width: 50,
+                        elevation: 5,
+                        // flex: 1,
+                        alignItems: 'center',
+                        borderRadius: 10,
+                        backgroundColor: '#3280cf',
+                      }}>
+                      <Text style={{color: '#fff'}}>{overs}</Text>
+                    </View>
+                  </TouchableOpacity>
+                </View>
               ))}
             </View>
             <Text
@@ -191,7 +193,8 @@ const FormatSelector = props => {
             </Text>
             <View style={[styles.innerRecord, {marginTop: 25}]}>
               {bType.map((ball, i) => (
-                <TouchableOpacity
+                <View style={styles.container}>
+                  <TouchableOpacity
                   key={i}
                   activeOpacity={0.7}
                   onPress={() => {
@@ -202,7 +205,8 @@ const FormatSelector = props => {
                     style={{
                       padding: 8,
                       width: 100,
-                      flex: 1,
+                      // flex: 1,
+                      elevation: isType == ball ? 5 : 0,
                       alignItems: 'center',
                       borderRadius: 10,
                       backgroundColor:
@@ -213,6 +217,7 @@ const FormatSelector = props => {
                     </Text>
                   </View>
                 </TouchableOpacity>
+                </View>
               ))}
             </View>
             {isOver ? (
@@ -231,9 +236,10 @@ const FormatSelector = props => {
               ''
             )}
             <View
-              style={[styles.innerRecord, {marginTop: 45, marginBottom: 15}]}>
+              style={[styles.innerRecord, {marginTop: 15}]}>
               <TouchableOpacity
                 activeOpacity={0.7}
+                style={[styles.recordContainer, {overflow: 'hidden', marginBottom: 0}]}
                 onPress={() => {
                   handleFormat();
                 }}>
@@ -243,7 +249,6 @@ const FormatSelector = props => {
                     width: 200,
                     flex: 1,
                     alignItems: 'center',
-                    borderRadius: 10,
                     backgroundColor: '#3280cf',
                   }}>
                   <Text style={{color: '#fff'}}>Done</Text>

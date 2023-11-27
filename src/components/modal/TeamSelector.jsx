@@ -109,7 +109,7 @@ const TeamSelector = props => {
       <Text
         style={[
           styles.topic,
-          {fontSize: 12, color: '#fffd', alignSelf: 'center'},
+          {fontSize: 12, color: '#fffc', alignSelf: 'center'},
         ]}>
         Open Match
       </Text>
@@ -131,7 +131,7 @@ const TeamSelector = props => {
         style={[
           styles.topic,
           {
-            fontSize: 16,
+            fontSize: 15,
             fontWeight: 'bold',
             color: '#fff',
             alignSelf: 'center',
@@ -152,7 +152,7 @@ const TeamSelector = props => {
             onPress={() => setModalVisible(false)}>
             <Image
               source={require('../../assets/icons/downArrow.png')}
-              style={{width: 30, height: 30, padding: 10, alignSelf: 'center'}}
+              style={{width: 28, height: 28, padding: 10, alignSelf: 'center'}}
             />
           </TouchableOpacity>
           <View>
@@ -160,13 +160,13 @@ const TeamSelector = props => {
               style={[
                 styles.align,
                 styles.topic,
-                {color: '#1058ad', fontWeight: 'bold', marginTop: 15},
+                {color: '#1058ad', fontWeight: 'bold', marginTop: 10},
               ]}>
               Select Team
             </Text>
           </View>
-          <View style={{padding: 10, marginVertical: 10}}>
-            <Text
+          <View style={{padding: 10, marginVertical: 8}}>
+            {/* <Text
               style={[
                 styles.topic,
                 {
@@ -210,10 +210,10 @@ const TeamSelector = props => {
                 },
               ]}>
               Option 2
-            </Text>
+            </Text> */}
             <ScrollView
               showsVerticalScrollIndicator={false}
-              style={{height: 350, marginTop: 20}}>
+              style={{maxHeight: 350, marginTop: 20}}>
               <View>
                 {clubData.map((i, j) => (
                   <TouchableOpacity
@@ -247,7 +247,7 @@ const TeamSelector = props => {
                             styles.topic,
                             {
                               color: '#1058ad',
-                              fontSize: 18,
+                              fontSize: 16,
                               marginVertical: 5,
                               fontWeight: 'bold',
                             },
@@ -258,8 +258,8 @@ const TeamSelector = props => {
                           style={[
                             styles.topic,
                             {
-                              color: '#1058ad',
-                              fontSize: 14,
+                              color: '#1058adcc',
+                              fontSize: 13,
                               marginBottom: 5,
                               //   marginHorizontal: 5,
                             },

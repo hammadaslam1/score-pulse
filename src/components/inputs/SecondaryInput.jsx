@@ -7,7 +7,7 @@ const SecondaryInput = props => {
   return (
     <View>
       {/* <Text>SecondaryInput</Text> */}
-      <TextInput placeholderTextColor={'#fff7'} style={styles.input} {...props} />
+      <TextInput placeholderTextColor={'#fff8'} style={styles.input} {...props} />
     </View>
   );
 };

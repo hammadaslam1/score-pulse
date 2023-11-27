@@ -83,11 +83,11 @@ const EditProfile = props => {
           style={styles.image}
         />
       </TouchableOpacity>
-      <Text style={[styles.align, styles.topic]}>{name}</Text>
+      <Text style={[styles.align, styles.topic, {fontWeight: 'bold', fontSize: 18}]}>{name}</Text>
       <Spinner visible={loading} color="#3280cf" cancelable={true} />
       <View style={{marginVertical: 30}}>
         <View style={{marginHorizontal: 30}}>
-          <Text style={[styles.topic, {marginTop: 10}]}>Username</Text>
+          <Text style={[styles.topic, {marginTop: 10, fontSize: 17}]}>Username</Text>
         </View>
         <SecondaryInput
           placeholder="Username"
@@ -95,7 +95,7 @@ const EditProfile = props => {
           onChange={() => setIsFilled(false)}
         />
         <View style={{marginHorizontal: 30}}>
-          <Text style={[styles.topic, {marginTop: 10}]}>Mail ID</Text>
+          <Text style={[styles.topic, {marginTop: 10, fontSize: 17}]}>Mail ID</Text>
         </View>
         <SecondaryInput
           placeholder="Mail ID"
@@ -103,7 +103,7 @@ const EditProfile = props => {
           onChange={() => setIsFilled(false)}
         />
         <View style={{marginHorizontal: 30}}>
-          <Text style={[styles.topic, {marginTop: 10}]}>Playing Role</Text>
+          <Text style={[styles.topic, {marginTop: 10, fontSize: 17}]}>Playing Role</Text>
         </View>
         <View style={styles.radioGroup}>
           {mainTypes.map((data, i) => (
@@ -120,7 +120,7 @@ const EditProfile = props => {
           ))}
         </View>
         <View style={{marginHorizontal: 30}}>
-          <Text style={[styles.topic, {marginTop: 10}]}>Bating Style</Text>
+          <Text style={[styles.topic, {marginTop: 10, fontSize: 17}]}>Bating Style</Text>
         </View>
         <View style={styles.radioGroup}>
           {subTypes?.map((data, i) => (
@@ -135,7 +135,7 @@ const EditProfile = props => {
           ))}
         </View>
         <View style={{marginHorizontal: 30}}>
-          <Text style={[styles.topic, {marginTop: 10}]}>Bowling Style</Text>
+          <Text style={[styles.topic, {marginTop: 10, fontSize: 17}]}>Bowling Style</Text>
         </View>
         <View style={styles.radioGroup}>
           {bowlerTypes?.map((data, i) => (
@@ -150,7 +150,7 @@ const EditProfile = props => {
           ))}
         </View>
         <View style={{marginHorizontal: 30}}>
-          <Text style={[styles.topic, {marginTop: 10}]}>Jersey No.</Text>
+          <Text style={[styles.topic, {marginTop: 10, fontSize: 17}]}>Jersey No.</Text>
         </View>
         <SecondaryInput
           placeholder="Jersey No."
@@ -161,7 +161,7 @@ const EditProfile = props => {
         {isFilled ? (
           <Text
             style={{
-              fontSize: 20,
+              fontSize: 15,
               fontFamily: 'monospace',
               marginTop: 40,
               textAlign: 'center',
@@ -186,7 +186,7 @@ const EditProfile = props => {
               <Text
                 style={[
                   styles.align,
-                  {fontWeight: 'bold', fontSize: 16, fontFamily: 'monospace'},
+                  {fontWeight: 'bold', fontSize: 15, fontFamily: 'monospace'},
                 ]}>
                 Save Profile
               </Text>

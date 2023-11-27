@@ -129,7 +129,7 @@ const CreateTournament = props => {
                 style={[
                   styles.text,
                   {
-                    fontSize: 18,
+                    fontSize: 17,
                     alignSelf: 'flex-start',
                     marginTop: 25,
                     marginRight: 20,
@@ -151,7 +151,7 @@ const CreateTournament = props => {
               style={[
                 styles.text,
                 {
-                  fontSize: 17,
+                  fontSize: 16,
                   fontFamily: 'monospace',
                   flex: 1,
                   textAlign: 'center',
@@ -163,7 +163,7 @@ const CreateTournament = props => {
               style={[
                 styles.text,
                 {
-                  fontSize: 17,
+                  fontSize: 16,
                   fontFamily: 'monospace',
                   flex: 1,
                   textAlign: 'center',
@@ -219,7 +219,7 @@ const CreateTournament = props => {
             style={[
               styles.text,
               {
-                fontSize: 18,
+                fontSize: 17,
                 alignSelf: 'flex-start',
                 marginTop: 25,
                 marginRight: 20,
@@ -233,6 +233,7 @@ const CreateTournament = props => {
               <TouchableOpacity
                 key={i}
                 activeOpacity={0.7}
+                style={{width: '40%'}}
                 onPress={() => {
                   setBallType(ball);
                   setIsType(ball);
@@ -240,8 +241,8 @@ const CreateTournament = props => {
                 <View
                   style={{
                     padding: 8,
-                    width: 100,
-                    flex: 1,
+                    width: '100%',
+                    // flex: 1,
                     alignItems: 'center',
                     borderRadius: 10,
                     elevation: isType == ball ? 5 : 0,
@@ -295,7 +296,7 @@ const CreateTournament = props => {
         {isFilled ? (
           <Text
             style={{
-              fontSize: 17,
+              fontSize: 15,
               fontFamily: 'monospace',
               marginTop: 40,
               textAlign: 'center',
@@ -308,7 +309,8 @@ const CreateTournament = props => {
           ''
         )}
         <TouchableOpacity
-          style={[styles.container, {marginVertical: 60}]}
+        activeOpacity={0.6}
+          style={[styles.recordContainer, {margin: 60, overflow: 'hidden', borderRadius: 50}]}
           onPress={() => handleTour()}>
           <View
             style={[

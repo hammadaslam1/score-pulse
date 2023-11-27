@@ -1,5 +1,4 @@
 /* eslint-disable prettier/prettier */
-/* eslint-disable react/self-closing-comp */
 /* eslint-disable eqeqeq */
 /* eslint-disable no-unused-vars */
 /* eslint-disable react-native/no-inline-styles */
@@ -57,7 +56,7 @@ const TossModal = props => {
         bat1: teamA,
         bat2: teamB,
       });
-      props.setIsToss(false)
+      props.setIsToss(false);
       Alert.alert(
         'Confirmation!',
         `${toss} have won the toss and elected to ${elect} first`,
@@ -96,15 +95,15 @@ const TossModal = props => {
             style={[styles.touchable, {shadowColor: '#000'}]}
             onPress={props.onPress}>
             <Image
-              source={require('../../assets/logos/icon.png')}
-              style={{width: 30, height: 30, padding: 10}}
+              source={require('../../assets/icons/close.png')}
+              style={{width: 30, height: 30, padding: 10, tintColor: '#1058ad'}}
             />
           </TouchableOpacity>
           <View style={{padding: 10, marginVertical: 10}}>
             <Text
               style={[
                 styles.topic,
-                {color: '#1058ad', fontSize: 15, fontWeight: 'bold'},
+                {color: '#1058ad', fontSize: 14, fontWeight: 'bold'},
               ]}>
               Who won the toss?
             </Text>
@@ -114,40 +113,22 @@ const TossModal = props => {
                 activeOpacity={0.8}
                 onPress={() => setToss(teamA)}
                 style={{
+                  // flex: 1,
                   borderWidth: 1,
                   borderColor: '#1058ad',
                   borderRadius: 25,
-                  padding: 30,
-                  paddingVertical: 10,
+                  width: '45%',
+                  // padding: 30,
+                  paddingVertical: 15,
                   marginTop: 15,
-                  backgroundColor: toss == teamA ? '#1058ad33' : '#fff',
+                  backgroundColor: toss == teamA ? '#1058ad' : '#fff',
                 }}>
                 <Image
-                  source={require('../../assets/logos/icon.png')}
-                  style={{
-                    borderRadius: 50,
-                    width: 60,
-                    height: 60,
-                    marginVertical: 10,
-                    alignSelf: 'center',
-                  }}
-                />
-                <Text style={[styles.align, {color: '#000'}]}>{teamA}</Text>
-              </TouchableOpacity>
-              <TouchableOpacity
-                activeOpacity={0.8}
-                onPress={() => setToss(teamB)}
-                style={{
-                  borderWidth: 1,
-                  borderColor: '#1058ad',
-                  borderRadius: 25,
-                  padding: 30,
-                  paddingVertical: 10,
-                  marginTop: 15,
-                  backgroundColor: toss == teamB ? '#1058ad33' : '#fff',
-                }}>
-                <Image
-                  source={require('../../assets/logos/icon.png')}
+                  source={
+                    toss == teamA
+                      ? require('../../assets/logos/icon.png')
+                      : require('../../assets/logos/icon_lite.png')
+                  }
                   style={{
                     borderRadius: 50,
                     width: 60,
@@ -157,7 +138,46 @@ const TossModal = props => {
                   }}
                 />
                 <Text
-                  style={[styles.align, {color: '#000', fontWeight: 'bold'}]}>
+                  style={[
+                    styles.align,
+                    {color: toss != teamA ? '#1058ad' : '#fff'},
+                  ]}>
+                  {teamA}
+                </Text>
+              </TouchableOpacity>
+              <TouchableOpacity
+                activeOpacity={0.8}
+                onPress={() => setToss(teamB)}
+                style={{
+                  // flex: 1,
+                  borderWidth: 1,
+                  borderColor: '#1058ad',
+                  borderRadius: 25,
+                  width: '45%',
+                  // padding: 30,
+                  paddingVertical: 15,
+                  marginTop: 15,
+                  backgroundColor: toss == teamB ? '#1058ad' : '#fff',
+                }}>
+                <Image
+                  source={
+                    toss == teamB
+                      ? require('../../assets/logos/icon.png')
+                      : require('../../assets/logos/icon_lite.png')
+                  }
+                  style={{
+                    borderRadius: 50,
+                    width: 60,
+                    height: 60,
+                    marginVertical: 10,
+                    alignSelf: 'center',
+                  }}
+                />
+                <Text
+                  style={[
+                    styles.align,
+                    {color: toss != teamB ? '#1058ad' : '#fff'},
+                  ]}>
                   {teamB}
                 </Text>
               </TouchableOpacity>
@@ -167,7 +187,7 @@ const TossModal = props => {
                 styles.topic,
                 {
                   color: '#1058ad',
-                  fontSize: 15,
+                  fontSize: 14,
                   fontWeight: 'bold',
                   marginTop: 15,
                 },
@@ -186,9 +206,15 @@ const TossModal = props => {
                   padding: 30,
                   paddingVertical: 10,
                   marginTop: 30,
-                  backgroundColor: elect == 'bat' ? '#1058ad33' : '#fff',
+                  backgroundColor: elect == 'bat' ? '#1058ad' : '#fff',
                 }}>
-                <Text style={[styles.align, {color: '#000'}]}>Bat</Text>
+                <Text
+                  style={[
+                    styles.align,
+                    {color: elect != 'bat' ? '#1058ad' : '#fff', fontSize: 13},
+                  ]}>
+                  Bat
+                </Text>
               </TouchableOpacity>
               <TouchableOpacity
                 activeOpacity={0.8}
@@ -200,10 +226,13 @@ const TossModal = props => {
                   padding: 30,
                   paddingVertical: 10,
                   marginTop: 30,
-                  backgroundColor: elect == 'bowl' ? '#1058ad33' : '#fff',
+                  backgroundColor: elect == 'bowl' ? '#1058ad' : '#fff',
                 }}>
                 <Text
-                  style={[styles.align, {color: '#000', fontWeight: 'bold'}]}>
+                  style={[
+                    styles.align,
+                    {color: elect != 'bowl' ? '#1058ad' : '#fff', fontSize: 13},
+                  ]}>
                   Bowl
                 </Text>
               </TouchableOpacity>
@@ -213,11 +242,11 @@ const TossModal = props => {
                 <Text
                   style={{
                     color: '#f00',
-                    fontSize: 18,
+                    fontSize: 13,
                     fontFamily: 'monospace',
                     textAlign: 'center',
                   }}>
-                  --- please fill all fields ---
+                  - please select all options -
                 </Text>
               </View>
             ) : (
@@ -237,7 +266,7 @@ const TossModal = props => {
                     // flex: 1,
                     alignItems: 'center',
                     borderRadius: 10,
-                    backgroundColor: '#3280cf',
+                    backgroundColor: '#1058ad',
                   }}>
                   <Text style={{color: '#fff'}}>Done</Text>
                 </View>

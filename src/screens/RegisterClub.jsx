@@ -97,7 +97,7 @@ const RegisterClub = props => {
           style={[
             styles.text,
             {
-              fontSize: 22,
+              fontSize: 20,
               alignSelf: 'flex-start',
               marginTop: 25,
               marginRight: 20,
@@ -113,7 +113,7 @@ const RegisterClub = props => {
                 style={[
                   styles.text,
                   {
-                    fontSize: 18,
+                    fontSize: 17,
                     alignSelf: 'flex-start',
                     marginTop: 25,
                     marginRight: 20,
@@ -134,7 +134,7 @@ const RegisterClub = props => {
               style={[
                 styles.text,
                 {
-                  fontSize: 18,
+                  fontSize: 17,
                   alignSelf: 'flex-start',
                   marginTop: 25,
                   marginRight: 20,
@@ -147,7 +147,7 @@ const RegisterClub = props => {
               style={[
                 styles.text,
                 {
-                  fontSize: 18,
+                  fontSize: 17,
                   flex: 1,
                   textAlign: 'center',
                   borderBottomColor: '#3280cf',
@@ -167,14 +167,15 @@ const RegisterClub = props => {
           {/* {bType.map((ball, index) => ( */}
           <TouchableOpacity
             activeOpacity={0.7}
+            style={{width: '35%'}}
             onPress={() => {
               setIsLeather(!isLeather);
             }}>
             <View
               style={{
                 padding: 8,
-                width: 100,
-                flex: 1,
+                width: '100%',
+                // flex: 1,
                 alignItems: 'center',
                 borderRadius: 10,
                 backgroundColor: isLeather ? '#fff' : '#1058ad',
@@ -192,14 +193,15 @@ const RegisterClub = props => {
           </TouchableOpacity>
           <TouchableOpacity
             activeOpacity={0.7}
+            style={{width: '35%'}}
             onPress={() => {
               setIsTennis(!isTennis);
             }}>
             <View
               style={{
                 padding: 8,
-                width: 100,
-                flex: 1,
+                width: '100%',
+                // flex: 1,
                 alignItems: 'center',
                 borderRadius: 10,
                 backgroundColor: isTennis ? '#fff' : '#1058ad',
@@ -220,7 +222,7 @@ const RegisterClub = props => {
         {isFilled ? (
           <Text
             style={{
-              fontSize: 16,
+              fontSize: 15,
               fontFamily: 'monospace',
               marginTop: 40,
               textAlign: 'center',
@@ -233,7 +235,8 @@ const RegisterClub = props => {
           ''
         )}
         <TouchableOpacity
-          style={[styles.container, {marginTop: 30}]}
+        activeOpacity={0.6}
+          style={[styles.recordContainer, {marginTop: 30, marginHorizontal: 80, overflow: 'hidden', borderRadius: 50}]}
           onPress={() => {
             handleClub();
           }}>
@@ -242,7 +245,7 @@ const RegisterClub = props => {
               styles.button,
               {backgroundColor: '#3280cf', borderRadius: 10},
             ]}>
-            <Text style={styles.text}>Register</Text>
+            <Text style={[styles.text, {alignSelf: 'center'}]}>Register</Text>
           </View>
         </TouchableOpacity>
         <DatePicker

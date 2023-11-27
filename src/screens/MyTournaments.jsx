@@ -9,11 +9,11 @@ const MyTournaments = props => {
   return (
     <ScrollView style={{backgroundColor: '#1058ad', minHeight: '100%'}}>
       <View style={{marginVertical: 20}}>
-        {new Array(3).fill(0).map((data, i) => (
-          <View key={i} style={styles.container}>
-            <TournamentCard />
-          </View>
-        ))}
+        {/* {new Array(3).fill(0).map((data, i) => ( */}
+        <View style={styles.container}>
+          <TournamentCard />
+        </View>
+        {/* ))} */}
       </View>
     </ScrollView>
   );
