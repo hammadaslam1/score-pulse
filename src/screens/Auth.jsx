@@ -159,9 +159,9 @@ const Auth = props => {
           <Image
             source={require('../assets/logos/splash.png')}
             alt="app logo"
-            style={{alignSelf: 'center', marginTop: 80, marginBottom: 30}}
+            style={{alignSelf: 'center', marginTop: 70, marginBottom: 25}}
           />
-          <Text style={styles.title}>{status ? 'Login' : 'Register'}</Text>
+          <Text style={styles.title}>{status ? 'LOGIN' : 'REGISTER'}</Text>
           {!status ? (
             <PrimaryInput
               placeholder={'Full Name'}
@@ -261,7 +261,7 @@ const Auth = props => {
                 onValueChange={() => setSecure(!secure)}
                 color={'transparent'}
               />
-              <Text style={{color: '#fff', fontSize: 15}}>Show Password</Text>
+              <Text style={{color: '#fff', fontSize: 13}}>Show Password</Text>
             </View>
           </TouchableOpacity>
           <PrimaryButton
@@ -269,11 +269,17 @@ const Auth = props => {
             onPress={() => {
               handleAuth();
             }}
+            fontSize={18}
           />
           <Text style={styles.status}>
             {status ? "Don't have an account?" : 'Already registered?'}
           </Text>
-          <TouchableOpacity onPress={() => setStatus(!status)}>
+          <PrimaryButton
+            title={!status ? 'SIGN IN' : 'REGISTER'}
+            onPress={() => setStatus(!status)}
+            fontSize={12}
+          />
+          {/* <TouchableOpacity onPress={() => setStatus(!status)}>
             <Text
               style={{
                 fontSize: 18,
@@ -284,7 +290,7 @@ const Auth = props => {
               }}>
               {status ? 'Register' : 'Sign In'}
             </Text>
-          </TouchableOpacity>
+          </TouchableOpacity> */}
         </View>
       </ScrollView>
     );
@@ -303,7 +309,7 @@ const styles = StyleSheet.create({
   text: {
     marginTop: 10,
     marginLeft: 25,
-    fontSize: 18,
+    fontSize: 16,
     color: '#fff',
     fontWeight: 'bold',
     fontFamily: 'monospace',
@@ -313,7 +319,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     marginHorizontal: 30,
-    marginVertical: 5,
+    marginBottom: 5,
     color: '#fff',
   },
   checkbox: {
@@ -322,15 +328,16 @@ const styles = StyleSheet.create({
   },
   title: {
     padding: 20,
-    fontSize: 32,
+    fontSize: 26,
     textAlign: 'center',
     fontWeight: 'bold',
     fontFamily: 'monospace',
+    // textTransform: 'capitalize',
     color: '#ffffff',
   },
   status: {
     padding: 20,
-    fontSize: 25,
+    fontSize: 20,
     textAlign: 'center',
     fontWeight: 'bold',
     fontFamily: 'monospace',

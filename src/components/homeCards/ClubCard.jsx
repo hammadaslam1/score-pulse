@@ -97,14 +97,14 @@ const ClubCard = props => {
                 }}>
                 <View>
                   <Text
-                    style={[styles.topic, {fontWeight: 'bold', fontSize: 13}]}>
+                    style={[styles.topic, {fontWeight: 'bold', fontSize: 12}]}>
                     {item.Club_Name}
                   </Text>
                   <Text
-                    style={[styles.topic, {marginVertical: 10, fontSize: 13}]}>
+                    style={[styles.topic, {marginVertical: 10, fontSize: 12}]}>
                     {item.City}
                   </Text>
-                  <Text style={[styles.topic, {fontSize: 12}]}>
+                  <Text style={[styles.topic, {fontSize: 11}]}>
                     Since {item.Established_Year}
                   </Text>
                 </View>

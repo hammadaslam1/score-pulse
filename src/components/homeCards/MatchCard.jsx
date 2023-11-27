@@ -46,7 +46,7 @@ const MatchCard = props => {
                 }}>
                 <View>
                   <Text
-                    style={[styles.topic, {marginBottom: 10, fontSize: 13}]}>
+                    style={[styles.topic, {marginBottom: 10, fontSize: 12}]}>
                     {/* {item.City} */} format, etc.
                   </Text>
                   <View
@@ -66,7 +66,7 @@ const MatchCard = props => {
                           styles.topic,
                           {
                             fontWeight: 'bold',
-                            fontSize: 15,
+                            fontSize: 14,
                             marginHorizontal: 10,
                           },
                         ]}>
@@ -84,7 +84,7 @@ const MatchCard = props => {
                       <Text
                         style={[
                           styles.topic,
-                          {color: '#fff', fontSize: 14, marginHorizontal: 3},
+                          {color: '#fff', fontSize: 13, marginHorizontal: 3},
                         ]}>
                         (0.0)
                       </Text>
@@ -107,7 +107,7 @@ const MatchCard = props => {
                           styles.topic,
                           {
                             fontWeight: 'bold',
-                            fontSize: 15,
+                            fontSize: 14,
                             marginHorizontal: 10,
                           },
                         ]}>
@@ -125,21 +125,21 @@ const MatchCard = props => {
                       <Text
                         style={[
                           styles.topic,
-                          {color: '#fff', fontSize: 14, marginHorizontal: 3},
+                          {color: '#fff', fontSize: 13, marginHorizontal: 3},
                         ]}>
                         (0.0)
                       </Text>
                     </View>
                   </View>
                   <Text
-                    style={[styles.topic, {marginVertical: 10, fontSize: 13}]}>
+                    style={[styles.topic, {marginVertical: 10, fontSize: 12}]}>
                     {/* {item.City} */} Tournament Name
                   </Text>
                   <TouchableOpacity>
                     <Text
                       style={[
                         styles.topic,
-                        {fontSize: 13, fontWeight: 'bold'},
+                        {fontSize: 12, fontWeight: 'bold'},
                       ]}>
                       {/*{item.Established_Year} */} View Tournament {'>>'}
                     </Text>

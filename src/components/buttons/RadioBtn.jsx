@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
   },
   radioLabel: {
     marginRight: 10,
-    fontSize: 14,
+    fontSize: 13,
     color: '#fff',
   },
   radioCircle: {

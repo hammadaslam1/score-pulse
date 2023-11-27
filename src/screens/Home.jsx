@@ -72,7 +72,7 @@ const Home = props => {
           </TouchableOpacity>
           <Text
             style={{
-              fontSize: 24,
+              fontSize: 22,
               fontFamily: 'verdana',
               fontWeight: 'bold',
               color: '#fff',
@@ -118,7 +118,7 @@ const Home = props => {
           <Text
             style={{
               flex: 1,
-              fontSize: 20,
+              fontSize: 18,
               fontFamily: 'monospace',
               fontWeight: 'bold',
               color: '#fff',
@@ -144,7 +144,7 @@ const Home = props => {
           <Text
             style={{
               flex: 1,
-              fontSize: 20,
+              fontSize: 18,
               fontFamily: 'monospace',
               fontWeight: 'bold',
               color: '#fff',
@@ -170,7 +170,7 @@ const Home = props => {
           <Text
             style={{
               flex: 1,
-              fontSize: 20,
+              fontSize: 18,
               fontFamily: 'monospace',
               fontWeight: 'bold',
               color: '#fff',
@@ -196,7 +196,7 @@ const Home = props => {
           <Text
             style={{
               flex: 1,
-              fontSize: 20,
+              fontSize: 18,
               fontFamily: 'monospace',
               fontWeight: 'bold',
               color: '#fff',

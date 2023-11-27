@@ -82,7 +82,7 @@ const TournamentCard = props => {
                   style={{
                     flex: 2,
                     backgroundColor: '#1058ad',
-                    height: 150,
+                    height: 130,
                     justifyContent: 'center',
                     alignItems: 'center',
                   }}
@@ -107,25 +107,25 @@ const TournamentCard = props => {
                   ]}
                 /> */}
                 <View style={{padding: 10, paddingHorizontal: 20}}>
-                  <Text style={[styles.topic, {marginBottom: 5, fontSize: 13}]}>
+                  <Text style={[styles.topic, {marginBottom: 5, fontSize: 12}]}>
                     {data.City}
                   </Text>
                   <Text
                     style={[
                       styles.topic,
-                      {marginBottom: 5, fontSize: 17, fontWeight: 900},
+                      {marginBottom: 5, fontSize: 15, fontWeight: 900},
                     ]}>
                     {data.Tournament}
                   </Text>
                   <Text
                     style={{
-                      fontSize: 12,
+                      fontSize: 11,
                       fontWeight: 'normal',
                       color: '#fffa',
                     }}>
                     {data.startDate} to {data.endDate}
                   </Text>
-                  <Text style={[styles.topic, {fontSize: 13, fontWeight: 900}]}>
+                  <Text style={[styles.topic, {fontSize: 12, fontWeight: 900}]}>
                     {data.Club_Name}
                   </Text>
                 </View>

@@ -1,5 +1,4 @@
 /* eslint-disable prettier/prettier */
-/* eslint-disable react/self-closing-comp */
 /* eslint-disable react-native/no-inline-styles */
 import {View, Text} from 'react-native';
 import React from 'react';
@@ -14,7 +13,7 @@ const NothingCard = () => {
           {
             flex: 1,
             flexDirection: 'row',
-            borderRadius: 30,
+            borderRadius: 40,
             margin: 0,
             marginLeft: 10,
             marginRight: 3,
@@ -34,7 +33,12 @@ const NothingCard = () => {
             backgroundColor: '#3280cf',
             justifyContent: 'space-between',
           }}>
-          <Text style={[styles.align, styles.topic, {color: '#fff6'}]}>
+          <Text
+            style={[
+              styles.align,
+              styles.topic,
+              {color: '#fff6', fontSize: 16},
+            ]}>
             Nothing to show
           </Text>
         </View>

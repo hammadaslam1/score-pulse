@@ -94,7 +94,7 @@ const MenuModal = props => {
         }}>
         <View style={[styles.modalContainer, {backgroundColor: '#fff', marginTop: 10}]}>
           <TouchableOpacity
-            style={{shadowColor: '#000'}}
+            // style={{shadowColor: '#000'}}
             onPress={() => props.setMenu(false)}>
             <Image
               source={require('../../assets/icons/downArrow.png')}
@@ -128,7 +128,7 @@ const MenuModal = props => {
                     <Image
                       source={item.iconName}
                       alt="app logo"
-                      style={{height: 30, width: 30, tintColor: '#1058ad'}}
+                      style={{height: 28, width: 28, tintColor: '#1058ad'}}
                     />
                     <Text style={[styles.text, {color: '#1058ad'}]}>
                       {item.name}

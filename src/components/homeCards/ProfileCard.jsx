@@ -105,7 +105,7 @@ const ProfileCard = props => {
               <Text
                 style={[
                   styles.topic,
-                  {textAlign: 'left', fontSize: 16, fontWeight: 'bold'},
+                  {textAlign: 'left', fontSize: 15, fontWeight: 'bold'},
                 ]}>
                 {name}
               </Text>
@@ -138,7 +138,7 @@ const ProfileCard = props => {
                       color: '#fff',
                       textAlign: 'center',
                       marginVertical: 7,
-                      fontSize: 22,
+                      fontSize: 20,
                       fontWeight: 'normal',
                     }}>
                     {item.matches ? item.matches : 0}
@@ -159,7 +159,7 @@ const ProfileCard = props => {
                       color: '#fff',
                       textAlign: 'center',
                       marginVertical: 7,
-                      fontSize: 22,
+                      fontSize: 20,
                       fontWeight: 'normal',
                     }}>
                     {item.runs ? item.runs : 0}
@@ -180,7 +180,7 @@ const ProfileCard = props => {
                       color: '#fff',
                       textAlign: 'center',
                       marginVertical: 7,
-                      fontSize: 22,
+                      fontSize: 20,
                       fontWeight: 'normal',
                     }}>
                     {item.wickets ? item.wickets : 0}

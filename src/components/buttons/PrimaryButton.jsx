@@ -8,15 +8,17 @@ import styles from '../../styles/Styles';
 
 const PrimaryButton = props => {
   return (
-    <TouchableOpacity
-      style={[styles.container, {marginTop: 15, elevation: 5}]}
+    <View style={styles.container}>
+      <TouchableOpacity
+      style={[styles.recordContainer, {marginVertical: 15}]}
       activeOpacity={0.7}
       onPress={props.onPress}>
       <View
-        style={[styles.button, {backgroundColor: '#3280cf', borderRadius: 10}, props.style]}>
-        <Text style={styles.text}>{props.title}</Text>
+        style={[styles.button, {backgroundColor: '#3280cf', borderRadius: 10}]}>
+        <Text style={[styles.text, {fontSize: props.fontSize}]}>{props.title}</Text>
       </View>
     </TouchableOpacity>
+    </View>
   );
 };
 
