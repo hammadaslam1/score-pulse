@@ -310,12 +310,12 @@ const CreateTournament = props => {
         )}
         <TouchableOpacity
         activeOpacity={0.6}
-          style={[styles.recordContainer, {margin: 60, overflow: 'hidden', borderRadius: 50}]}
+          style={[styles.recordContainer, {marginVertical: 60, overflow: 'hidden', borderRadius: 50, alignSelf: 'center'}]}
           onPress={() => handleTour()}>
           <View
             style={[
               styles.button,
-              {backgroundColor: '#3280cf', borderRadius: 10},
+              {backgroundColor: '#3280cf', borderRadius: 10, alignSelf: 'center'},
             ]}>
             <Text style={styles.text}>Create Tournament</Text>
           </View>

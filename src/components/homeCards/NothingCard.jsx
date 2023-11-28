@@ -11,8 +11,9 @@ const NothingCard = () => {
         style={[
           styles.recordBox,
           {
-            flex: 1,
-            flexDirection: 'row',
+            // flex: 1,
+            // flexDirection: 'row',
+            minWidth: 300,
             borderRadius: 40,
             margin: 0,
             marginLeft: 10,
@@ -27,7 +28,8 @@ const NothingCard = () => {
         ]}>
         <View
           style={{
-            flex: 1,
+            // flex: 1,
+            width: '100%',
             padding: 20,
             paddingVertical: 20,
             backgroundColor: '#3280cf',

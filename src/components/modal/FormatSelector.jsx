@@ -46,31 +46,14 @@ const FormatSelector = props => {
   };
   const handleFormat = () => {
     if (totalOvers && wickets && ballType) {
-      Alert.alert(
-        'Confirmation!',
-        `Are you sure to select ${totalOvers} overs ${ballType} format?`,
-        [
-          {
-            text: 'Cancel',
-            onPress: () => console.log('Cancel Pressed'),
-            style: 'cancel',
-          },
-          {
-            text: 'OK',
-            onPress: () => {
-              dispatch({
-                type: MATCH_FORMAT,
-                totalOvers: totalOvers,
-                totalWickets: wickets,
-                ballType: ballType,
-              });
-              setSelected(true);
-              setModalVisible(false);
-            },
-          },
-        ],
-        {cancelable: false},
-      );
+      dispatch({
+        type: MATCH_FORMAT,
+        totalOvers: totalOvers,
+        totalWickets: wickets,
+        ballType: ballType,
+      });
+      setSelected(true);
+      setModalVisible(false);
     } else {
       setIsOver(true);
     }
@@ -123,9 +106,9 @@ const FormatSelector = props => {
               onChangeText={setTotalOvers}
               onChange={() => setIsOver(false)}
             />
-            <View style={[styles.innerRecord, {marginTop: 15}]}>
+            <View style={[styles.innerRecord, {marginTop: 15, alignSelf: 'center', minWidth: '100%'}]}>
               {overNo.map((overs, i) => (
-                <View key={i} style={styles.container}>
+                <View key={i} style={{}}>
                   <TouchableOpacity
                     activeOpacity={0.7}
                     onPress={() => {
@@ -191,9 +174,9 @@ const FormatSelector = props => {
               ]}>
               Ball Type <Text style={{color: '#f00'}}>*</Text>
             </Text>
-            <View style={[styles.innerRecord, {marginTop: 25}]}>
+            <View style={[styles.innerRecord, {marginTop: 25, minWidth: '100%'}]}>
               {bType.map((ball, i) => (
-                <View style={styles.container}>
+                <View key={i} style={{}}>
                   <TouchableOpacity
                   key={i}
                   activeOpacity={0.7}
@@ -225,7 +208,7 @@ const FormatSelector = props => {
                 <Text
                   style={{
                     color: '#f00',
-                    fontSize: 18,
+                    fontSize: 15,
                     fontFamily: 'monospace',
                     textAlign: 'center',
                   }}>
@@ -236,7 +219,7 @@ const FormatSelector = props => {
               ''
             )}
             <View
-              style={[styles.innerRecord, {marginTop: 15}]}>
+              style={[styles.container, {marginTop: 15}]}>
               <TouchableOpacity
                 activeOpacity={0.7}
                 style={[styles.recordContainer, {overflow: 'hidden', marginBottom: 0}]}
@@ -246,12 +229,12 @@ const FormatSelector = props => {
                 <View
                   style={{
                     padding: 10,
-                    width: 200,
+                    // width: 200,
                     flex: 1,
                     alignItems: 'center',
                     backgroundColor: '#3280cf',
                   }}>
-                  <Text style={{color: '#fff'}}>Done</Text>
+                  <Text style={{color: '#fff', alignSelf: 'center'}}>Done</Text>
                 </View>
               </TouchableOpacity>
             </View>

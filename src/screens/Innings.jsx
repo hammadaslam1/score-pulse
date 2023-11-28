@@ -107,26 +107,26 @@ const Innings = props => {
     <ScrollView style={{backgroundColor: '#1058ad', minHeight: '100%'}}>
       <View style={styles.container}>
         <View style={styles.recordContainer}>
-          <View style={styles.recordBox}>
+          <View style={[styles.recordBox, {paddingVertical: 5}]}>
             <View style={styles.score}>
-              <Text style={[styles.textWhite, {fontSize: 18, flex: 5}]}>
+              <Text style={[styles.textWhite, {fontSize: 17, flex: 5}]}>
                 {bat1}
               </Text>
               <Text style={[styles.textWhite, {fontSize: 14, flex: 2}]}>
                 {score}/{outs}
               </Text>
-              <Text style={[styles.textWhite, {fontSize: 14, flex: 2}]}>
+              <Text style={[styles.textWhite, {fontSize: 13, flex: 2}]}>
                 ({currentOver}.{ball}/{overs})
               </Text>
             </View>
             <View style={styles.score}>
-              <Text style={[styles.textWhite, {fontSize: 18, flex: 5}]}>
+              <Text style={[styles.textWhite, {fontSize: 17, flex: 5}]}>
                 {bat2}
               </Text>
               <Text style={[styles.textWhite, {fontSize: 14, flex: 2}]}>
                 {score}/{outs}
               </Text>
-              <Text style={[styles.textWhite, {fontSize: 14, flex: 2}]}>
+              <Text style={[styles.textWhite, {fontSize: 13, flex: 2}]}>
                 ({currentOver}.{ball}/{overs})
               </Text>
             </View>
@@ -134,21 +134,21 @@ const Innings = props => {
         </View>
         <View style={styles.innerRecord}>
           <View style={styles.rate}>
-            <Text style={[styles.rateText, {fontWeight: 'bold', fontSize: 17}]}>
+            <Text style={[styles.rateText, {fontWeight: 'bold', fontSize: 16}]}>
               CRR
             </Text>
             <Text style={[styles.rateText]}>{CRR}</Text>
           </View>
           <View style={[styles.divider, {borderColor: '#3280cf'}]}></View>
           <View style={styles.rate}>
-            <Text style={[styles.rateText, {fontWeight: 'bold', fontSize: 17}]}>
+            <Text style={[styles.rateText, {fontWeight: 'bold', fontSize: 16}]}>
               RRR
             </Text>
             <Text style={[styles.rateText]}>{RRR}</Text>
           </View>
           <View style={[styles.divider, {borderColor: '#3280cf'}]}></View>
           <View style={styles.rate}>
-            <Text style={[styles.rateText, {fontWeight: 'bold', fontSize: 17}]}>
+            <Text style={[styles.rateText, {fontWeight: 'bold', fontSize: 16}]}>
               Extras
             </Text>
             <Text style={[styles.rateText]}>{extras}</Text>
@@ -183,7 +183,7 @@ const Innings = props => {
               <Text style={[styles.scoreBodyText, {flex: 1}]}>308.3</Text>
             </View>
             <View style={styles.scoreHead}>
-              <Text style={[styles.scoreHeadText, {flex: 3}]}>Batting</Text>
+              <Text style={[styles.scoreHeadText, {flex: 3}]}>Bowling</Text>
               <Text style={[styles.scoreHeadText, {flex: 1}]}>O</Text>
               <Text style={[styles.scoreHeadText, {flex: 1}]}>R</Text>
               <Text style={[styles.scoreHeadText, {flex: 1}]}>W</Text>
@@ -203,12 +203,12 @@ const Innings = props => {
         <View style={[styles.recordContainer, {marginTop: -10}]}>
           <View style={styles.overs}>
             <View style={styles.overHead}>
-              <Text style={styles.scoreHeadText}>This over</Text>
+              <Text style={[styles.scoreHeadText, {fontSize: 12}]}>This over</Text>
             </View>
             <View style={styles.overBalls}>
               {thisOver?.map((data, i) => (
                 <View key={'' + i} style={styles.overBody}>
-                  <Text style={styles.scoreBodyText}>{data}</Text>
+                  <Text style={[styles.scoreBodyText, {fontSize: 11}]}>{data}</Text>
                 </View>
               ))}
             </View>
@@ -220,35 +220,35 @@ const Innings = props => {
               {data == 6 || data == 4 ? (
                 <View style={[styles.single, {backgroundColor: '#0c0'}]}>
                   <Text
-                    style={[styles.align, {fontWeight: 'bold', fontSize: 26}]}>
+                    style={[styles.align, {fontWeight: 'bold', fontSize: 22}]}>
                     {data}
                   </Text>
                 </View>
               ) : data == 'WKT' || data == 'NB' ? (
                 <View style={[styles.single, {backgroundColor: '#900'}]}>
                   <Text
-                    style={[styles.align, {fontWeight: 'bold', fontSize: 20}]}>
+                    style={[styles.align, {fontWeight: 'bold', fontSize: 18}]}>
                     {data}
                   </Text>
                 </View>
               ) : data == 'WD' || data == 'LB' || data == 'B' ? (
                 <View style={[styles.single, {backgroundColor: '#22f'}]}>
                   <Text
-                    style={[styles.align, {fontWeight: 'bold', fontSize: 20}]}>
+                    style={[styles.align, {fontWeight: 'bold', fontSize: 18}]}>
                     {data}
                   </Text>
                 </View>
               ) : data == 'UNDO' ? (
                 <View style={[styles.single, {backgroundColor: '#0ff'}]}>
                   <Text
-                    style={[styles.align, {fontWeight: 'bold', fontSize: 16}]}>
+                    style={[styles.align, {fontWeight: 'bold', fontSize: 15}]}>
                     {data}
                   </Text>
                 </View>
               ) : (
                 <View style={[styles.single, {backgroundColor: '#3280cf'}]}>
                   <Text
-                    style={[styles.align, {fontWeight: 'bold', fontSize: 20}]}>
+                    style={[styles.align, {fontWeight: 'bold', fontSize: 18}]}>
                     {data}
                   </Text>
                 </View>

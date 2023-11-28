@@ -111,9 +111,9 @@ const MenuModal = props => {
               Menu
             </Text>
           </View>
-          <View style={{padding: 10, marginVertical: 5}}>
-            <ScrollView
-              // style={{maxHeight:400}}
+          <ScrollView style={{padding: 10, marginVertical: 5}}>
+            <View
+              // style={{maxHeight:'80%'}}
             >
               {list.map((item, i) => (
                 <TouchableOpacity
@@ -136,7 +136,7 @@ const MenuModal = props => {
                   </View>
                 </TouchableOpacity>
               ))}
-            </ScrollView>
+            </View>
             <PrimaryButton
               title={'Sign out'}
               style={{
@@ -145,7 +145,7 @@ const MenuModal = props => {
               }}
               onPress={props.handleSignOut}
             />
-          </View>
+          </ScrollView>
         </View>
       </Modal>
     </View>

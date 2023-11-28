@@ -68,6 +68,7 @@ const TournamentCard = props => {
                   flexDirection: 'row',
                   borderRadius: 50,
                   margin: 0,
+                  minWidth: 300,
                   paddingHorizontal: 0,
                   paddingVertical: 0,
                 },

@@ -66,7 +66,7 @@ const ProfileCard = props => {
   return (
     <ScrollView
       showsHorizontalScrollIndicator={false}
-      horizontal={true}
+      // horizontal={true}
       style={{flex: 1, paddingBottom: 10}}>
       <TouchableOpacity
         activeOpacity={0.8}
@@ -76,6 +76,7 @@ const ProfileCard = props => {
           elevation: 5,
           marginBottom: 10,
           marginHorizontal: 3,
+          width: '95%',
         }}
         {...props}>
         <View
@@ -86,6 +87,7 @@ const ProfileCard = props => {
               flexDirection: 'row',
               borderRadius: 50,
               margin: 0,
+              minWidth: '100%',
               paddingHorizontal: 0,
               paddingVertical: 0,
             },

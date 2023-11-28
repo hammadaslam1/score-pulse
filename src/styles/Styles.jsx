@@ -19,7 +19,8 @@ const styles = StyleSheet.create({
     minHeight: '100%',
   },
   container: {
-    flex: 1,
+    // flex: 1,
+    width: '100%',
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -48,14 +49,15 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   recordContainer: {
+    width: '90%',
     marginVertical: 30,
     borderRadius: 20,
     backgroundColor: '#3280cf',
     elevation: 5,
   },
   recordBox: {
-    margin: 15,
-    width: 300,
+    margin: 10,
+    width: '95%',
     paddingHorizontal: 10,
     paddingVertical: 10,
     borderRadius: 10,
@@ -80,7 +82,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#1058ad',
     borderRadius: 20,
     borderColor: '#1058ad',
-    paddingVertical: 30,
+    paddingVertical: 20,
   },
   vertDivider: {
     borderWidth: 1,
@@ -166,14 +168,14 @@ const styles = StyleSheet.create({
   textWhite: {
     color: '#fff',
     fontFamily: 'monospace',
-    fontWeight: '700',
+    fontWeight: '600',
     textAlign: 'left',
   },
   score: {
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
-    marginVertical: 4,
+    marginVertical: 2,
   },
   rateText: {
     fontFamily: 'monospace',
@@ -188,12 +190,13 @@ const styles = StyleSheet.create({
     justifyContent: 'space-evenly',
   },
   majorScore: {
-    width: 350,
+    // width: 320,
+    width: '100%',
     display: 'flex',
     flexDirection: 'column',
     borderRadius: 20,
     overflow: 'hidden',
-    elevation: 5,
+    // elevation: 5,
   },
   scoreHead: {
     backgroundColor: '#3280cf',
@@ -214,7 +217,7 @@ const styles = StyleSheet.create({
   scoreHeadText: {
     color: '#fff',
 
-    fontSize: 16,
+    fontSize: 15,
     fontWeight: 'bold',
     textAlign: 'center',
     paddingVertical: 5,
@@ -255,7 +258,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-evenly',
     rowGap: 10,
     padding: 5,
-    width: 350,
+    // width: 350,
   },
   single: {
     marginRight: 5,

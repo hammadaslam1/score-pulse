@@ -15,7 +15,7 @@ const PrimaryButton = props => {
       onPress={props.onPress}>
       <View
         style={[styles.button, {backgroundColor: '#3280cf', borderRadius: 10}]}>
-        <Text style={[styles.text, {fontSize: props.fontSize}]}>{props.title}</Text>
+        <Text style={[styles.text, {fontSize: props.fontSize, alignSelf: 'center'}]}>{props.title}</Text>
       </View>
     </TouchableOpacity>
     </View>

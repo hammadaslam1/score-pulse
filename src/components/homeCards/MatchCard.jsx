@@ -12,7 +12,7 @@ const MatchCard = props => {
     <ScrollView
       showsHorizontalScrollIndicator={false}
       horizontal={props.horizontal}
-      style={{flex: 1, paddingBottom: 10}}>
+      style={{paddingBottom: 10, minWidth: 300}}>
       {matchData.length >= 1 ? (
         matchData.map((item, index) => (
           <TouchableOpacity
@@ -23,15 +23,19 @@ const MatchCard = props => {
               overflow: 'hidden',
               elevation: 5,
               marginBottom: 10,
-              marginHorizontal: 10,
+              minWidth: 300,
+              width: '100%',
+              alignSelf: 'center',
             }}>
             <View
               style={[
                 styles.recordBox,
                 {
-                  flex: 1,
-                  flexDirection: 'row',
-                  margin: 0,
+                  // flex: 1,
+                  // flexDirection: 'row',
+                  minWidth: 300,
+              width: '100%',
+              margin: 0,
                   paddingHorizontal: 0,
                   paddingVertical: 0,
                 },

@@ -74,31 +74,32 @@ const TeamSelector = props => {
 
   const handleTeams = (id, name) => {
     if (name && id) {
-      Alert.alert(
-        'Confirmation!',
-        `Are you sure to select ${name}?`,
-        [
-          {
-            text: 'Cancel',
-            onPress: () => console.log('Cancel Pressed'),
-            style: 'cancel',
-          },
-          {
-            text: 'OK',
-            onPress: () => {
-              dispatch({
-                type: props.type,
-                teamName: name,
-                id: id,
-                // imageLink: require(url),
-              });
-              setSelected(true);
-              setModalVisible(false);
-            },
-          },
-        ],
-        {cancelable: false},
-      );
+      dispatch({
+        type: props.type,
+        teamName: name,
+        id: id,
+        // imageLink: require(url),
+      });
+      setSelected(true);
+      setModalVisible(false);
+      // Alert.alert(
+      //   'Confirmation!',
+      //   `Are you sure to select ${name}?`,
+      //   [
+      //     {
+      //       text: 'Cancel',
+      //       onPress: () => console.log('Cancel Pressed'),
+      //       style: 'cancel',
+      //     },
+      //     {
+      //       text: 'OK',
+      //       onPress: () => {
+
+      //       },
+      //     },
+      //   ],
+      //   {cancelable: false},
+      // );
     } else {
       // console.log(id, name);
       setIsOver(true);
