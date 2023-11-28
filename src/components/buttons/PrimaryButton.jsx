@@ -8,9 +8,9 @@ import styles from '../../styles/Styles';
 
 const PrimaryButton = props => {
   return (
-    <View style={styles.container}>
+    <View style={[styles.container]}>
       <TouchableOpacity
-      style={[styles.recordContainer, {marginVertical: 15}]}
+      style={[styles.recordContainer, {marginVertical: 15, width: '60%'}]}
       activeOpacity={0.7}
       onPress={props.onPress}>
       <View

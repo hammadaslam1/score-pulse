@@ -11,8 +11,11 @@ const styles = StyleSheet.create({
   fullHeight: {
     minHeight: '100%',
   },
-  halgHeight: {
+  halfHeight: {
     height: '50%',
+  },
+  halfWidth: {
+    width: '50%',
   },
   main: {
     backgroundColor: '#1058ad',
