@@ -1,13 +1,18 @@
 /* eslint-disable prettier/prettier */
+/* eslint-disable no-unused-vars */
+/* eslint-disable react-native/no-inline-styles */
 import {View, Text, TextInput, StyleSheet, Image} from 'react-native';
 import React from 'react';
-import {Searchbar} from 'react-native-paper';
 
 const SearchInput = props => {
   return (
     <View style={styles.input}>
       {/* <Text>SecondaryInput</Text> */}
-      <TextInput placeholderTextColor={'#fff8'} style={{color: '#fff'}} {...props} />
+      <TextInput
+        placeholderTextColor={'#fff8'}
+        style={{color: '#fff'}}
+        {...props}
+      />
       <View>
         <Image
           source={require('../../assets/icons/search.png')}
