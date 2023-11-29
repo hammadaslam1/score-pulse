@@ -41,33 +41,10 @@ const Innings = props => {
     'LB',
     'B',
     'UNDO',
-    '...',
-  ];
-  // console.log(bat1);
-  const record = [
-    {
-      type: 'CRR',
-      value: '0.0',
-    },
-    {
-      type: 'RRR',
-      value: '0.0',
-    },
-    {
-      type: 'Extras',
-      value: '0',
-    },
+    // '...',
   ];
 
   const handleRuns = name => {
-    if (ball != 0 || currentOver != 0) {
-      const bowl = ball / 6;
-      temp = score / (currentOver + bowl);
-      temp = temp.toPrecision(2);
-      setCRR(temp);
-    } else {
-      setCRR(score);
-    }
     if (name == 'NB' || name == 'WD') {
       temp = score + 1;
       setScore(temp);
@@ -100,6 +77,15 @@ const Innings = props => {
         setThisOver([]);
       }
       // setThisOver([...thisOver]);
+    }
+    if (ball != 0 || currentOver != 0) {
+      const bowl = ball / 6;
+      temp = score / (currentOver + bowl);
+      console.log(score, currentOver + bowl);
+      // temp = temp.toPrecision(2);
+      setCRR(temp.toPrecision(2));
+    } else {
+      setCRR(score);
     }
   };
   // console.log('hammad');
@@ -203,12 +189,16 @@ const Innings = props => {
         <View style={[styles.recordContainer, {marginTop: -10}]}>
           <View style={styles.overs}>
             <View style={styles.overHead}>
-              <Text style={[styles.scoreHeadText, {fontSize: 12}]}>This over</Text>
+              <Text style={[styles.scoreHeadText, {fontSize: 12}]}>
+                This over
+              </Text>
             </View>
             <View style={styles.overBalls}>
               {thisOver?.map((data, i) => (
                 <View key={'' + i} style={styles.overBody}>
-                  <Text style={[styles.scoreBodyText, {fontSize: 11}]}>{data}</Text>
+                  <Text style={[styles.scoreBodyText, {fontSize: 11}]}>
+                    {data}
+                  </Text>
                 </View>
               ))}
             </View>
