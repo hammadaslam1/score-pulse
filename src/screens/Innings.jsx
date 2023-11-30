@@ -26,6 +26,8 @@ const Innings = props => {
   const [CRR, setCRR] = useState(0.0);
   const [RRR, setRRR] = useState(0);
   let temp;
+  let temp1;
+  let previous;
   const runs = [
     0,
     1,
@@ -45,14 +47,51 @@ const Innings = props => {
   ];
 
   const handleRuns = name => {
-    if (name == 'NB' || name == 'WD') {
+    // if (ball != 0 || currentOver != 0) {
+    // const bowl = ball / 6;
+    // temp = score / (currentOver + bowl);
+    // console.log(score, currentOver + bowl, temp);
+    // // temp = temp.toPrecision(3);
+    // setCRR(temp.toPrecision(3));
+    // } else {
+    //   setCRR(score);
+    // }
+    if (
+      name == 1 ||
+      name == 2 ||
+      name == 3 ||
+      name == 4 ||
+      name == 5 ||
+      name == 6 ||
+      name == 7 ||
+      name == 0
+    ) {
+      temp = score + name;
+      setScore(temp);
+      thisOver.push(name);
+      setOverScore(overScore + 1);
+      const bowl = ball / 6;
+      if (ball) {
+        temp = score / (currentOver + bowl);
+        console.log(score, currentOver + '.' + ball, temp);
+        setCRR(temp.toPrecision(3));
+      }
+      if (ball >= 5) {
+        setThisOver([]);
+        setBall(0);
+        temp1 = currentOver + 1;
+        setCurrentOver(temp1);
+      } else {
+        setBall(ball + 1);
+      }
+    } else if (name == 'NB' || name == 'WD') {
       temp = score + 1;
       setScore(temp);
 
       setExtras(extras + 1);
       thisOver.push(name);
       setOverScore(overScore + 1);
-    } else if (name == 'WKT' && outs <= 10 && currentOver < overs) {
+    } else if (name == 'WKT' && outs < 10 && currentOver < overs) {
       temp = outs + 1;
       setOuts(temp);
       thisOver.push(name);
@@ -77,15 +116,6 @@ const Innings = props => {
         setThisOver([]);
       }
       // setThisOver([...thisOver]);
-    }
-    if (ball != 0 || currentOver != 0) {
-      const bowl = ball / 6;
-      temp = score / (currentOver + bowl);
-      console.log(score, currentOver + bowl);
-      // temp = temp.toPrecision(2);
-      setCRR(temp.toPrecision(2));
-    } else {
-      setCRR(score);
     }
   };
   // console.log('hammad');

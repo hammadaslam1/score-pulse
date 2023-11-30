@@ -112,11 +112,11 @@ const TeamSelector = props => {
           styles.topic,
           {fontSize: 12, color: '#fffc', alignSelf: 'center'},
         ]}>
-        Open Match
+        Select Team
       </Text>
       <TouchableOpacity onPress={() => setModalVisible(true)}>
         <Image
-          source={require('../../assets/logos/icon.png')}
+          source={require('../../assets/icons/plus.png')}
           style={{
             borderRadius: 50,
             width: 80,
