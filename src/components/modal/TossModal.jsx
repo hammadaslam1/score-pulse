@@ -45,7 +45,10 @@ const TossModal = props => {
   const dispatch = useDispatch();
 
   const handleFormat = () => {
-    if (toss == teamA && elect == 'bat') {
+    if (
+      (toss == teamA && elect == 'bat') ||
+      (toss == teamB && elect == 'bowl')
+    ) {
       setBat1(teamA);
       setBat2(teamB);
       console.log(teamA);
@@ -55,6 +58,40 @@ const TossModal = props => {
         elect: elect,
         bat1: teamA,
         bat2: teamB,
+      });
+      props.setIsToss(false);
+      Alert.alert(
+        'Confirmation!',
+        `${toss} have won the toss and elected to ${elect} first`,
+        [
+          {
+            text: 'Cancel',
+            onPress: () => console.log('Cancel Pressed'),
+            style: 'cancel',
+          },
+          {
+            text: 'Done',
+            onPress: props.press,
+          },
+        ],
+        {cancelable: false},
+      );
+      setSelected(true);
+      //   setModalVisible(false);
+      //   props.setIsToss(false);
+    } else if (
+      (toss == teamA && elect == 'bowl') ||
+      (toss == teamB && elect == 'bat')
+    ) {
+      setBat1(teamB);
+      setBat2(teamA);
+      console.log(teamA);
+      dispatch({
+        type: TOSS_DATA,
+        toss: toss,
+        elect: elect,
+        bat1: teamB,
+        bat2: teamA,
       });
       props.setIsToss(false);
       Alert.alert(
