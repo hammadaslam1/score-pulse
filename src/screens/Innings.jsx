@@ -66,16 +66,17 @@ const Innings = props => {
       name == 7 ||
       name == 0
     ) {
-      temp = score + name;
-      setScore(temp);
-      thisOver.push(name);
-      setOverScore(overScore + 1);
-      const bowl = ball / 6;
       if (ball) {
         temp = score / (currentOver + bowl);
         console.log(score, currentOver + '.' + ball, temp);
         setCRR(temp.toPrecision(3));
       }
+      temp = score + name;
+      setScore(temp);
+      thisOver.push(name);
+      setOverScore(overScore + 1);
+      const bowl = ball / 6;
+
       if (ball >= 5) {
         setThisOver([]);
         setBall(0);
