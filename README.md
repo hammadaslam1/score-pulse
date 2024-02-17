@@ -8,7 +8,7 @@
 
 # Follow me
 
-- [Hammad Aslam](https://www.facebook.com/hammadaslam.308) - Follow me on **Facebook**
+- [Hammad Aslam](https://www.facebook.com/hammadaslam101) - Follow me on **Facebook**
 - [Hammad Aslam](https://www.instagram.com/hammadaslam10/) - Follow me on **Instagram**
 - [Hammad Aslam](https://github.com/hammadaslam1) - Follow me on **Github**
 - [Hammad Aslam](https://www.linkedin.com/in/hammadaslam10/) - Follow me on **LinkedIn**
@@ -19,7 +19,7 @@ This is a new [**React Native**](https://reactnative.dev) project, bootstrapped 
 
 # Getting Started
 
-> **Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+> **Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till the "Creating a new application" step, before proceeding.
 
 ## Step 1: Start the Metro Server
 
